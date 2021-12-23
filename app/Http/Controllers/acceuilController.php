@@ -15,4 +15,12 @@ class acceuilController extends Controller
 
         return view('index', ['categories' => $categories]);
     }
+
+    public function showProductCategories($id)
+    {
+        $categorie = Categorie::find($id);
+        $products = $categorie->products;
+        //dd($products);
+        return view('categorie', ['products' => $products, 'categorie' => $categorie,]);
+    }
 }

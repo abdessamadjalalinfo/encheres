@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\acceuilController::class, 'index'])->name('index');
 
+Route::get('/categories/{id}', [App\Http\Controllers\acceuilController::class, 'showProductCategories'])->name('showProductCategories');
+
+Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('showProduct');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
