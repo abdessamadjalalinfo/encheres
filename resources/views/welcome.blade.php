@@ -288,7 +288,13 @@
         <!--============= Hightlight Slider Section Starts Here =============-->
         <div class="browse-slider-section " style="top: 166px; margin-bottom: 88px;">
             <div class="container">
-                <img style="margin-bottom: 24px;" src="https://www.auksjonen.no/api/banner/Topp%20rd%20desktop%20-%20selge%20bil%20-%2008122020.jpg" alt="">
+                <div class="row">
+                  
+
+                              <img  class="col" style="margin-bottom: 24px;" src="https://www.auksjonen.no/api/banner/Topp%20rd%20desktop%20-%20selge%20bil%20-%2008122020.jpg" alt="">
+          
+                   
+                </div>
             </div>
             <div class="container">
                  
