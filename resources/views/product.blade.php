@@ -344,7 +344,7 @@
                         <div class="product-bid-area">
                             <form class="product-bid-form">
                                 <div class="search-icon">
-                                    <img src="{{asset('/assets/images/product/search-icon.png')}}" alt="product">
+                                    <img src="/assets/images/product/search-icon.png" alt="product">
                                 </div>
                                 <input type="text" placeholder="votre proposition">
                                 <button type="submit" class="custom-button">Proposer</button>
@@ -383,7 +383,7 @@
                             <div class="side-counter-area">
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="{{asset('/assets/images/product/icon1.png')}}" alt="product">
+                                        <img src="/assets/images/product/icon1.png" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">61</span></h3>
@@ -392,7 +392,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="{{asset('/assets/images/product/icon2.png')}}" alt="product">
+                                        <img src="/assets/images/product/icon2.png" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">203</span></h3>
@@ -401,7 +401,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="{{asset('/assets/images/product/icon3.png')}}" alt="product">
+                                        <img src="/assets/images/product/icon3.png" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">82</span></h3>
@@ -421,7 +421,7 @@
                     <li>
                         <a href="#details" class="active" data-toggle="tab">
                             <div class="thumb">
-                                <img src="{{asset('/assets/images/product/tab1.png')}}" alt="product">
+                                <img src="/assets/images/product/tab1.png" alt="product">
                             </div>
                             <div class="content">Déscription</div>
                         </a>
@@ -429,7 +429,7 @@
                     <li>
                         <a href="#delevery" data-toggle="tab">
                             <div class="thumb">
-                                <img src="{{asset('/assets/images/product/tab2.png')}}" alt="product">
+                                <img src="/assets/images/product/tab2.png" alt="product">
                             </div>
                             <div class="content">Delivery Options</div>
                         </a>
@@ -438,7 +438,7 @@
                     <li>
                         <a href="#questions" data-toggle="tab">
                             <div class="thumb">
-                                <img src="{{asset('/assets/images/product/tab4.png')}}" alt="product">
+                                <img src="/assets/images/product/tab4.png" alt="product">
                             </div>
                             <div class="content">Questions </div>
                         </a>
@@ -519,7 +519,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="{{asset('/assets/images/history/01.png')}}" alt="history">
+                                                        <img src="/assets/images/history/01.png" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Moses Watts
@@ -534,7 +534,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="{{asset('/assets/images/history/02.png')}}" alt="history">
+                                                        <img src="/assets/images/history/02.png" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Pat Powell
@@ -549,7 +549,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="{{asset('/assets/images/history/03.png')}}" alt="history">
+                                                        <img src="/assets/images/history/03.png" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Jack Rodgers
@@ -564,7 +564,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="{{asset('/assets/images/history/04.png')}}" alt="history">
+                                                        <img src="/assets/images/history/04.png" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Arlene Paul
@@ -579,7 +579,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="{{asset('/assets/images/history/05.png')}}" alt="history">
+                                                        <img src="/assets/images/history/05.png" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Marcia Clarke
@@ -604,7 +604,7 @@
                         <div class="faq-wrapper">
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -612,7 +612,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -620,7 +620,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Delivery time to the destination port </span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Delivery time to the destination port </span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -628,7 +628,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -636,7 +636,7 @@
                             </div>
                             <div class="faq-item open active">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">How will I know if my bid was successful?</span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How will I know if my bid was successful?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -644,7 +644,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -660,7 +660,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="{{asset('/assets/images/footer/footer-bg.jpg')}}">
+    <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
         <div class="footer-top-shape">
             <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>
@@ -815,9 +815,9 @@
     <script src="{{asset('/assets/js/nice-select.js')}}"></script>
     <script src="{{asset('/assets/js/counterup.min.js')}}"></script>
     <script src="{{asset('/assets/js/owl.min.js')}}"></script>
-    <script src="{{asset('/assets/js/magnific-popup.min.j')}}s"></script>
-    <script src="{{asset('{{asset('assets/js/yscountdown.min.js')}}')}}"></script>
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}')}}"></script>
+    <script src="{{asset('/assets/js/magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('/assets/js/main.js')}}"></script>
 </body>
 
