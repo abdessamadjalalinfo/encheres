@@ -323,7 +323,7 @@
                 <div class="section-header-3">
                     <div class="left">
                         <div class="thumb">
-                            <img src="/assets/images/header-icons/car-1.png" alt="header-icons">
+                            <img src="{{asset('/assets/images/header-icons/car-1.png')}}" alt="header-icons">
                         </div>
                         <div class="title-area">
                             <h2 class="title">{{$categories[0]->nom}}</h2>
@@ -396,7 +396,7 @@
             <div class="section-header-3">
                 <div class="left">
                     <div class="thumb">
-                        <img src="/img/{{$categories[4]->path_logo}}" alt="header-icons">
+                        <img src="{{asset($categories[4]->path_logo)}}" alt="header-icons">
                     </div>
                     <div class="title-area">
                         <h2 class="title">{{$categories[4]->nom}}</h2>
