@@ -305,7 +305,7 @@
                     <div class="browse-slider owl-theme owl-carousel">
                         @foreach($categories as $categorie)
                         <a href="{{route('showProductCategories',['id'=>$categorie->id])}}" class="browse-item">
-                            <img src="/img/{{$categorie->path_logo}}" alt="auction">
+                            <img src="{{asset($categorie->path_logo)}}" alt="auction">
                             <span class="info">{{ $categorie->nom}}</span>
                         </a>
                         @endforeach
