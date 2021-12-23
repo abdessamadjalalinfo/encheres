@@ -188,7 +188,7 @@
     <div class="cart-sidebar-area">
         <div class="top-content">
             <a href="index.html" class="logo">
-                <img src="{{asset('//assets/images/logo/logo2.png')}}" alt="logo">
+                <img src="{{asset('assets/images/logo/logo2.png')}}" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
+                        <a href="#0"><img src="{{asset('assets/images/shop/shop05.jpg')}}" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Comics Book</a></h4>
@@ -270,7 +270,7 @@
                 </li>
             </ul>
         </div>
-        <div class="bg_img hero-bg bottom_center" data-background="/assets/images/banner/hero-bg.png"></div>
+        <div class="bg_img hero-bg bottom_center" data-background="{{asset('/assets/images/banner/hero-bg.png')}}"></div>
     </div>
     <!--============= Hero Section Ends Here =============-->
 
@@ -439,7 +439,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
+    <footer class="bg_img padding-top oh" data-background="{{asset('/assets/images/footer/footer-bg.jpg')}}">
         <div class="footer-top-shape">
             <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>
