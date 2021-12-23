@@ -8,17 +8,17 @@
 
     <title>Sbidu - Bid And Auction HTML Template</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/assets/css/owl.min.css">
-    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/owl.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/main.css')}}">
 
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
 </head>
 
 <body>
@@ -279,31 +279,39 @@
         <div class="container">
             <div class="product-details-slider-top-wrapper">
                 <div class="product-details-slider owl-theme owl-carousel" id="sync1">
-                    <div class="slide-top-item">
-                        <div   class="slide-inner">
-                            <img src="{{asset($product->images()->first()->path_logo)}}" alt="product">
-                        </div>
-                    </div>
-                    @foreach($product->images() as $image)
-                    <div class="slide-top-item">
+                  
+                    @foreach($product->images()->get() as $image)
+
+                    <div class="slide-top-item card h-70">
                         <div class="slide-inner">
                             <img src="{{asset($image->path_logo)}}" alt="product">
                         </div>
                     </div>
                     @endforeach
                    
+                  
+                    
+                    
                 </div>
             </div>
             <div class="product-details-slider-wrapper">
                 <div class="product-bottom-slider owl-theme owl-carousel" id="sync2">
-                    @foreach($product->images() as $image)
+                  
+                    @foreach($product->images()->get() as $img)
+                   
                     <div class="slide-bottom-item">
                         <div class="slide-inner">
-                            <img src="{{asset($image->path_logo)}}" alt="product">
+                         
+                            <img src="{{asset($img->path_logo)}}" alt="product">
                         </div>
                     </div>
+
                     @endforeach
                     
+                    
+                   
+                   
+                   
                 </div>
                 <span class="det-prev det-nav">
                     <i class="fas fa-angle-left"></i>
@@ -336,7 +344,7 @@
                         <div class="product-bid-area">
                             <form class="product-bid-form">
                                 <div class="search-icon">
-                                    <img src="/assets/images/product/search-icon.png" alt="product">
+                                    <img src="{{asset('/assets/images/product/search-icon.png')}}" alt="product">
                                 </div>
                                 <input type="text" placeholder="votre proposition">
                                 <button type="submit" class="custom-button">Proposer</button>
@@ -375,7 +383,7 @@
                             <div class="side-counter-area">
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon1.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon1.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">61</span></h3>
@@ -384,7 +392,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon2.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon2.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">203</span></h3>
@@ -393,7 +401,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon3.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon3.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">82</span></h3>
@@ -413,7 +421,7 @@
                     <li>
                         <a href="#details" class="active" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab1.png" alt="product">
+                                <img src="{{asset('/assets/images/product/tab1.png')}}" alt="product">
                             </div>
                             <div class="content">Déscription</div>
                         </a>
@@ -421,7 +429,7 @@
                     <li>
                         <a href="#delevery" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab2.png" alt="product">
+                                <img src="{{asset('/assets/images/product/tab2.png')}}" alt="product">
                             </div>
                             <div class="content">Delivery Options</div>
                         </a>
@@ -430,7 +438,7 @@
                     <li>
                         <a href="#questions" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab4.png" alt="product">
+                                <img src="{{asset('/assets/images/product/tab4.png')}}" alt="product">
                             </div>
                             <div class="content">Questions </div>
                         </a>
@@ -511,7 +519,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/01.png" alt="history">
+                                                        <img src="{{asset('/assets/images/history/01.png')}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Moses Watts
@@ -526,7 +534,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/02.png" alt="history">
+                                                        <img src="{{asset('/assets/images/history/02.png')}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Pat Powell
@@ -541,7 +549,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/03.png" alt="history">
+                                                        <img src="{{asset('/assets/images/history/03.png')}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Jack Rodgers
@@ -556,7 +564,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/04.png" alt="history">
+                                                        <img src="{{asset('/assets/images/history/04.png')}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Arlene Paul
@@ -571,7 +579,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/05.png" alt="history">
+                                                        <img src="{{asset('/assets/images/history/05.png')}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Marcia Clarke
@@ -596,7 +604,7 @@
                         <div class="faq-wrapper">
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -604,7 +612,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -612,7 +620,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Delivery time to the destination port </span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">Delivery time to the destination port </span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -620,7 +628,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -628,7 +636,7 @@
                             </div>
                             <div class="faq-item open active">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How will I know if my bid was successful?</span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">How will I know if my bid was successful?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -636,7 +644,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
+                                    <img src="{{asset('/assets/css/img/faq.png')}}" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -652,35 +660,35 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
+    <footer class="bg_img padding-top oh" data-background="{{asset('/assets/images/footer/footer-bg.jpg')}}">
         <div class="footer-top-shape">
-            <img src="/assets/css/img/footer-top-shape.png" alt="css">
+            <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>
         <div class="anime-wrapper">
             <div class="anime-1 plus-anime">
-                <img src="/assets/images/footer/p1.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p1.png')}}" alt="footer">
             </div>
             <div class="anime-2 plus-anime">
-                <img src="/assets/images/footer/p2.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p2.png')}}" alt="footer">
             </div>
             <div class="anime-3 plus-anime">
-                <img src="/assets/images/footer/p3.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p3.png')}}" alt="footer">
             </div>
             <div class="anime-5 zigzag">
-                <img src="/assets/images/footer/c2.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c2.png')}}" alt="footer">
             </div>
             <div class="anime-6 zigzag">
-                <img src="/assets/images/footer/c3.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c3.png')}}" alt="footer">
             </div>
             <div class="anime-7 zigzag">
-                <img src="/assets/images/footer/c4.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c4.png')}}" alt="footer">
             </div>
         </div>
         <div class="newslater-wrapper">
             <div class="container">
                 <div class="newslater-area">
                     <div class="newslater-thumb">
-                        <img src="/assets/images/footer/newslater.png" alt="footer">
+                        <img src="{{asset('/assets/images/footer/newslater.png')}}" alt="footer">
                     </div>
                     <div class="newslater-content">
                         <div class="section-header left-style mb-low">
@@ -797,20 +805,20 @@
 
 
 
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="/assets/js/plugins.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/isotope.pkgd.min.js"></script>
-    <script src="/assets/js/wow.min.js"></script>
-    <script src="/assets/js/waypoints.js"></script>
-    <script src="/assets/js/nice-select.js"></script>
-    <script src="/assets/js/counterup.min.js"></script>
-    <script src="/assets/js/owl.min.js"></script>
-    <script src="/assets/js/magnific-popup.min.js"></script>
-    <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
-    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="{{asset('/assets/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('/assets/js/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{asset('/assets/js/plugins.js')}}"></script>
+    <script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/assets/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('/assets/js/wow.min.js')}}"></script>
+    <script src="{{asset('/assets/js/waypoints.js')}}"></script>
+    <script src="{{asset('/assets/js/nice-select.js')}}"></script>
+    <script src="{{asset('/assets/js/counterup.min.js')}}"></script>
+    <script src="{{asset('/assets/js/owl.min.js')}}"></script>
+    <script src="{{asset('/assets/js/magnific-popup.min.j')}}s"></script>
+    <script src="{{asset('{{asset('assets/js/yscountdown.min.js')}}')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui.min.js')}}')}}"></script>
+    <script src="{{asset('/assets/js/main.js')}}"></script>
 </body>
 
 </html>

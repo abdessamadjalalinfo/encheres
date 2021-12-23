@@ -12,6 +12,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Categorie::all();
+        $images = $product->images();
+        //dd($images->get());
+        //dd($product->images()->count());
 
         return view('product', ['product' => $product, 'categories' => $categories]);
     }

@@ -342,17 +342,17 @@
                 <div class="row justify-content mb-20-none">
                     @foreach($categories[0]->products as $product)
                     <div class="col-sm-10 col-md-3 col-lg-3">
-                        <div class="auction-item-2">
+                        <div class="auction-item-2 card h-50">
                             
                            
                             <div class="auction-thumb">
-                                <a href="./product-details.html"><img src="{{$product->images[0]->path_logo}}" alt="car"></a>
-                                <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                <a href="{{route('showProduct',$product->id)}}"><img src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                                <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
+                                <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                             </div>
                             <div class="auction-content">
                                 <h6 class="title">
-                                    <a href="./product-details.html">{{$product->titre}}</a>
+                                    <a href="{{route('showProduct',$product->id)}}">{{$product->titre}}</a>
                                 </h6>
                                 <div class="bid-area">
                                     <div class="bid-amount">
@@ -416,13 +416,13 @@
                     @foreach($categories[4]->products as $product)
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="./product-details.html"><img src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            <a href="{{route('showProduct',$product->id)}}"><img src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
+                            <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
+                            <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
                         <div class="auction-content">
                                 <h6 class="title">
-                                    <a href="./product-details.html">{{$product->titre}}</a>
+                                    <a href="{{route('showProduct',$product->id)}}">{{$product->titre}}</a>
                                 </h6>
                                 <div class="bid-area">
                                     <div class="bid-amount">

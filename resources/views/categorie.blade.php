@@ -8,15 +8,15 @@
 
     <title>Sbidu - Bid And Auction HTML Template</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/assets/css/owl.min.css">
-    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="{{asset('/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/owl.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/assets/css/main.css')}}">
 
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -188,7 +188,7 @@
     <div class="cart-sidebar-area">
         <div class="top-content">
             <a href="index.html" class="logo">
-                <img src="/assets/images/logo/logo2.png" alt="logo">
+                <img src="{{asset('//assets/images/logo/logo2.png')}}" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -197,7 +197,7 @@
                 <h4 class="title">Shopping cart</h4>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+                        <a href="#0"><img src="{{asset('/assets/images/shop/shop01.jpg')}}" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Color Pencil</a></h4>
@@ -207,7 +207,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                        <a href="#0"><img src="{{asset('/assets/images/shop/shop02.jpg')}}" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Water Pot</a></h4>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                        <a href="#0"><img src="{{asset('/assets/images/shop/shop03.jpg')}}" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Art Paper</a></h4>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="single-product-item">
                     <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
+                        <a href="#0"><img src="{{asset('/assets/images/shop/shop04.jpg')}}" alt="shop"></a>
                     </div>
                     <div class="content">
                         <h4 class="title"><a href="#0">Stop Watch</a></h4>
@@ -259,13 +259,14 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li>
-                    <a href="./index.html">Accueil</a>
+                    <a href="{{route('index')}}">Accueil</a>
                 </li>
                 <li>
                     <a href="#0">Catégorie</a>
                 </li>
                 <li>
-                    <span>{{$categorie->nom}}</span>
+                    <span>
+                        {{$categorie->nom}}</span>
                 </li>
             </ul>
         </div>
@@ -440,26 +441,26 @@
     <!--============= Footer Section Starts Here =============-->
     <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
         <div class="footer-top-shape">
-            <img src="/assets/css/img/footer-top-shape.png" alt="css">
+            <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>
         <div class="anime-wrapper">
             <div class="anime-1 plus-anime">
-                <img src="/assets/images/footer/p1.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p1.png')}}" alt="footer">
             </div>
             <div class="anime-2 plus-anime">
-                <img src="/assets/images/footer/p2.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p2.png')}}" alt="footer">
             </div>
             <div class="anime-3 plus-anime">
-                <img src="/assets/images/footer/p3.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/p3.png')}}" alt="footer">
             </div>
             <div class="anime-5 zigzag">
-                <img src="/assets/images/footer/c2.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c2.png')}}" alt="footer">
             </div>
             <div class="anime-6 zigzag">
-                <img src="/assets/images/footer/c3.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c3.png')}}" alt="footer">
             </div>
             <div class="anime-7 zigzag">
-                <img src="/assets/images/footer/c4.png" alt="footer">
+                <img src="{{asset('/assets/images/footer/c4.png')}}" alt="footer">
             </div>
         </div>
       <div class="newslater-wrapper">
@@ -606,20 +607,20 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img src="/assets/images/logo/footer-logo.png" alt="logo"></a>
+                            <a href="index.html"><img src="{{asset('/assets/images/logo/footer-logo.png')}}" alt="logo"></a>
                         </div>
                         <ul class="gateway-area">
                             <li>
-                                <a href="#0"><img src="/assets/images/footer/paypal.png" alt="footer"></a>
+                                <a href="#0"><img src="{{asset('/assets/images/footer/paypal.png')}}" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="/assets/images/footer/visa.png" alt="footer"></a>
+                                <a href="#0"><img src="{{asset('/assets/images/footer/visa.png')}}" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="/assets/images/footer/discover.png" alt="footer"></a>
+                                <a href="#0"><img src="{{asset('/assets/images/footer/discover.png')}}" alt="footer"></a>
                             </li>
                             <li>
-                                <a href="#0"><img src="/assets/images/footer/mastercard.png" alt="footer"></a>
+                                <a href="#0"><img src="{{asset('/assets/images/footer/mastercard.png')}}" alt="footer"></a>
                             </li>
                         </ul>
                         <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
@@ -632,20 +633,20 @@
 
 
 
-    <script src="/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="/assets/js/plugins.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/isotope.pkgd.min.js"></script>
-    <script src="/assets/js/wow.min.js"></script>
-    <script src="/assets/js/waypoints.js"></script>
-    <script src="/assets/js/nice-select.js"></script>
-    <script src="/assets/js/counterup.min.js"></script>
-    <script src="/assets/js/owl.min.js"></script>
-    <script src="/assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/yscountdown.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="{{asset('/assets/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('/assets/js/modernizr-3.6.0.min.js')}}"></script>
+    <script src="{{asset('/assets/js/plugins.js')}}"></script>
+    <script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/assets/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('/assets/js/wow.min.js')}}"></script>
+    <script src="{{asset('/assets/js/waypoints.js')}}"></script>
+    <script src="{{asset('/assets/js/nice-select.js')}}"></script>
+    <script src="{{asset('/assets/js/counterup.min.js')}}"></script>
+    <script src="{{asset('/assets/js/owl.min.js')}}"></script>
+    <script src="{{asset('/assets/js/magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('/assets/js/main.js')}}"></script>
 </body>
 
 </html>
