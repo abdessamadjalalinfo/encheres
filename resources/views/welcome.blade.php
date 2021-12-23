@@ -1,132 +1,1185 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Sbidu - Bid And Auction HTML Template</title>
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/owl.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+</head>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+<body>
+    <!--============= ScrollToTop Section Starts Here =============-->
+    <div class="overlayer" id="overlayer">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+    </div>
+    <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
+    <div class="overlay"></div>
+    <!--============= ScrollToTop Section Ends Here =============-->
+
+
+    <!--============= Header Section Starts Here =============-->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-wrapper">
+                    <ul class="customer-support">
+                        <li>
+                            <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <select name="language" class="select-bar">
+                                <option value="en">En</option>
+                                <option value="Bn">Bn</option>
+                                <option value="Rs">Rs</option>
+                                <option value="Us">Us</option>
+                                <option value="Pk">Pk</option>
+                                <option value="Arg">Arg</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="cart-button-area">
+                        <li>
+                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
+                        </li>                        
+                        <li>
+                            <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
+                        </li>                        
+                    </ul>
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <a href="./index.html">
+                            <img src="./assets/images/logo/logo.png" alt="logo">
+                        </a>
                     </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
+                    <ul class="menu ml-auto">
+                        <li>
+                            <a href="#0">Home</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="./index.html">Home Page One</a>
+                                </li>
+                                <li>
+                                    <a href="./index-2.html">Home Page Two</a>
+                                </li>
+                                <li>
+                                    <a href="./index-3.html">Home Page Three</a>
+                                </li>
+                                <li>
+                                    <a href="./index-4.html">Home Page Four</a>
+                                </li>
+                                <li>
+                                    <a href="./index-5.html">Home Page Five</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./product.html">Auction</a>
+                        </li>
+                        <li>
+                            <a href="#0">Pages</a>
+                            <ul class="submenu">
+                                <li>
+                                    <a href="#0">Product</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="./product.html">Product Page 1</a>
+                                        </li>
+                                        <li>
+                                            <a href="./product-2.html">Product Page 2</a>
+                                        </li>
+                                        <li>
+                                            <a href="./product-details.html">Product Details</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#0">My Account</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="./sign-up.html">Sign Up</a>
+                                        </li>
+                                        <li>
+                                            <a href="./sign-in.html">Sign In</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#0">Dashboard</a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="./dashboard.html">Dashboard</a>
+                                        </li>
+                                        <li>
+                                            <a href="./profile.html">Personal Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="./my-bid.html">My Bids</a>
+                                        </li>
+                                        <li>
+                                            <a href="./winning-bids.html">Winning Bids</a>
+                                        </li>
+                                        <li>
+                                            <a href="./notifications.html">My Alert</a>
+                                        </li>
+                                        <li>
+                                            <a href="./my-favorites.html">My Favorites</a>
+                                        </li>
+                                        <li>
+                                            <a href="./referral.html">Referrals</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="./about.html">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="./faqs.html">Faqs</a>
+                                </li>
+                                <li>
+                                    <a href="./error.html">404 Error</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="./contact.html">Contact</a>
+                        </li>
+                    </ul>
+                    <form class="search-form">
+                        <input type="text" placeholder="Search for brand, model....">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <div class="search-bar d-md-none">
+                        <a href="#0"><i class="fas fa-search"></i></a>
                     </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <div class="header-bar d-lg-none">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </header>
+    <!--============= Header Section Ends Here =============-->
+
+    <!--============= Cart Section Starts Here =============-->
+    <div class="cart-sidebar-area">
+        <div class="top-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo/logo2.png" alt="logo">
+            </a>
+            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="bottom-content">
+            <div class="cart-products">
+                <h4 class="title">Shopping cart</h4>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
+                </div>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Water Pot</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
+                </div>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Art Paper</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
+                </div>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
+                </div>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Comics Book</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
+                </div>
+                <div class="btn-wrapper text-center">
+                    <a href="#0" class="custom-button"><span>Checkout</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--============= Cart Section Ends Here =============-->
+
+
+    <!--============= Banner Section Starts Here =============-->
+    <section class="banner-section bg_img" data-background="./assets/images/banner/banner-bg-1.png">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-lg-6 col-xl-6">
+                    <div class="banner-content cl-white">
+                        <h5 class="cate">Next Generation Auction</h5>
+                        <h1 class="title"><span class="d-xl-block">Find Your</span> Next Deal!</h1>
+                        <p>
+                            Online Auction is where everyone goes to shop, sell,and give, while discovering variety and affordability.
+                        </p>
+                        <a href="#0" class="custom-button yellow btn-large">Get Started</a>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-6">
+                    <div class="banner-thumb-2">
+                        <img src="./assets/images/banner/banner-1.png" alt="banner">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-shape d-none d-lg-block">
+            <img src="./assets/css/img/banner-shape.png" alt="css">
+        </div>
+    </section>
+    <!--============= Banner Section Ends Here =============-->
+
+
+    <div class="browse-section ash-bg">
+        <!--============= Hightlight Slider Section Starts Here =============-->
+        <div class="browse-slider-section mt--140">
+            <div class="container">
+                <div class="section-header-2 cl-white mb-4">
+                    <div class="left">
+                        <h6 class="title pl-0 w-100">Browse the highlights</h6>
+                    </div>
+                    <div class="slider-nav">
+                        <a href="#0" class="bro-prev"><i class="flaticon-left-arrow"></i></a>
+                        <a href="#0" class="bro-next active"><i class="flaticon-right-arrow"></i></a>
+                    </div>
+                </div>
+                <div class="m--15">
+                    <div class="browse-slider owl-theme owl-carousel">
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/01.png" alt="auction">
+                            <span class="info">Vehicles</span>
+                        </a>
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/02.png" alt="auction">
+                            <span class="info">Jewelry</span>
+                        </a>
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/03.png" alt="auction">
+                            <span class="info">Watches</span>
+                        </a>
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/04.png" alt="auction">
+                            <span class="info">Electronics</span>
+                        </a>
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/05.png" alt="auction">
+                            <span class="info">Sports</span>
+                        </a>
+                        <a href="#0" class="browse-item">
+                            <img src="./assets/images/auction/06.png" alt="auction">
+                            <span class="info">Real Estate</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--============= Hightlight Slider Section Ends Here =============-->
+        
+        <!--============= Car Auction Section Starts Here =============-->
+        <section class="car-auction-section padding-bottom padding-top pos-rel oh">
+            <div class="car-bg"><img src="./assets/images/auction/car/car-bg.png" alt="car"></div>
+            <div class="container">
+                <div class="section-header-3">
+                    <div class="left">
+                        <div class="thumb">
+                            <img src="./assets/images/header-icons/car-1.png" alt="header-icons">
+                        </div>
+                        <div class="title-area">
+                            <h2 class="title">Vehicles</h2>
+                            <p>We offer affordable Vehicles</p>
+                        </div>
+                    </div>
+                    <a href="#0" class="normal-button">View All</a>
+                </div>
+                <div class="row justify-content-center mb-30-none">
+                    <div class="col-sm-10 col-md-6 col-lg-4">
+                        <div class="auction-item-2">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/car/auction-1.jpg" alt="car"></a>
+                                <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">2018 Hyundai Sonata</a>
+                                </h6>
+                                <div class="bid-area">
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-auction"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Current Bid</div>
+                                            <div class="amount">$876.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-money"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Buy Now</div>
+                                            <div class="amount">$5,00.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="countdown-area">
+                                    <div class="countdown">
+                                        <div id="bid_counter26"></div>
+                                    </div>
+                                    <span class="total-bids">30 Bids</span>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#0" class="custom-button">Submit a bid</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-6 col-lg-4">
+                        <div class="auction-item-2">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/car/auction-2.jpg" alt="car"></a>
+                                <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">2018 Nissan Versa, S</a>
+                                </h6>
+                                <div class="bid-area">
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-auction"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Current Bid</div>
+                                            <div class="amount">$876.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-money"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Buy Now</div>
+                                            <div class="amount">$5,00.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="countdown-area">
+                                    <div class="countdown">
+                                        <div id="bid_counter27"></div>
+                                    </div>
+                                    <span class="total-bids">30 Bids</span>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#0" class="custom-button">Submit a bid</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-10 col-md-6 col-lg-4">
+                        <div class="auction-item-2">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/car/auction-3.jpg" alt="car"></a>
+                                <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">2018 Honda Accord, Sport</a>
+                                </h6>
+                                <div class="bid-area">
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-auction"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Current Bid</div>
+                                            <div class="amount">$876.00</div>
+                                        </div>
+                                    </div>
+                                    <div class="bid-amount">
+                                        <div class="icon">
+                                            <i class="flaticon-money"></i>
+                                        </div>
+                                        <div class="amount-content">
+                                            <div class="current">Buy Now</div>
+                                            <div class="amount">$5,00.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="countdown-area">
+                                    <div class="countdown">
+                                        <div id="bid_counter28"></div>
+                                    </div>
+                                    <span class="total-bids">30 Bids</span>
+                                </div>
+                                <div class="text-center">
+                                    <a href="#0" class="custom-button">Submit a bid</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--============= Car Auction Section Ends Here =============-->
+    </div>
+
+
+    <!--============= Jewelry Auction Section Starts Here =============-->
+    <section class="jewelry-auction-section padding-bottom padding-top pos-rel">
+        <div class="jewelry-bg d-none d-xl-block"><img src="./assets/images/auction/jewelry/jwelry-bg.png" alt="jewelry"></div>
+        <div class="container">
+            <div class="section-header-3">
+                <div class="left">
+                    <div class="thumb">
+                        <img src="./assets/images/header-icons/coin-1.png" alt="header-icons">
+                    </div>
+                    <div class="title-area">
+                        <h2 class="title">Jewelry</h2>
+                        <p>Online jewelry auctions where you can bid now and save money</p>
+                    </div>
+                </div>
+                <a href="#0" class="normal-button">View All</a>
+            </div>
+            <div class="row justify-content-center mb-30-none">
+                <div class="col-sm-10 col-md-6 col-lg-4">
+                    <div class="auction-item-2">
+                        <div class="auction-thumb">
+                            <a href="./product-details.html"><img src="./assets/images/auction/jewelry/auction-1.jpg" alt="jewelry"></a>
+                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                        </div>
+                        <div class="auction-content">
+                            <h6 class="title">
+                                <a href="./product-details.html">Gold Ring With Clear Stones</a>
+                            </h6>
+                            <div class="bid-area">
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-money"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Buy Now</div>
+                                        <div class="amount">$5,00.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="countdown-area">
+                                <div class="countdown">
+                                    <div id="bid_counter23"></div>
+                                </div>
+                                <span class="total-bids">30 Bids</span>
+                            </div>
+                            <div class="text-center">
+                                <a href="#0" class="custom-button">Submit a bid</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-6 col-lg-4">
+                    <div class="auction-item-2">
+                        <div class="auction-thumb">
+                            <a href="./product-details.html"><img src="./assets/images/auction/jewelry/auction-2.jpg" alt="jewelry"></a>
+                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                        </div>
+                        <div class="auction-content">
+                            <h6 class="title">
+                                <a href="./product-details.html">Ring With Clear Stone Accents</a>
+                            </h6>
+                            <div class="bid-area">
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-money"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Buy Now</div>
+                                        <div class="amount">$5,00.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="countdown-area">
+                                <div class="countdown">
+                                    <div id="bid_counter24"></div>
+                                </div>
+                                <span class="total-bids">30 Bids</span>
+                            </div>
+                            <div class="text-center">
+                                <a href="#0" class="custom-button">Submit a bid</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-6 col-lg-4">
+                    <div class="auction-item-2">
+                        <div class="auction-thumb">
+                            <a href="./product-details.html"><img src="./assets/images/auction/jewelry/auction-3.jpg" alt="jewelry"></a>
+                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                        </div>
+                        <div class="auction-content">
+                            <h6 class="title">
+                                <a href="./product-details.html">Gold Ring With Clear Stones</a>
+                            </h6>
+                            <div class="bid-area">
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-money"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Buy Now</div>
+                                        <div class="amount">$5,00.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="countdown-area">
+                                <div class="countdown">
+                                    <div id="bid_counter25"></div>
+                                </div>
+                                <span class="total-bids">30 Bids</span>
+                            </div>
+                            <div class="text-center">
+                                <a href="#0" class="custom-button">Submit a bid</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Jewelry Auction Section Ends Here =============-->
+
+
+    <!--============= Call In Section Starts Here =============-->
+    <section class="call-in-section padding-top pt-max-xl-0">
+        <div class="container">
+            <div class="call-wrapper cl-white bg_img" data-background="./assets/images/call-in/call-bg.png">
+                <div class="section-header">
+                    <h3 class="title">Register for Free & Start Bidding Now!</h3>
+                    <p>From cars to diamonds to iPhones, we have it all.</p>
+                </div>
+                <a href="sign-up.html" class="custom-button white">Register</a>
+            </div>
+        </div>
+    </section>
+    <!--============= Call In Section Ends Here =============-->
+
+
+    <!--============= Watches Auction Section Starts Here =============-->
+   
+    <!--============= Watches Auction Section Ends Here =============-->
+
+
+    <!--============= Popular Auction Section Starts Here =============-->
+    <section class="popular-auction padding-top pos-rel">
+        <div class="popular-bg bg_img" data-background="./assets/images/auction/popular/popular-bg.png"></div>
+        <div class="container">
+            <div class="section-header cl-white">
+                <span class="cate">Closing Within 24 Hours</span>
+                <h2 class="title">Popular Auctions</h2>
+                <p>Bid and win great deals,Our auction process is simple, efficient, and transparent.</p>
+            </div>
+            <div class="popular-auction-wrapper">
+                <div class="row justify-content-center mb-30-none">
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-1.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">Apple Macbook Pro Laptop</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-2.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">Canon EOS Rebel T6I
+                                        Digital Camera</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-3.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">14k Gold Geneve Watch,
+                                        24.5g</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-4.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">14K White Gold 185.60
+                                        Grams 5.95 Carats</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-5.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">2009 Toyota Prius
+                                        (Medford, NY 11763)</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="auction-item-3">
+                            <div class="auction-thumb">
+                                <a href="./product-details.html"><img src="./assets/images/auction/popular/auction-6.jpg" alt="popular"></a>
+                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            </div>
+                            <div class="auction-content">
+                                <h6 class="title">
+                                    <a href="./product-details.html">.6 Gram Pure Gold
+                                        Nugget</a>
+                                </h6>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">Current Bid</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bids-area">
+                                    Total Bids : <span class="total-bids">130 Bids</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Popular Auction Section Ends Here =============-->
+
+
+    <!--============= Coins and Bullion Auction Section Starts Here =============-->
+   
+    <!--============= Coins and Bullion Auction Section Ends Here =============-->
+
+
+    <!--============= Real Estate Section Starts Here =============-->
+  
+    <!--============= Real Estate Section Starts Here =============-->
+
+
+    <!--============= Art Auction Section Starts Here =============-->
+   
+    <!--============= Art Auction Section Ends Here =============-->
+
+
+    <!--============= How Section Starts Here =============-->
+    <section class="how-section padding-top">
+        <div class="container">
+            <div class="how-wrapper section-bg">
+                <div class="section-header text-lg-left">
+                    <h2 class="title">How it works</h2>
+                    <p>Easy 3 steps to win</p>
+                </div>
+                <div class="row justify-content-center mb--40">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="how-item">
+                            <div class="how-thumb">
+                                <img src="./assets/images/how/how1.png" alt="how">
+                            </div>
+                            <div class="how-content">
+                                <h4 class="title">Sign Up</h4>
+                                <p>No Credit Card Required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="how-item">
+                            <div class="how-thumb">
+                                <img src="./assets/images/how/how2.png" alt="how">
+                            </div>
+                            <div class="how-content">
+                                <h4 class="title">Bid</h4>
+                                <p>Bidding is free Only pay if you win</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="how-item">
+                            <div class="how-thumb">
+                                <img src="./assets/images/how/how3.png" alt="how">
+                            </div>
+                            <div class="how-content">
+                                <h4 class="title">Win</h4>
+                                <p>Fun - Excitement - Great deals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= How Section Ends Here =============-->
+
+
+    <!--============= Client Section Starts Here =============-->
+    <section class="client-section padding-top padding-bottom">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title">Don’t just take our word for it!</h2>
+                <p>Our hard work is paying off. Great reviews from amazing customers.</p>
+            </div>
+            <div class="m--15">
+                <div class="client-slider owl-theme owl-carousel">
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>I can't stop bidding! It's a great way to spend some time and I want everything on Sbidu.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="./assets/images/client/client01.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Alexis Moore</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>I came I saw I won. Love what I have won, and will try to win something else.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="./assets/images/client/client02.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Darin Griffin</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="client-item">
+                        <div class="client-content">
+                            <p>This was my first time, but it was exciting. I will try it again. Thank you so much.</p>
+                        </div>
+                        <div class="client-author">
+                            <div class="thumb">
+                                <a href="#0">
+                                    <img src="./assets/images/client/client03.png" alt="client">
+                                </a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#0">Tom Powell</a></h6>
+                                <div class="ratings">
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                    <span><i class="fas fa-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Client Section Ends Here =============-->
+
+
+    <!--============= Footer Section Starts Here =============-->
+    <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
+        <div class="footer-top-shape">
+            <img src="./assets/css/img/footer-top-shape.png" alt="css">
+        </div>
+        <div class="anime-wrapper">
+            <div class="anime-1 plus-anime">
+                <img src="./assets/images/footer/p1.png" alt="footer">
+            </div>
+            <div class="anime-2 plus-anime">
+                <img src="./assets/images/footer/p2.png" alt="footer">
+            </div>
+            <div class="anime-3 plus-anime">
+                <img src="./assets/images/footer/p3.png" alt="footer">
+            </div>
+            <div class="anime-5 zigzag">
+                <img src="./assets/images/footer/c2.png" alt="footer">
+            </div>
+            <div class="anime-6 zigzag">
+                <img src="./assets/images/footer/c3.png" alt="footer">
+            </div>
+            <div class="anime-7 zigzag">
+                <img src="./assets/images/footer/c4.png" alt="footer">
+            </div>
+        </div>
+        <div class="newslater-wrapper">
+            <div class="container">
+                <div class="newslater-area">
+                    <div class="newslater-thumb">
+                        <img src="./assets/images/footer/newslater.png" alt="footer">
+                    </div>
+                    <div class="newslater-content">
+                        <div class="section-header left-style mb-low">
+                            <h5 class="cate">Subscribe to Sbidu</h5>
+                            <h3 class="title">To Get Exclusive Benefits</h3>
+                        </div>
+                        <form class="subscribe-form">
+                            <input type="text" placeholder="Enter Your Email" name="email">
+                            <button type="submit" class="custom-button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-top padding-bottom padding-top">
+            <div class="container">
+                <div class="row mb--60">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">Auction Categories</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">Ending Now</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Watches</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Electronics</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Real Estate</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jewelry</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Art</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Sports & Outdoor</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">About Us</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">About Sbidu</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Affiliates</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Press</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Our blog</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Collectors' portal</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-links">
+                            <h5 class="title">We're Here to Help</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0">Your Account</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Safe and Secure</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Shipping Information</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Help & FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="footer-widget widget-follow">
+                            <h5 class="title">Follow Us</h5>
+                            <ul class="links-list">
+                                <li>
+                                    <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-blender-phone"></i>(646) 968-0608</a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-envelope-open-text"></i>help@engotheme.com</a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fas fa-location-arrow"></i>1201 Broadway Suite</a>
+                                </li>
+                            </ul>
+                            <ul class="social-icons">
+                                <li>
+                                    <a href="#0" class="active"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#0"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright-area">
+                    <div class="footer-bottom-wrapper">
+                        <div class="logo">
+                            <a href="index.html"><img src="./assets/images/logo/footer-logo.png" alt="logo"></a>
+                        </div>
+                        <ul class="gateway-area">
+                            <li>
+                                <a href="#0"><img src="./assets/images/footer/paypal.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="./assets/images/footer/visa.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="./assets/images/footer/discover.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="./assets/images/footer/mastercard.png" alt="footer"></a>
+                            </li>
+                        </ul>
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--============= Footer Section Ends Here =============-->
+
+
+
+    <script src="/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/assets/js/modernizr-3.6.0.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/waypoints.js"></script>
+    <script src="/assets/js/nice-select.js"></script>
+    <script src="/assets/js/counterup.min.js"></script>
+    <script src="/assets/js/owl.min.js"></script>
+    <script src="/assets/js/magnific-popup.min.js"></script>
+    <script src="/assets/js/yscountdown.min.js"></script>
+    <script src="/assets/js/jquery-ui.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+
 </html>
