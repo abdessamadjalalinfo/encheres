@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Enchères</title>
+    <title>Sbidu - Bid And Auction HTML Template</title>
 
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.min.css">
@@ -34,14 +34,13 @@
 
 
     <!--============= Header Section Starts Here =============-->
-    <header style='background:#693ff5'>
+    <header>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
                     <ul class="customer-support">
                         <li>
-                            <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Support Client
-</span></a>
+                            <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
                         </li>
                         <li>
                             <i class="fas fa-globe"></i>
@@ -189,7 +188,7 @@
     <div class="cart-sidebar-area">
         <div class="top-content">
             <a href="index.html" class="logo">
-                <img src="./assets/images/logo/logo2.png" alt="logo">
+                <img src="/assets/images/logo/logo2.png" alt="logo">
             </a>
             <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -255,388 +254,219 @@
     <!--============= Cart Section Ends Here =============-->
 
 
-    <!--============= Banner Section Starts Here =============-->
-    <!--section class="banner-section bg_img" data-background="./assets/images/banner/banner-bg-1.png">
+    <!--============= Hero Section Starts Here =============-->
+    <div class="hero-section style-2">
         <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-6 col-xl-6">
-                    <div class="banner-content cl-white">
-                        <h5 class="cate">Vente aux enchères de nouvelle génération</h5>
-                        <h1 class="title"><span class="d-xl-block"> Trouver votre
-        </span> Prochaine affaire !</h1>
-                        <p>
-                     La vente aux enchères en ligne est l'endroit où tout le monde va acheter, vendre et donner, tout en découvrant la variété et l'abordabilité.   </p>
-                        <a href="#0" class="custom-button yellow btn-large">Commencer</a>
-                    </div>
-                </div>
-                <div class="d-none d-lg-block col-lg-4">
-                    <div class="banner-thumb-2">
-                        <img src="cover.png" alt="banner">
-                    </div>
-                </div>
-            </div>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="./index.html">Accueil</a>
+                </li>
+                <li>
+                    <a href="#0">Catégorie</a>
+                </li>
+                <li>
+                    <span>{{$categorie->nom}}</span>
+                </li>
+            </ul>
         </div>
-        <div class="banner-shape d-none d-lg-block">
-            <img src="./assets/css/img/banner-shape.png" alt="css">
-        </div>
-    </!--section-->
-    <!--============= Banner Section Ends Here =============-->
-
-
-    <div class="browse-section ash-bg" >
-       
-        <!--============= Hightlight Slider Section Starts Here =============-->
-        <div class="browse-slider-section " style="top: 166px; margin-bottom: 88px;">
-            <div class="container">
-                <img style="margin-bottom: 24px;" src="https://www.auksjonen.no/api/banner/Topp%20rd%20desktop%20-%20selge%20bil%20-%2008122020.jpg" alt="">
-            </div>
-            <div class="container">
-                 
-                <div class="section-header-2 cl-white mb-4">
-                    <div class="left">
-                        <h6 style="color:black" class="title pl-0 w-100">Nos Catégories</h6>
-                    </div>
-                    <div class="slider-nav">
-                        <a href="#0" class="bro-prev"><i class="flaticon-left-arrow"></i></a>
-                        <a href="#0" class="bro-next active"><i class="flaticon-right-arrow"></i></a>
-                    </div>
-                </div>
-                <div class="m--15">
-                    <div class="browse-slider owl-theme owl-carousel">
-                        @foreach($categories as $categorie)
-                        <a href="{{route('showProductCategories',['id'=>$categorie->id])}}" class="browse-item">
-                            <img src="/img/{{$categorie->path_logo}}" alt="auction">
-                            <span class="info">{{ $categorie->nom}}</span>
-                        </a>
-                        @endforeach
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--============= Hightlight Slider Section Ends Here =============-->
-        
-        <!--============= Car Auction Section Starts Here =============-->
-        <section class="car-auction-section padding-bottom padding-top pos-rel oh">
-            <div class="car-bg"></div>
-            <div class="container">
-                <div class="section-header-3">
-                    <div class="left">
-                        <div class="thumb">
-                            <img src="/assets/images/header-icons/car-1.png" alt="header-icons">
-                        </div>
-                        <div class="title-area">
-                            <h2 class="title">{{$categories[0]->nom}}</h2>
-                            <p>Nous offrons des véhicules abordables</p>
-                        </div>
-                    </div>
-                    <a href="{{route('showProductCategories',['id'=>$categories[0]->id])}}" class="normal-button"> Voir plus</a>
-                </div>
-                
-                <div class="row justify-content mb-20-none">
-                    @foreach($categories[0]->products as $product)
-                    <div class="col-sm-10 col-md-3 col-lg-3">
-                        <div class="auction-item-2">
-                            
-                           
-                            <div class="auction-thumb">
-                                <a href="./product-details.html"><img src="{{$product->images[0]->path_logo}}" alt="car"></a>
-                                <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                            </div>
-                            <div class="auction-content">
-                                <h6 class="title">
-                                    <a href="./product-details.html">{{$product->titre}}</a>
-                                </h6>
-                                <div class="bid-area">
-                                    <div class="bid-amount">
-                                        <div class="icon">
-                                            <i class="flaticon-auction"></i>
-                                        </div>
-                                        <div class="amount-content">
-                                            <div class="current">prix courant</div>
-                                            <div class="amount" style="font-size: 10px;">$876.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="bid-amount">
-                                        <div class="icon">
-                                            <i class="flaticon-money"></i>
-                                        </div>
-                                        <div class="amount-content">
-                                            <div class="current">premier prix</div>
-                                            <div class="amount" style="font-size: 10px;">{{$product->premier_prix}}MAD</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="countdown-area">
-                                
-                                    <span class="total-bids">30 Bids</span>
-                                </div>
-                                <div class="text-center">
-                                    <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    @endforeach
-                    
-                </div>
-                
-            </div>
-        </section>
-        <!--============= Car Auction Section Ends Here =============-->
+        <div class="bg_img hero-bg bottom_center" data-background="/assets/images/banner/hero-bg.png"></div>
     </div>
+    <!--============= Hero Section Ends Here =============-->
 
 
-    <!--============= Jewelry Auction Section Starts Here =============-->
-    <section class="jewelry-auction-section padding-bottom padding-top pos-rel">
-        <div class="jewelry-bg d-none d-xl-block"><img src="./assets/images/auction/jewelry/jwelry-bg.png" alt="jewelry"></div>
+    <!--============= Featured Auction Section Starts Here =============-->
+    <section class="featured-auction-section padding-bottom mt--240 mt-lg--440 pos-rel">
         <div class="container">
-            <div class="section-header-3">
-                <div class="left">
-                    <div class="thumb">
-                        <img src="/img/{{$categories[4]->path_logo}}" alt="header-icons">
-                    </div>
-                    <div class="title-area">
-                        <h2 class="title">{{$categories[4]->nom}}</h2>
-                        <p>Ventes aux enchères de bijoux en ligne où vous pouvez enchérir maintenant et économiser de l'argent</p>
-                    </div>
-                </div>
-                <a href="{{route('showProductCategories',['id'=>$categories[4]->id])}}" class="normal-button">Voir plus</a>
+            <div class="section-header cl-white mw-100 left-style">
+                <h3 class="title">{{$categorie->nom}}</h3>
+                <p>Dernière Annonce</p>
             </div>
-            <div class="row justify-content mb-30-none">
-                <div class="col-sm-10 col-md-3 col-lg-3">
-                    @foreach($categories[4]->products as $product)
+            @if($categorie->products->count()!=0)
+         <div class="row justify-content-center mb-30-none">
+                <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="./product-details.html"><img src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
+                            <a href="./product-details.html"><img src="{{asset($categorie->products->last()->images()->first()->path_logo)}}" alt="car"></a>
                             <a href="#0" class="rating"><i class="far fa-star"></i></a>
                             <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
                         <div class="auction-content">
-                                <h6 class="title">
-                                    <a href="./product-details.html">{{$product->titre}}</a>
-                                </h6>
-                                <div class="bid-area">
-                                    <div class="bid-amount">
-                                        <div class="icon">
-                                            <i class="flaticon-auction"></i>
-                                        </div>
-                                        <div class="amount-content">
-                                            <div class="current">prix courant</div>
-                                            <div class="amount">$876.00</div>
-                                        </div>
+                            <h6 class="title">
+                                <a href="#0">{{$categorie->products->last()->titre}}</a>
+                            </h6>
+                            <div class="bid-area">
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
                                     </div>
-                                    <div class="bid-amount">
-                                        <div class="icon">
-                                            <i class="flaticon-money"></i>
-                                        </div>
-                                        <div class="amount-content">
-                                            <div class="current">premier prix</div>
-                                            <div class="amount">${{$product->premier_prix}}</div>
-                                        </div>
+                                    <div class="amount-content">
+                                        <div class="current">Prix courant</div>
+                                        <div class="amount">876.00 MAD</div>
                                     </div>
                                 </div>
-                                <div class="countdown-area">
-                                    <div class="countdown">
-                                        <div id="bid_counter26"></div>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-money"></i>
                                     </div>
-                                    <span class="total-bids">30 Bids</span>
-                                </div>
-                                <div class="text-center">
-                                    <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
+                                    <div class="amount-content">
+                                        <div class="current">Premier Prix</div>
+                                        <div class="amount">{{$categorie->products->last()->premier_prix}}MAD</div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="countdown-area">
+                                <div class="countdown">
+                                    <div id="bid_counter26"></div>
+                                </div>
+                                <span class="total-bids">30 Bids</span>
+                            </div>
+                            <div class="text-center">
+                                <a href="{{route('showProduct',['id'=>$categorie->products->last()->id])}}" class="custom-button">Proposer</a>
+                            </div>
+                        </div>
                     </div>
-                    @endforeach
                 </div>
-                
                 
             </div>
         </div>
+        @endif
     </section>
-    <!--============= Jewelry Auction Section Ends Here =============-->
+    <!--============= Featured Auction Section Ends Here =============-->
 
 
-    <!--============= Call In Section Starts Here =============-->
-    <section class="call-in-section padding-top pt-max-xl-0">
+    <!--============= Product Auction Section Starts Here =============-->
+
+       @if($categorie->products->count()!=0)
+    <div class="product-auction padding-bottom">
         <div class="container">
-            <div class="call-wrapper cl-white bg_img" data-background="./assets/images/call-in/call-bg.png">
-                <div class="section-header">
-                    <h3 class="title">Inscrivez-vous gratuitement et commencez à enchérir maintenant !</h3>
-                   
+            <div class="product-header mb-40">
+                <div class="product-header-item">
+                    <div class="item">Trier par : </div>
+                    <select name="sort-by" class="select-bar">
+                        <option value="all">All</option>
+                        <option value="name">Nom</option>
+                        <option value="date">Date</option>
+                        <option value="type">Type</option>
+                        <option value="car">Car</option>
+                    </select>
                 </div>
-                <a href="sign-up.html" class="custom-button white">S'inscrire</a>
-            </div>
-        </div>
-    </section>
-    <!--============= Call In Section Ends Here =============-->
-
-
-
-
-    <!--============= How Section Starts Here =============-->
-    <section class="how-section padding-top">
-        <div class="container">
-            <div class="how-wrapper section-bg">
-                <div class="section-header text-lg-left">
-                    <h2 class="title">Comment ça fonctionne ?</h2>
-                    <p>3 étapes faciles pour gagner</p>
+                <div class="product-header-item">
+                    <div class="item">Voir : </div>
+                    <select name="sort-by" class="select-bar">
+                        <option value="09">09</option>
+                        <option value="21">21</option>
+                        <option value="30">30</option>
+                        <option value="39">39</option>
+                        <option value="60">60</option>
+                    </select>
                 </div>
-                <div class="row justify-content-center mb--40">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="how-item">
-                            <div class="how-thumb">
-                                <img src="./assets/images/how/how1.png" alt="how">
-                            </div>
-                            <div class="how-content">
-                                <h4 class="title">S'inscrire</h4>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="how-item">
-                            <div class="how-thumb">
-                                <img src="./assets/images/how/how2.png" alt="how">
-                            </div>
-                            <div class="how-content">
-                                <h4 class="title">Proposer </h4>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="how-item">
-                            <div class="how-thumb">
-                                <img src="./assets/images/how/how3.png" alt="how">
-                            </div>
-                            <div class="how-content">
-                                <h4 class="title">Gagne</h4>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <form class="product-search ml-auto">
+                    <input type="text" placeholder="Nom ">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
             </div>
-        </div>
-    </section>
-    <!--============= How Section Ends Here =============-->
-
-
-    <!--============= Client Section Starts Here =============-->
-    <section class="client-section padding-top padding-bottom">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="title">Ne vous contentez pas de nous croire sur parole !!</h2>
-                <p>Notre travail acharné porte ses fruits. Excellentes critiques de clients incroyables.</p>
-            </div>
-            <div class="m--15">
-                <div class="client-slider owl-theme owl-carousel">
-                    <div class="client-item">
-                        <div class="client-content">
-                            <p>I can't stop bidding! It's a great way to spend some time and I want everything on Auction.</p>
+            <div class="row mb-30-none justify-content-center">
+                @foreach($products as $product)
+                <div class="col-sm-10 col-md-6 col-lg-4">
+                    <div class="auction-item-2">
+                        <div class="auction-thumb">
+                            <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo)}}" alt="product"></a>
+                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
-                        <div class="client-author">
-                            <div class="thumb">
-                                <a href="#0">
-                                    <img src="./assets/images/client/client01.png" alt="client">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#0">Alexis Moore</a></h6>
-                                <div class="ratings">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
+                        <div class="auction-content">
+                            <h6 class="title">
+                                <a href="#0">{{$product->titre}}</a>
+                            </h6>
+                            <div class="bid-area">
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-auction"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">prix courant</div>
+                                        <div class="amount">$876.00</div>
+                                    </div>
+                                </div>
+                                <div class="bid-amount">
+                                    <div class="icon">
+                                        <i class="flaticon-money"></i>
+                                    </div>
+                                    <div class="amount-content">
+                                        <div class="current">premier prix</div>
+                                        <div class="amount">{{$product->premier_prix}} MAD</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-content">
-                            <p>I came I saw I won. Love what I have won, and will try to win something else.</p>
-                        </div>
-                        <div class="client-author">
-                            <div class="thumb">
-                                <a href="#0">
-                                    <img src="./assets/images/client/client02.png" alt="client">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#0">Darin Griffin</a></h6>
-                                <div class="ratings">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
+                            <div class="countdown-area">
+                                <div class="countdown">
+                                    <div id="bid_counter1"></div>
                                 </div>
+                                <span class="total-bids">30 Bids</span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="client-item">
-                        <div class="client-content">
-                            <p>This was my first time, but it was exciting. I will try it again. Thank you so much.</p>
-                        </div>
-                        <div class="client-author">
-                            <div class="thumb">
-                                <a href="#0">
-                                    <img src="./assets/images/client/client03.png" alt="client">
-                                </a>
-                            </div>
-                            <div class="content">
-                                <h6 class="title"><a href="#0">Tom Powell</a></h6>
-                                <div class="ratings">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div>
+                            <div class="text-center">
+                                <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button">Proposer</a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
+               
             </div>
+            <ul class="pagination">
+                <li>
+                    <a href="#0"><i class="flaticon-left-arrow"></i></a>
+                </li>
+                <li>
+                    <a href="#0">1</a>
+                </li>
+                <li>
+                    <a href="#0" class="active">2</a>
+                </li>
+                <li>
+                    <a href="#0">3</a>
+                </li>
+                <li>
+                    <a href="#0"><i class="flaticon-right-arrow"></i></a>
+                </li>
+            </ul>
         </div>
-    </section>
-    <!--============= Client Section Ends Here =============-->
+    </div>
+
+    @endif
+    <!--============= Product Auction Section Ends Here =============-->
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
+    <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
         <div class="footer-top-shape">
-            <img src="./assets/css/img/footer-top-shape.png" alt="css">
+            <img src="/assets/css/img/footer-top-shape.png" alt="css">
         </div>
         <div class="anime-wrapper">
             <div class="anime-1 plus-anime">
-                <img src="./assets/images/footer/p1.png" alt="footer">
+                <img src="/assets/images/footer/p1.png" alt="footer">
             </div>
             <div class="anime-2 plus-anime">
-                <img src="./assets/images/footer/p2.png" alt="footer">
+                <img src="/assets/images/footer/p2.png" alt="footer">
             </div>
             <div class="anime-3 plus-anime">
-                <img src="./assets/images/footer/p3.png" alt="footer">
+                <img src="/assets/images/footer/p3.png" alt="footer">
             </div>
             <div class="anime-5 zigzag">
-                <img src="./assets/images/footer/c2.png" alt="footer">
+                <img src="/assets/images/footer/c2.png" alt="footer">
             </div>
             <div class="anime-6 zigzag">
-                <img src="./assets/images/footer/c3.png" alt="footer">
+                <img src="/assets/images/footer/c3.png" alt="footer">
             </div>
             <div class="anime-7 zigzag">
-                <img src="./assets/images/footer/c4.png" alt="footer">
+                <img src="/assets/images/footer/c4.png" alt="footer">
             </div>
         </div>
-        <div class="newslater-wrapper">
+      <div class="newslater-wrapper">
             <div class="container">
                 <div class="newslater-area">
                     <div class="newslater-thumb">
-                        <img src="./assets/images/footer/newslater.png" alt="footer">
+                        <img src="{{asset('/assets/images/footer/newslater.png')}}" alt="footer">
                     </div>
                     <div class="newslater-content">
                         <div class="section-header left-style mb-low">
@@ -658,12 +488,30 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">Auction Categories</h5>
                             <ul class="links-list">
-                                @foreach($categories as $categorie)
                                 <li>
-                                    <a href="{{route('showProductCategories',$categorie->id)}}">{{$categorie->nom}}</a>
+                                    <a href="#0">Ending Now</a>
                                 </li>
-                                @endforeach
-                                
+                                <li>
+                                    <a href="#0">Vehicles</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Watches</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Electronics</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Real Estate</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jewelry</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Art</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Sports & Outdoor</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -672,9 +520,26 @@
                             <h5 class="title">About Us</h5>
                             <ul class="links-list">
                                 <li>
-                                    <a href="#0">About Auction</a>
+                                    <a href="#0">About Sbidu</a>
                                 </li>
-                               
+                                <li>
+                                    <a href="#0">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Affiliates</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Jobs</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Press</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Our blog</a>
+                                </li>
+                                <li>
+                                    <a href="#0">Collectors' portal</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -705,16 +570,16 @@
                             <h5 class="title">Follow Us</h5>
                             <ul class="links-list">
                                 <li>
-                                    <a href="#0"><i class="fas fa-phone-alt"></i>+47 466 36 398</a>
+                                    <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
                                 </li>
                                 <li>
-                                    <a href="#0"><i class="fas fa-blender-phone"></i>+47 466 36 398</a>
+                                    <a href="#0"><i class="fas fa-blender-phone"></i>(646) 968-0608</a>
                                 </li>
                                 <li>
                                     <a href="#0"><i class="fas fa-envelope-open-text"></i>help@engotheme.com</a>
                                 </li>
                                 <li>
-                                    <a href="#0"><i class="fas fa-location-arrow"></i>Norvege</a>
+                                    <a href="#0"><i class="fas fa-location-arrow"></i>1201 Broadway Suite</a>
                                 </li>
                             </ul>
                             <ul class="social-icons">
@@ -741,10 +606,23 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
+                            <a href="index.html"><img src="/assets/images/logo/footer-logo.png" alt="logo"></a>
                         </div>
-                      
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Uiaxis</a></p></div>
+                        <ul class="gateway-area">
+                            <li>
+                                <a href="#0"><img src="/assets/images/footer/paypal.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="/assets/images/footer/visa.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="/assets/images/footer/discover.png" alt="footer"></a>
+                            </li>
+                            <li>
+                                <a href="#0"><img src="/assets/images/footer/mastercard.png" alt="footer"></a>
+                            </li>
+                        </ul>
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
                     </div>
                 </div>
             </div>
@@ -765,8 +643,8 @@
     <script src="/assets/js/counterup.min.js"></script>
     <script src="/assets/js/owl.min.js"></script>
     <script src="/assets/js/magnific-popup.min.js"></script>
-    <script src="/assets/js/yscountdown.min.js"></script>
-    <script src="/assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/yscountdown.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
     <script src="/assets/js/main.js"></script>
 </body>
 
