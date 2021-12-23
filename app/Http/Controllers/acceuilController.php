@@ -13,6 +13,6 @@ class acceuilController extends Controller
     {
         $categories = Categorie::all();
 
-        return view('welcome', ['categories' => $categories]);
+        return view('index', ['categories' => $categories]);
     }
 }

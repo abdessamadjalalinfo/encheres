@@ -1143,7 +1143,7 @@
     })
     //The Password Show
     $('.pass-type').on('click', function () {
-      var x = document.getElementById("login-pass");
+      var x = $(this).prev()[0];
       if (x.type === "password") {
         x.type = "text";
       } else {

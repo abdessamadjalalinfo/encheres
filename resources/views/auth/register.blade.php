@@ -1,77 +1,141 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    
+    <!--============= Hero Section Starts Here =============-->
+    <div class="hero-section">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#0">Pages</a>
+                </li>
+                <li>
+                    <span>Sign Up</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bg_img hero-bg bottom_center" data-background="./assets/images/banner/hero-bg.png"></div>
+    </div>
+    <!--============= Hero Section Ends Here =============-->
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+
+    <!--============= Account Section Starts Here =============-->
+    <section class="account-section padding-bottom">
+        <div class="container">
+            <div class="account-wrapper mt--100 mt-lg--440">
+                <div class="left-side">
+                    <div class="section-header">
+                        <h2 class="title">SIGN UP</h2>
+                        <p>We're happy you're here!</p>
+                    </div>
+                    <ul class="login-with">
+                        <li>
+                            <a href="#0"><i class="fab fa-facebook"></i>Log in with Facebook</a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-google-plus"></i>Log in with Google</a>
+                        </li>
+                    </ul>
+                    <div class="or">
+                        <span>Or</span>
+                    </div>
+                    <form class="login-form" method="POST" action="{{ route('register') }}">
                         @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
+                        <div class="form-group mb-30">
+                            <label for="first_name"></label>
+                            <input type="text" id="first_name" name="first_name" required placeholder="First Name">
+                            @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
+                        <div class="form-group mb-30">
+                        <label for="last_name"></label>
+                        <input type="text" id="first_name" name="last_name" required placeholder="Last Name">
+                        @error('last_name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                        @enderror
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="login-email"><i class="far fa-envelope"></i></label>
+                            <input type="email" id="login-email" required name="email" placeholder="Email Address">
+                            @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
+                        <div class="form-group mb-30">
+                            <label for="login-pass"><i class="fas fa-lock"></i></label>
+                            <input type="password" name="password" required id="login-pass" placeholder="Password">
+                            <span class="pass-type"><i class="fas fa-eye"></i></span>
+                            @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
+                        <div class="form-group mb-30">
+                            <label for="login-pass"><i class="fas fa-lock"></i></label>
+                            <input type="password" name="password_confirmation" required id="login-pass2" placeholder="Confirm Password">
+                            <span class="pass-type"><i class="fas fa-eye"></i></span>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        
+                        <div class="form-group mb-30">
+                            <label for="login-email"><i class="far fa-envelope"></i></label>
+                            <input type="text" id="login-email" name="address" required placeholder="Address">
+                            @error('Address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="City"><i class="far fa-envelope"></i></label>
+                            <input type="text" id="City" name="city" required placeholder="City">
+                            @error('City')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-30">
+                            <label for="Country"><i class="far fa-envelope"></i></label>
+                            <input type="text" id="Country" name="country" required placeholder="Country">
+                            @error('Country')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        {{-- 
+                        
+                        <div class="form-group checkgroup mb-30">
+                            <input type="checkbox" name="terms" id="check"><label for="check">The Sbidu Terms of Use apply</label>
+                        </div>
+                        --}}
+                        <div class="form-group mb-0">
+                            <button type="submit" class="custom-button">Sign Up</button>
                         </div>
                     </form>
                 </div>
+                <div class="right-side cl-white">
+                    <div class="section-header mb-0">
+                        <h3 class="title mt-0">ALREADY HAVE AN ACCOUNT?</h3>
+                        <p>Log in and go to your Dashboard.</p>
+                        <a href="/login" class="custom-button transparent">Login</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!--============= Account Section Ends Here =============-->
+
+
 @endsection
