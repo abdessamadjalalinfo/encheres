@@ -8,17 +8,17 @@
 
     <title>Sbidu - Bid And Auction HTML Template</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/assets/css/owl.min.css">
-    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/nice-select.css">
+    <link rel="stylesheet" href="./assets/css/owl.min.css">
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="./assets/css/flaticon.css">
+    <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    @yield('stylesheets')
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
 
     <!--============= Header Section Starts Here =============-->
-    <header style='background:#693ff5'>
+    <header>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -55,12 +55,12 @@
                         </li>
                     </ul>
                     <ul class="cart-button-area">
-                          
-                        @auth
-                            <li>
-                                <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
-                            </li> 
-                        @endauth                
+                        <li>
+                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
+                        </li>                        
+                        <li>
+                            <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="./index.html">
                             <img src="./assets/images/logo/logo.png" alt="logo">
                         </a>
                     </div>
@@ -165,42 +165,6 @@
                         <li>
                             <a href="./contact.html">Contact</a>
                         </li>
-                        <li>
-                            
-                           @guest
-                           <a href="#0">Authentication</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/login">Sign In</a>
-                                    </li>
-                                    <li>
-                                        <a href="./register">Sign Up</a>
-                                    </li>
-                                </ul>
-                            @else   
-                                <a href="#0">Profile</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="./index.html">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="./index.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    </li>
-                                </ul>
-                            @endguest 
-                            
-                        </li>
                     </ul>
                     <form class="search-form">
                         <input type="text" placeholder="Search for brand, model....">
@@ -218,81 +182,235 @@
             </div>
         </div>
     </header>
+    <!--============= Header Section Ends Here =============-->
 
-  <!--============= Cart Section Starts Here =============-->
-  <div class="cart-sidebar-area">
-    <div class="top-content">
-        <a href="index.html" class="logo">
-            <img src="./assets/images/logo/logo2.png" alt="logo">
-        </a>
-        <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="bottom-content">
-        <div class="cart-products">
-            <h4 class="title">Shopping cart</h4>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+    <!--============= Cart Section Starts Here =============-->
+    <div class="cart-sidebar-area">
+        <div class="top-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo/logo2.png" alt="logo">
+            </a>
+            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="bottom-content">
+            <div class="cart-products">
+                <h4 class="title">Shopping cart</h4>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Water Pot</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Art Paper</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Water Pot</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Comics Book</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Art Paper</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="btn-wrapper text-center">
+                    <a href="#0" class="custom-button"><span>Checkout</span></a>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
-                </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
-                </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
-                </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Comics Book</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
-                </div>
-            </div>
-            <div class="btn-wrapper text-center">
-                <a href="#0" class="custom-button"><span>Checkout</span></a>
             </div>
         </div>
     </div>
-</div>
-<!--============= Cart Section Ends Here =============-->
-
-@yield('content')
+    <!--============= Cart Section Ends Here =============-->
 
 
+    <!--============= Hero Section Starts Here =============-->
+    <div class="hero-section style-2">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#0">My Account</a>
+                </li>
+                <li>
+                    <span>Personal profile</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bg_img hero-bg bottom_center" data-background="./assets/images/banner/hero-bg.png"></div>
+    </div>
+    <!--============= Hero Section Ends Here =============-->
 
-    
+
+    <!--============= Dashboard Section Starts Here =============-->
+    <section class="dashboard-section padding-bottom mt--240 mt-lg--440 pos-rel">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-10 col-md-7 col-lg-4">
+                    <div class="dashboard-widget mb-30 mb-lg-0 sticky-menu">
+                        <div class="user">
+                            <div class="thumb-area">
+                                <div class="thumb">
+                                    <img src="./assets/images/dashboard/user.png" alt="user">
+                                </div>
+                                <label for="profile-pic" class="profile-pic-edit"><i class="flaticon-pencil"></i></label>
+                                <input type="file" id="profile-pic" class="d-none">
+                            </div>
+                            <div class="content">
+                                <h5 class="title"><a href="#0">Percy Reed</a></h5>
+                                <span class="username">john@gmail.com</span>
+                            </div>
+                        </div>
+                        <ul class="dashboard-menu">
+                            <li>
+                                <a href="dashboard.html"><i class="flaticon-dashboard"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="active"><i class="flaticon-settings"></i>Personal Profile </a>
+                            </li>
+                            <li>
+                                <a href="my-bid.html"><i class="flaticon-auction"></i>My Bids</a>
+                            </li>
+                            <li>
+                                <a href="winning-bids.html"><i class="flaticon-best-seller"></i>Winning Bids</a>
+                            </li>
+                            <li>
+                                <a href="notifications.html"><i class="flaticon-alarm"></i>My Alerts</a>
+                            </li>
+                            <li>
+                                <a href="my-favorites.html"><i class="flaticon-star"></i>My Favorites</a>
+                            </li>
+                            <li>
+                                <a href="referral.html"><i class="flaticon-shake-hand"></i>Referrals</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="dash-pro-item mb-30 dashboard-widget">
+                                <div class="header">
+                                    <h4 class="title">Personal Details</h4>
+                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                </div>
+                                <ul class="dash-pro-body">
+                                    <li>
+                                        <div class="info-name">Nom et prénom</div>
+                                        <div class="info-value">{{$user->nom}} {{$user->prenom}}</div>
+                                    </li>
+                                    
+                                    <li>
+                                        <div class="info-name">Addresse</div>
+                                        <div class="info-value">{{$user->adresse}} {{$user->ville}} {{$user->pays}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="dash-pro-item mb-30 dashboard-widget">
+                                <div class="header">
+                                    <h4 class="title">Account Settings</h4>
+                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                </div>
+                                <ul class="dash-pro-body">
+                                    <li>
+                                        <div class="info-name">Language</div>
+                                        <div class="info-value">English (United States)</div>
+                                    </li>
+                                    <li>
+                                        <div class="info-name">Time Zone</div>
+                                        <div class="info-value">(GMT-06:00) Central America</div>
+                                    </li>
+                                    <li>
+                                        <div class="info-name">Status</div>
+                                        <div class="info-value"><i class="flaticon-check text-success"></i> Active</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="dash-pro-item mb-30 dashboard-widget">
+                                <div class="header">
+                                    <h4 class="title">Email </h4>
+                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                </div>
+                                <ul class="dash-pro-body">
+                                    <li>
+                                        <div class="info-name">Email</div>
+                                        <div class="info-value">{{$user->email}}</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="dash-pro-item mb-30 dashboard-widget">
+                                <div class="header">
+                                    <h4 class="title">Phone</h4>
+                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                </div>
+                                <ul class="dash-pro-body">
+                                    <li>
+                                        <div class="info-name">Mobile</div>
+                                        <div class="info-value">0636187128</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="dash-pro-item dashboard-widget">
+                                <div class="header">
+                                    <h4 class="title">Security</h4>
+                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
+                                </div>
+                                <ul class="dash-pro-body">
+                                    <li>
+                                        <div class="info-name">Password</div>
+                                        <div class="info-value">xxxxxxxxxxxxxxxx</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Dashboard Section Ends Here =============-->
+
+
     <!--============= Footer Section Starts Here =============-->
     <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
         <div class="footer-top-shape">
@@ -502,7 +620,6 @@
     <script src="assets/js/yscountdown.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="./assets/js/main.js"></script>
-    @yield('scripts')
 </body>
 
 </html>

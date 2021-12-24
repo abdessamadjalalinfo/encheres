@@ -21,6 +21,9 @@ Route::get('/categories/{id}', [App\Http\Controllers\acceuilController::class, '
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('showProduct');
 
 Auth::routes();
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/profile', [App\Http\Controllers\DashboardController::class, 'profile'])->name('profile');
+Route::get('/favorits', [App\Http\Controllers\DashboardController::class, 'favorits'])->name('favorits');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

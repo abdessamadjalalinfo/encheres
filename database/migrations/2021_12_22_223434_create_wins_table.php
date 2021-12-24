@@ -17,6 +17,8 @@ class CreateWinsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('enchere_id');
             $table->foreign('enchere_id')->references('id')->on('encheres');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
