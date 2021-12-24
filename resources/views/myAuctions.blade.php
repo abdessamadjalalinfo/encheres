@@ -22,6 +22,8 @@
 </head>
 
 <body>
+    {{-- comment --}}
+    
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
         <div class="loader">
@@ -289,8 +291,8 @@
                                 <input type="file" id="profile-pic" class="d-none">
                             </div>
                             <div class="content">
-                                <h5 class="title"><a href="#0">Percy Reed</a></h5>
-                                <span class="username">john@gmail.com</span>
+                                <h5 class="title"><a href="#0">{{$user->nom}}  {{$user->prenom}}</a></h5>
+                                <span class="username">{{$user->email}}</span>
                             </div>
                         </div>
                         <ul class="dashboard-menu">
@@ -336,6 +338,11 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="upcoming">
                             <div class="row mb-30-none justify-content-center">
+                                @foreach ($encheres as $enchere)
+                                    @php
+                                        $product = \App\Models\Product::find($enchere->produit_id);
+                                    @endphp
+                               
                                 <div class="col-sm-10 col-md-6">
                                     <div class="auction-item-2">
                                         <div class="auction-thumb">
@@ -345,7 +352,7 @@
                                         </div>
                                         <div class="auction-content">
                                             <h6 class="title">
-                                                <a href="#0">2018 Hyundai Sonata</a>
+                                                <a href="#0">{{$product->titre}}</a>
                                             </h6>
                                             <div class="bid-area">
                                                 <div class="bid-amount">
@@ -354,7 +361,7 @@
                                                     </div>
                                                     <div class="amount-content">
                                                         <div class="current">Current Bid</div>
-                                                        <div class="amount">$876.00</div>
+                                                        <div class="amount">{{$enchere->currentBid}}DH</div>
                                                     </div>
                                                 </div>
                                                 <div class="bid-amount">
@@ -362,8 +369,8 @@
                                                         <i class="flaticon-money"></i>
                                                     </div>
                                                     <div class="amount-content">
-                                                        <div class="current">Buy Now</div>
-                                                        <div class="amount">$5,00.00</div>
+                                                        <div class="current">Your Bid</div>
+                                                        <div class="amount">{{$enchere->price}}DH</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -371,7 +378,7 @@
                                                 <div class="countdown">
                                                     <div id="bid_counter26"></div>
                                                 </div>
-                                                <span class="total-bids">30 Bids</span>
+                                                <span class="total-bids">{{$enchere->allBidsCount}} Bids</span>
                                             </div>
                                             <div class="text-center">
                                                 <a href="#0" class="custom-button">Submit a bid</a>
@@ -379,137 +386,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-10 col-md-6">
-                                    <div class="auction-item-2">
-                                        <div class="auction-thumb">
-                                            <a href="./product-details.html"><img src="./assets/images/auction/car/auction-2.jpg" alt="car"></a>
-                                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                                        </div>
-                                        <div class="auction-content">
-                                            <h6 class="title">
-                                                <a href="#0">2018 Nissan Versa, S</a>
-                                            </h6>
-                                            <div class="bid-area">
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-auction"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Current Bid</div>
-                                                        <div class="amount">$876.00</div>
-                                                    </div>
-                                                </div>
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-money"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Buy Now</div>
-                                                        <div class="amount">$5,00.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="countdown-area">
-                                                <div class="countdown">
-                                                    <div id="bid_counter27"></div>
-                                                </div>
-                                                <span class="total-bids">30 Bids</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <a href="#0" class="custom-button">Submit a bid</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10 col-md-6">
-                                    <div class="auction-item-2">
-                                        <div class="auction-thumb">
-                                            <a href="./product-details.html"><img src="./assets/images/auction/product/01.png" alt="product"></a>
-                                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                                        </div>
-                                        <div class="auction-content">
-                                            <h6 class="title">
-                                                <a href="#0">2019 Mercedes-Benz C, 300</a>
-                                            </h6>
-                                            <div class="bid-area">
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-auction"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Current Bid</div>
-                                                        <div class="amount">$876.00</div>
-                                                    </div>
-                                                </div>
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-money"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Buy Now</div>
-                                                        <div class="amount">$5,00.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="countdown-area">
-                                                <div class="countdown">
-                                                    <div id="bid_counter1"></div>
-                                                </div>
-                                                <span class="total-bids">30 Bids</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <a href="#0" class="custom-button">Submit a bid</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-10 col-md-6">
-                                    <div class="auction-item-2">
-                                        <div class="auction-thumb">
-                                            <a href="./product-details.html"><img src="./assets/images/auction/product/02.png" alt="product"></a>
-                                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                                        </div>
-                                        <div class="auction-content">
-                                            <h6 class="title">
-                                                <a href="#0">2017 Harley-Davidson XG750,</a>
-                                            </h6>
-                                            <div class="bid-area">
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-auction"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Current Bid</div>
-                                                        <div class="amount">$876.00</div>
-                                                    </div>
-                                                </div>
-                                                <div class="bid-amount">
-                                                    <div class="icon">
-                                                        <i class="flaticon-money"></i>
-                                                    </div>
-                                                    <div class="amount-content">
-                                                        <div class="current">Buy Now</div>
-                                                        <div class="amount">$5,00.00</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="countdown-area">
-                                                <div class="countdown">
-                                                    <div id="bid_counter2"></div>
-                                                </div>
-                                                <span class="total-bids">30 Bids</span>
-                                            </div>
-                                            <div class="text-center">
-                                                <a href="#0" class="custom-button">Submit a bid</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
+                        {{-- comment 
+                        
                         <div class="tab-pane fade" id="past">
                             <div class="row justify-content-center mb-30-none">
                                 <div class="col-sm-10 col-md-6">
@@ -686,6 +567,7 @@
                                 </div>
                             </div>
                         </div>
+                        --}}
                     </div>
                 </div>
             </div>
