@@ -13,7 +13,7 @@ class acceuilController extends Controller
     {
         $categories = Categorie::all();
 
-        return view('index', ['categories' => $categories]);
+        return view('welcome', ['categories' => $categories]);
     }
 
     public function showProductCategories($id)
