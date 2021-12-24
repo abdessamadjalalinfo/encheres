@@ -12,6 +12,10 @@ class Product extends Model
     {
         return $this->belongsTo(Categorie::class);
     }
+    public function favorits()
+    {
+        return $this->hasMany(Favorit::class);
+    }
 
     public function user()
     {

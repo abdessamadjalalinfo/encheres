@@ -8,17 +8,17 @@
 
     <title>Sbidu - Bid And Auction HTML Template</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/assets/css/owl.min.css">
-    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/animate.css">
+    <link rel="stylesheet" href="./assets/css/nice-select.css">
+    <link rel="stylesheet" href="./assets/css/owl.min.css">
+    <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="./assets/css/flaticon.css">
+    <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-    @yield('stylesheets')
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
 
     <!--============= Header Section Starts Here =============-->
-    <header style='background:#693ff5'>
+    <header>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -55,12 +55,12 @@
                         </li>
                     </ul>
                     <ul class="cart-button-area">
-                          
-                        @auth
-                            <li>
-                                <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
-                            </li> 
-                        @endauth                
+                        <li>
+                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
+                        </li>                        
+                        <li>
+                            <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="./index.html">
                             <img src="./assets/images/logo/logo.png" alt="logo">
                         </a>
                     </div>
@@ -165,42 +165,6 @@
                         <li>
                             <a href="./contact.html">Contact</a>
                         </li>
-                        <li>
-                            
-                           @guest
-                           <a href="#0">Authentication</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="/login">Sign In</a>
-                                    </li>
-                                    <li>
-                                        <a href="./register">Sign Up</a>
-                                    </li>
-                                </ul>
-                            @else   
-                                <a href="#0">Profile</a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="./index.html">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="./index.html">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    </li>
-                                </ul>
-                            @endguest 
-                            
-                        </li>
                     </ul>
                     <form class="search-form">
                         <input type="text" placeholder="Search for brand, model....">
@@ -218,81 +182,228 @@
             </div>
         </div>
     </header>
+    <!--============= Header Section Ends Here =============-->
 
-  <!--============= Cart Section Starts Here =============-->
-  <div class="cart-sidebar-area">
-    <div class="top-content">
-        <a href="index.html" class="logo">
-            <img src="./assets/images/logo/logo2.png" alt="logo">
-        </a>
-        <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-    </div>
-    <div class="bottom-content">
-        <div class="cart-products">
-            <h4 class="title">Shopping cart</h4>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+    <!--============= Cart Section Starts Here =============-->
+    <div class="cart-sidebar-area">
+        <div class="top-content">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo/logo2.png" alt="logo">
+            </a>
+            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="bottom-content">
+            <div class="cart-products">
+                <h4 class="title">Shopping cart</h4>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Water Pot</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Art Paper</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Water Pot</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
+                <div class="single-product-item">
+                    <div class="thumb">
+                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
+                    </div>
+                    <div class="content">
+                        <h4 class="title"><a href="#0">Comics Book</a></h4>
+                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
+                        <a href="#" class="remove-cart">Remove</a>
+                    </div>
                 </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Art Paper</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
+                <div class="btn-wrapper text-center">
+                    <a href="#0" class="custom-button"><span>Checkout</span></a>
                 </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
-                </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
-                </div>
-            </div>
-            <div class="single-product-item">
-                <div class="thumb">
-                    <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
-                </div>
-                <div class="content">
-                    <h4 class="title"><a href="#0">Comics Book</a></h4>
-                    <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                    <a href="#" class="remove-cart">Remove</a>
-                </div>
-            </div>
-            <div class="btn-wrapper text-center">
-                <a href="#0" class="custom-button"><span>Checkout</span></a>
             </div>
         </div>
     </div>
-</div>
-<!--============= Cart Section Ends Here =============-->
-
-@yield('content')
+    <!--============= Cart Section Ends Here =============-->
 
 
+    <!--============= Hero Section Starts Here =============-->
+    <div class="hero-section style-2">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li>
+                    <a href="./index.html">Home</a>
+                </li>
+                <li>
+                    <a href="#0">My Account</a>
+                </li>
+                <li>
+                    <span>My Favorites</span>
+                </li>
+            </ul>
+        </div>
+        <div class="bg_img hero-bg bottom_center" data-background="./assets/images/banner/hero-bg.png"></div>
+    </div>
+    <!--============= Hero Section Ends Here =============-->
 
-    
+
+    <!--============= Dashboard Section Starts Here =============-->
+    <section class="dashboard-section padding-bottom mt--240 mt-lg--440 pos-rel">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-10 col-md-7 col-lg-4">
+                    <div class="dashboard-widget mb-30 mb-lg-0 sticky-menu">
+                        <div class="user">
+                            <div class="thumb-area">
+                                <div class="thumb">
+                                    <img src="./assets/images/dashboard/user.png" alt="user">
+                                </div>
+                                <label for="profile-pic" class="profile-pic-edit"><i class="flaticon-pencil"></i></label>
+                                <input type="file" id="profile-pic" class="d-none">
+                            </div>
+                            <div class="content">
+                                <h5 class="title"><a href="#0">{{$user->nom}} {{$user->prenom}}</a></h5>
+                                <span class="username">{{$user->email}}</span>
+                            </div>
+                        </div>
+                        <ul class="dashboard-menu">
+                            <li>
+                                <a href="dashboard.html"><i class="flaticon-dashboard"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="profile.html"><i class="flaticon-settings"></i>Personal Profile </a>
+                            </li>
+                            <li>
+                                <a href="my-bid.html"><i class="flaticon-auction"></i>My Bids</a>
+                            </li>
+                            <li>
+                                <a href="winning-bids.html"><i class="flaticon-best-seller"></i>Winning Bids</a>
+                            </li>
+                            <li>
+                                <a href="notifications.html"><i class="flaticon-alarm"></i>My Alerts</a>
+                            </li>
+                            <li>
+                                <a href="#0" class="active"><i class="flaticon-star"></i>My Favorites</a>
+                            </li>
+                            <li>
+                                <a href="referral.html"><i class="flaticon-shake-hand"></i>Referrals</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="dash-bid-item dashboard-widget mb-40-60">
+                        <div class="header">
+                            <h4 class="title">My Favorites</h4>
+                        </div>
+                        <div class="button-area justify-content-between">
+                            <form class="product-search">
+                                <input type="text" placeholder="Item Name">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                            <div class="sort-winning-bid">
+                                <div class="item">Trier par: </div>
+                                <select name="sort-by" class="select-bar">
+                                    <option value="all">All</option>
+                                    <option value="name">Name</option>
+                                    <option value="date">Date</option>
+                                    <option value="type">Type</option>
+                                    <option value="car">Car</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                
+                    <div class="row mb-20-none justify-content">
+                     
+                      @foreach ($user->favorits()->get() as $favorit) 
+            
+       
+                         @php $product=App\Models\Product::find($favorit->produit_id) @endphp
+                        <div class="col-sm-10 col-md-5">
+                            <div class="auction-item-2">
+                                <div class="auction-thumb">
+                                    <a href="./product-details.html"><img src="./assets/images/auction/product/04.png" alt="car"></a>
+                                    <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                    <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                </div>
+                                <div class="auction-content">
+                                    <h6 class="title">
+                                        <a href="#0"> {{$product->titre}}</a>
+                                    </h6>
+                                    <div class="bid-area">
+                                        <div class="bid-amount">
+                                            <div class="icon">
+                                                <i class="flaticon-auction"></i>
+                                            </div>
+                                            <div class="amount-content">
+                                                <div class="current">Current Bid</div>
+                                                <div class="amount">$876.00</div>
+                                            </div>
+                                        </div>
+                                        <div class="bid-amount">
+                                            <div class="icon">
+                                                <i class="flaticon-money"></i>
+                                            </div>
+                                            <div class="amount-content">
+                                                <div class="current">Prix de départ</div>
+                                                <div class="amount"> {{$product->premier_prix}} MAD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="countdown-area">
+                                        <div class="countdown">
+                                            <div id="bid_counter26"></div>
+                                        </div>
+                                        <span class="total-bids">30 Bids</span>
+                                    </div>
+                                    <div class="text-center">
+                                        <a href="#0" class="custom-button">Proposer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+                       
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============= Dashboard Section Ends Here =============-->
+
+
     <!--============= Footer Section Starts Here =============-->
     <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
         <div class="footer-top-shape">
@@ -502,7 +613,6 @@
     <script src="assets/js/yscountdown.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="./assets/js/main.js"></script>
-    @yield('scripts')
 </body>
 
 </html>

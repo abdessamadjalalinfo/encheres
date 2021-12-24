@@ -330,7 +330,7 @@
                                 <li>Item #: 7300-3356862</li>
                             </ul>
                         </div>
-                        <ul class="price-table mb-30">
+                        <ul class="price-table mb-10">
                             <li class="header">
                                 <h5 class="current">Prix Courant</h5>
                                 <h3 class="price">700.00 MAD</h3>
@@ -347,7 +347,34 @@
                                     <img src="/assets/images/product/search-icon.png" alt="product">
                                 </div>
                                 <input type="text" placeholder="votre proposition">
-                                <button type="submit" class="custom-button">Proposer</button>
+                                @auth
+                                <!--button type="submit" class="custom-button">Proposer</!--button-->
+                                <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Proposer </h5>
+                                        
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                        
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success">Etes vous sûr?</button>
+                                    </div>
+                                       
+                                        </form>
+                                        
+                                    </div>
+                                    
+                                    </div>
+                                </div>
+                                </div>
+                                @else
+                                <a href="{{route('login')}}" class="custom-button">Se connecter pour Proposer</a>
+                                @endauth
                             </form>
                         </div>
                         <div class="buy-now-area">
@@ -375,7 +402,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="product-sidebar-area">
-                        <div class="product-single-sidebar mb-3">
+                        <div class="product-single-sidebar mb-1">
                             <h6 class="title">Cette enchère se termine par ::</h6>
                             <div class="countdown">
                                 <div id="bid_counter1"></div>
@@ -383,7 +410,7 @@
                             <div class="side-counter-area">
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon1.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon1.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">61</span></h3>
@@ -392,7 +419,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon2.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon2.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">203</span></h3>
@@ -401,7 +428,7 @@
                                 </div>
                                 <div class="side-counter-item">
                                     <div class="thumb">
-                                        <img src="/assets/images/product/icon3.png" alt="product">
+                                        <img src="{{asset('/assets/images/product/icon3.png')}}" alt="product">
                                     </div>
                                     <div class="content">
                                         <h3 class="count-title"><span class="counter">82</span></h3>
@@ -819,6 +846,8 @@
     <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('/assets/js/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 
 </html>
