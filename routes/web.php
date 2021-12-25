@@ -21,6 +21,9 @@ Route::get('/categories/{id}', [App\Http\Controllers\acceuilController::class, '
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('showProduct');
 
 Auth::routes();
+
+
+Route::get('/winningbids', [App\Http\Controllers\DashboardController::class, 'winningbids'])->name('winningbids')->middleware('auth');
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/profile', [App\Http\Controllers\DashboardController::class, 'profile'])->name('profile')->middleware('auth');
 Route::get('/favorits', [App\Http\Controllers\DashboardController::class, 'favorits'])->name('favorits')->middleware('auth');
@@ -30,4 +33,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/auctions',[App\Http\Controllers\AuctionController::class,'index'])->name('auctions')->middleware("auth");
+Route::get('/auctions', [App\Http\Controllers\AuctionController::class, 'index'])->name('auctions')->middleware("auth");

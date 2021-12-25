@@ -294,26 +294,21 @@
                             </div>
                         </div>
                         <ul class="dashboard-menu">
-                            <li>
-                                <a href="#0" class="active"><i class="flaticon-dashboard"></i>Dashboard</a>
+                             <li>
+                                <a href="{{route('dashboard')}}" class="active"><i class="flaticon-dashboard"></i>Dashboard</a>
                             </li>
                             <li>
-                                <a href="profile.html"><i class="flaticon-settings"></i>Personal Profile </a>
+                                <a href="{{route('profile')}}" ><i class="flaticon-settings"></i>Profile</a>
                             </li>
                             <li>
-                                <a href="my-bid.html"><i class="flaticon-auction"></i>My Bids</a>
+                                <a href="{{route('auctions')}}"><i class="flaticon-auction"></i>Mes Enchères</a>
                             </li>
                             <li>
-                                <a href="winning-bids.html"><i class="flaticon-best-seller"></i>Winning Bids</a>
+                                <a href="{{route('winningbids')}}" ><i class="flaticon-best-seller"></i>Enchères gagnantes</a>
                             </li>
+                           
                             <li>
-                                <a href="notifications.html"><i class="flaticon-alarm"></i>My Alerts</a>
-                            </li>
-                            <li>
-                                <a href="my-favorites.html"><i class="flaticon-star"></i>My Favorites</a>
-                            </li>
-                            <li>
-                                <a href="referral.html"><i class="flaticon-shake-hand"></i>Referrals</a>
+                                <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
                         </ul>
                     </div>

@@ -13,4 +13,10 @@ class Win extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+    public function encheres()
+    {
+        return $this->belongsTo(Enchere::class);
+    }
 }
