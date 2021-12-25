@@ -58,7 +58,7 @@
                         @auth
                             <li >
                                 <span  style="color: #f0f2f5">Welcome, {{Auth::user()->nom }}</span>
-                                <a href="#" class="cart-button user-button"><i class="flaticon-user"></i></a>
+                                <a href="#" class="profile user-button"><i class="flaticon-user"></i></a>
                             </li>  
                         @endauth                
                     </ul>
