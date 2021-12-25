@@ -346,9 +346,9 @@
                                 <div class="col-sm-10 col-md-6">
                                     <div class="auction-item-2">
                                         <div class="auction-thumb">
-                                            <a href="./product-details.html"><img src="./assets/images/auction/car/auction-1.jpg" alt="car"></a>
+                                            <a href="./product-details.html"><img src="./assets/images/{{$enchere->image_path}}" alt="car"></a>
                                             <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                            <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}" class="bid"><i class="flaticon-auction"></i></a>
                                         </div>
                                         <div class="auction-content">
                                             <h6 class="title">

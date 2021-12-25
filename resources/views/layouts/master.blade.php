@@ -54,11 +54,11 @@
                             </select>
                         </li>
                     </ul>
-                    <ul class="cart-button-area">
+                    <ul class="cart-button-area ">
                           
                         @auth
                             <li>
-                                <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
+                                <a style="color: #f0f2f5" href="sign-in.html">Welcome, {{Auth::user()->nom }}</a>
                             </li> 
                         @endauth                
                     </ul>
