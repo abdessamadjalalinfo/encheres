@@ -138,17 +138,13 @@
                                             <a href="./my-bid.html">My Bids</a>
                                         </li>
                                         <li>
-                                            <a href="./winning-bids.html">Winning Bids</a>
+                                            <a href="./winning-bids.html">Enchères gagnantes</a>
                                         </li>
+                                        
                                         <li>
-                                            <a href="./notifications.html">My Alert</a>
+                                            <a href="./my-favorites.html">Favoris</a>
                                         </li>
-                                        <li>
-                                            <a href="./my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="./referral.html">Referrals</a>
-                                        </li>
+                                       
                                     </ul>
                                 </li>
                                 <li>
@@ -262,10 +258,10 @@
                     <a href="./index.html">Home</a>
                 </li>
                 <li>
-                    <a href="#0">My Account</a>
+                    <a href="#0">Pages</a>
                 </li>
                 <li>
-                    <span>Personal profile</span>
+                    <span>Enchères gagnantes</span>
                 </li>
             </ul>
         </div>
@@ -289,116 +285,88 @@
                                 <input type="file" id="profile-pic" class="d-none">
                             </div>
                             <div class="content">
-                                <h5 class="title"><a href="#0">Percy Reed</a></h5>
-                                <span class="username">john@gmail.com</span>
+                                <h5 class="title"><a href="#0">{{$user->nom}} {{$user->prenom}}</a></h5>
+                                <span class="username">{{$user->email}}</span>
                             </div>
                         </div>
                         <ul class="dashboard-menu">
-                             <li>
+                            <li>
                                 <a href="{{route('dashboard')}}"><i class="flaticon-dashboard"></i>Dashboard</a>
                             </li>
                             <li>
-                                <a href="{{route('profile')}}" class="active"><i class="flaticon-settings"></i>Profile</a>
+                                <a href="{{route('profile')}}"><i class="flaticon-settings"></i>Profile</a>
                             </li>
                             <li>
                                 <a href="{{route('auctions')}}"><i class="flaticon-auction"></i>Mes Enchères</a>
                             </li>
                             <li>
-                                <a href="{{route('winningbids')}}" ><i class="flaticon-best-seller"></i>Enchères gagnantes</a>
+                                <a href="{{route('winningbids')}}" class="active"><i class="flaticon-best-seller"></i>Enchères gagnantes</a>
                             </li>
                            
                             <li>
                                 <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                           
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Personal Details</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
-                                </div>
-                                <ul class="dash-pro-body">
-                                    <li>
-                                        <div class="info-name">Nom et prénom</div>
-                                        <div class="info-value">{{$user->nom}} {{$user->prenom}}</div>
-                                    </li>
-                                    
-                                    <li>
-                                        <div class="info-name">Addresse</div>
-                                        <div class="info-value">{{$user->adresse}} {{$user->ville}} {{$user->pays}}</div>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div class="dash-bid-item dashboard-widget mb-40-60">
+                        <div class="header">
+                            <h4 class="title">Enchères gagnantes</h4>
                         </div>
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Account Settings</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
-                                </div>
-                                <ul class="dash-pro-body">
-                                    <li>
-                                        <div class="info-name">Language</div>
-                                        <div class="info-value">English (United States)</div>
-                                    </li>
-                                    <li>
-                                        <div class="info-name">Time Zone</div>
-                                        <div class="info-value">(GMT-06:00) Central America</div>
-                                    </li>
-                                    <li>
-                                        <div class="info-name">Status</div>
-                                        <div class="info-value"><i class="flaticon-check text-success"></i> Active</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Email </h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
-                                </div>
-                                <ul class="dash-pro-body">
-                                    <li>
-                                        <div class="info-name">Email</div>
-                                        <div class="info-value">{{$user->email}}</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="dash-pro-item mb-30 dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Phone</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
-                                </div>
-                                <ul class="dash-pro-body">
-                                    <li>
-                                        <div class="info-name">Mobile</div>
-                                        <div class="info-value">0636187128</div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="dash-pro-item dashboard-widget">
-                                <div class="header">
-                                    <h4 class="title">Security</h4>
-                                    <span class="edit"><i class="flaticon-edit"></i> Edit</span>
-                                </div>
-                                <ul class="dash-pro-body">
-                                    <li>
-                                        <div class="info-name">Password</div>
-                                        <div class="info-value">xxxxxxxxxxxxxxxx</div>
-                                    </li>
-                                </ul>
+                        <div class="button-area justify-content-between">
+                            <form class="product-search">
+                                <input type="text" placeholder="Item Name">
+                                <button type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                            <div class="sort-winning-bid">
+                                <div class="item">Sort By : </div>
+                                <select name="sort-by" class="select-bar">
+                                    <option value="all">All</option>
+                                    <option value="name">Name</option>
+                                    <option value="date">Date</option>
+                                    <option value="type">Type</option>
+                                    <option value="car">Car</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+
+                    @foreach ($user->wins()->get('enchere_id') as $EnchereId)
+                    @php  $product=App\Models\Product::find(App\Models\Enchere::find($EnchereId->enchere_id)->produit_id); @endphp
+                    <div class="row mb-30-none justify-content">
+                        <div class="col-sm-10 col-md-6">
+                            <div class="auction-item-2">
+                                <div class="auction-thumb">
+                                    <a href="./product-details.html"><img src="{{asset($product->images()->first()->path_logo)}}" alt="car"></a>
+                                    <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                    <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                </div>
+                                <div class="auction-content">
+                                    <h6 class="title">
+                                        <a href="{{route('showProduct',$product->id)}}">{{$product->titre}}</a>
+                                    </h6>
+                                    <div class="bid-area">
+                                        <div class="bid-amount">
+                                            <div class="icon">
+                                                <i class="flaticon-auction"></i>
+                                            </div>
+                                            <div class="amount-content">
+                                                <div class="current">Dernier Prix</div>
+                                                <div class="amount">$876.00</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -43,6 +43,7 @@
         <div class="browse-slider-section " style="top: 166px; margin-bottom: 88px;">
             <div class="container">
                 <div class="row">
+                    
                   
 
                               <img  class="col" style="margin-bottom: 24px;" src="https://www.auksjonen.no/api/banner/Topp%20rd%20desktop%20-%20selge%20bil%20-%2008122020.jpg" alt="">
@@ -57,7 +58,7 @@
                         <h6 style="color:black" class="title pl-0 w-100">Nos Catégories</h6>
                     </div>
                     <div class="slider-nav">
-                        <a href="#0" class="bro-prev"><i class="flaticon-left-arrow"></i></a>
+                        <a href="#0" class="bro-prev active"><i class="flaticon-left-arrow"></i></a>
                         <a href="#0" class="bro-next active"><i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
