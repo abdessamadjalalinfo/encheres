@@ -21,6 +21,14 @@
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
 </head>
 
+  <style>
+      .img-h {
+    float: left;
+    
+    height: 500px;
+    object-fit: cover;
+}
+</style> 
 <body>
     <!--============= ScrollToTop Section Starts Here =============-->
     <div class="overlayer" id="overlayer">
@@ -185,72 +193,7 @@
     <!--============= Header Section Ends Here =============-->
 
     <!--============= Cart Section Starts Here =============-->
-    <div class="cart-sidebar-area">
-        <div class="top-content">
-            <a href="index.html" class="logo">
-                <img src="/assets/images/logo/logo2.png" alt="logo">
-            </a>
-            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-        </div>
-        <div class="bottom-content">
-            <div class="cart-products">
-                <h4 class="title">Shopping cart</h4>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="{{asset('assets/images/shop/shop01.jpg')}}" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="{{asset('assets/images/shop/shop02.jpg')}}" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Water Pot</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="{{asset('assets/images/shop/shop03.jpg')}}" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Art Paper</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="{{asset('assets/images/shop/shop04.jpg')}}" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="{{asset('assets/images/shop/shop05.jpg')}}" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Comics Book</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="btn-wrapper text-center">
-                    <a href="#0" class="custom-button"><span>Checkout</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
+  
     <!--============= Cart Section Ends Here =============-->
 
 
@@ -284,7 +227,7 @@
 
                     <div class="slide-top-item card h-70">
                         <div class="slide-inner">
-                            <img src="{{asset($image->path_logo)}}" alt="product">
+                            <img class="img-h" src="{{asset($image->path_logo)}}" alt="product">
                         </div>
                     </div>
                     @endforeach
@@ -333,20 +276,20 @@
                         <ul class="price-table mb-10">
                             <li class="header">
                                 <h5 class="current">Prix Courant</h5>
-                                <h3 class="price">700.00 MAD</h3>
+                                <h3 class="price">{{$min ?? $product->premier_prix}}MAD</h3>
                             </li>
                            
                             <li>
                                 <span class="details">Prix de départ</span>
-                                <h5 class="info">50.00 MAD</h5>
+                                <h5 class="info">{{$product->premier_prix }}MAD</h5>
                             </li>
                         </ul>
                         <div class="product-bid-area">
-                            <form class="product-bid-form">
+                            <form action="{{route('proposer',$product->id)}}" class="product-bid-form">
                                 <div class="search-icon">
                                     <img src="/assets/images/product/search-icon.png" alt="product">
                                 </div>
-                                <input type="text" placeholder="votre proposition">
+                                <input min="{{$min ?? $product->premier_prix}}" value="{{$min}}" type="number" placeholder="votre proposition">
                                 @auth
                                 <!--button type="submit" class="custom-button">Proposer</!--button-->
                                 <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
@@ -358,14 +301,14 @@
                                         
                                     </div>
                                     <div class="modal-body">
-                                        <form>
-                                        
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success">Etes vous sûr?</button>
-                                    </div>
+                                   
+                                          <input min="{{$min}}" value="{{$min ?? $product->premier_prix}}" name="proposition" type="number" placeholder="votre proposition">
+                                         <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Etes vous sûr?</button>
+                                         </div>
                                        
-                                        </form>
+                                    
                                         
                                     </div>
                                     
@@ -378,8 +321,16 @@
                             </form>
                         </div>
                         <div class="buy-now-area">
-                           
-                            <a href="#0" class="rating custom-button active border"><i class="fas fa-star"></i> Ajouter au Favoris</a>
+                            
+                            <a href="{{route('add_to_favoris',$product->id)}}" class="rating custom-button active border"><i class="fas fa-star"></i> 
+                               
+                                @if($exist ==0)
+                                Ajouter au Favoris
+                            @else 
+                        Dans votre Favoris
+                            @endif
+
+                            </a>
                             <div class="share-area">
                                 <span>Share to:</span>
                                 <ul>
@@ -408,21 +359,13 @@
                                 <div id="bid_counter1"></div>
                             </div>
                             <div class="side-counter-area">
-                                <div class="side-counter-item">
-                                    <div class="thumb">
-                                        <img src="{{asset('/assets/images/product/icon1.png')}}" alt="product">
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="count-title"><span class="counter">61</span></h3>
-                                        <p>Active</p>
-                                    </div>
-                                </div>
+                                
                                 <div class="side-counter-item">
                                     <div class="thumb">
                                         <img src="{{asset('/assets/images/product/icon2.png')}}" alt="product">
                                     </div>
                                     <div class="content">
-                                        <h3 class="count-title"><span class="counter">203</span></h3>
+                                        <h3 class="count-title"><span class="counter">{{$product->nb_vue}}</span></h3>
                                         <p>Nombre de Vue</p>
                                     </div>
                                 </div>
@@ -431,7 +374,7 @@
                                         <img src="{{asset('/assets/images/product/icon3.png')}}" alt="product">
                                     </div>
                                     <div class="content">
-                                        <h3 class="count-title"><span class="counter">82</span></h3>
+                                        <h3 class="count-title"><span class="counter">{{$nb_encheres}}</span></h3>
                                         <p>Totale d'enchères</p>
                                     </div>
                                 </div>
@@ -832,7 +775,7 @@
 
 
 
-    <script src="{{asset('/assets/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('/assets/js/jquery-3.3.1.min.js')}}"></sx>
     <script src="{{asset('/assets/js/modernizr-3.6.0.min.js')}}"></script>
     <script src="{{asset('/assets/js/plugins.js')}}"></script>
     <script src="{{asset('/assets/js/bootstrap.min.js')}}"></script>
@@ -849,5 +792,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
+
+
 
 </html>

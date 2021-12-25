@@ -20,6 +20,10 @@ Route::get('/categories/{id}', [App\Http\Controllers\acceuilController::class, '
 
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('showProduct');
 
+Route::get('/add_to_favoris/{id}', [App\Http\Controllers\ProductController::class, 'add_to_favoris'])->name('add_to_favoris')->middleware('auth');
+
+Route::get('/proposer/{id}', [App\Http\Controllers\ProductController::class, 'proposer'])->name('proposer')->middleware('auth');
+
 Auth::routes();
 
 
@@ -27,6 +31,7 @@ Route::get('/winningbids', [App\Http\Controllers\DashboardController::class, 'wi
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::get('/profile', [App\Http\Controllers\DashboardController::class, 'profile'])->name('profile')->middleware('auth');
 Route::get('/favorits', [App\Http\Controllers\DashboardController::class, 'favorits'])->name('favorits')->middleware('auth');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

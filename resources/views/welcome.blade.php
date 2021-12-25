@@ -1,7 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-    
+  <style>
+      .img-h {
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+</style>  
 
 
 
@@ -94,10 +101,10 @@
                     <a href="{{route('showProductCategories',['id'=>$categories[0]->id])}}" class="normal-button"> Voir plus</a>
                 </div>
                 
-                <div class="row justify-content mb-20-none">
+                <div class="row justify-content mb-55-none">
                     @foreach($categories[0]->products as $product)
                     <div class="col-sm-10 col-md-3 col-lg-3">
-                        <div class="auction-item-2 card h-50">
+                        <div class="auction-item-2 card h-80">
                             
                            
                             <div class="auction-thumb">
@@ -116,7 +123,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div class="current">prix courant</div>
-                                            <div class="amount" style="font-size: 10px;">$876.00</div>
+                                            <div class="amount" style="font-size: 10px;">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}</div>
                                         </div>
                                     </div>
                                     <div class="bid-amount">
@@ -167,11 +174,11 @@
                 <a href="{{route('showProductCategories',['id'=>$categories[4]->id])}}" class="normal-button">Voir plus</a>
             </div>
             <div class="row justify-content mb-30-none">
-                <div class="col-sm-10 col-md-3 col-lg-3">
+                <div class="col-sm-10 col-md-3 col-lg-3 ">
                     @foreach($categories[4]->products as $product)
-                    <div class="auction-item-2">
+                    <div class="auction-item-2 card h-80">
                         <div class="auction-thumb">
-                            <a href="{{route('showProduct',$product->id)}}"><img src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
+                            <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
                             <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
                             <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
