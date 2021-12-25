@@ -31,10 +31,21 @@
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
     <div class="overlay"></div>
     <!--============= ScrollToTop Section Ends Here =============-->
-
+<style>
+    .header-bottom.active {
+    background: #9b9b9b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+</style>
 
     <!--============= Header Section Starts Here =============-->
-    <header style='background:#693ff5'>
+    <header style='background:#9b9b9b'>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -70,7 +81,7 @@
                 <div class="header-wrapper">
                     <div class="logo">
                         <a href="/">
-                            <img src="./assets/images/logo/logo.png" alt="logo">
+                            <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
