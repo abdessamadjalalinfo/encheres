@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Sbidu - Bid And Auction HTML Template</title>
+    <title>Auction</title>
 
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.min.css">
@@ -32,6 +32,22 @@
     <div class="overlay"></div>
     <!--============= ScrollToTop Section Ends Here =============-->
 <style>
+    .custom-button {
+    color: #ffffff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px 30px 10px;
+    font-size: 18px;
+    background: -moz-linear-gradient(90deg, #ee4730 0%, #cf031c  100%);
+    background: -ms-linear-gradient(90deg, #cf031c  0%,#cf031c 100%);
+    background: -webkit-linear-gradient(
+90deg, #ee4730 0%, #cf031c 100%);
+    box-shadow: -1.04px 4.891px 20px 0px rgb(69 49 183 / 50%);
+    font-family: "Roboto", sans-serif;
+}
     .header-bottom.active {
     background: #9b9b9b;
     position: fixed;
@@ -86,100 +102,21 @@
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="./index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="./index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="./index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="./index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="./index-5.html">Home Page Five</a>
-                                </li>
-                            </ul>
+                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            
                         </li>
                         <li>
-                            <a href="./product.html">Auction</a>
+                            
+                            <a href=""><i class="fas fa-shopping-cart"></i>Sell</a>
                         </li>
+                        
                         <li>
-                            <a href="#0">Pages</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#0">Product</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./product.html">Product Page 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-2.html">Product Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-details.html">Product Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">My Account</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./sign-up.html">Sign Up</a>
-                                        </li>
-                                        <li>
-                                            <a href="./sign-in.html">Sign In</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Dashboard</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="./profile.html">Personal Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-bid.html">My Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./winning-bids.html">Winning Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./notifications.html">My Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="./referral.html">Referrals</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="./about.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="./faqs.html">Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="./error.html">404 Error</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="./contact.html">Contact</a>
+                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
                             
                            @guest
-                           <a href="#0">Authentication</a>
+                           <a href="#0"><i class="fas fa-sign-in-alt"></i>Login/Register</a>
                                 <ul class="submenu">
                                     <li>
                                         <a href="/login">Sign In</a>
@@ -192,11 +129,9 @@
                                 <a href="#0">Profile</a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="./index.html">Settings</a>
+                                        <a href="{{route('dashboard')}}">Dashboard</a>
                                     </li>
-                                    <li>
-                                        <a href="./index.html">Dashboard</a>
-                                    </li>
+                                    
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -214,7 +149,7 @@
                         </li>
                     </ul>
                     <form class="search-form">
-                        <input type="text" placeholder="Search for brand, model....">
+                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <div class="search-bar d-md-none">
@@ -305,7 +240,7 @@
 
     
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
+    <footer style="background-color: #9b9b9b" class=" padding-top oh" >
         <div class="footer-top-shape">
             <img src="./assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -355,30 +290,13 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">Auction Categories</h5>
                             <ul class="links-list">
+                                @php $categories=App\Models\Categorie::all(); @endphp
+                                @foreach($categories as $categorie)
                                 <li>
-                                    <a href="#0">Ending Now</a>
+                                    <a href="#0">{{$categorie->nom}}</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Vehicles</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Watches</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Electronics</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Real Estate</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jewelry</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Sports & Outdoor</a>
-                                </li>
+                                @endforeach
+                               
                             </ul>
                         </div>
                     </div>
@@ -473,23 +391,10 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img src="./assets/images/logo/footer-logo.png" alt="logo"></a>
+                            <a href="index.html"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
                         </div>
-                        <ul class="gateway-area">
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/paypal.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/visa.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/discover.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/mastercard.png" alt="footer"></a>
-                            </li>
-                        </ul>
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                        
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Auction</a></p></div>
                     </div>
                 </div>
             </div>

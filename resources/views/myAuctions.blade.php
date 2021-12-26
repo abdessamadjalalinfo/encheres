@@ -3,6 +3,22 @@
 
   @extends('layouts.master')
     @section('content')
+    <style>
+      .img-h {
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+.slider-nav a.active, .slider-nav a:hover {
+    color: #ffffff;
+    background: -moz-linear-gradient(45deg, #000000 0%, #c5c5c5 100%);
+    background: -webkit-linear-gradient(
+45deg, #000000 0%, #ffffff 100%);
+    background: -ms-linear-gradient(45deg,#000000 0%, #949494 100%);
+    box-shadow: 0.731px 5.955px 13px 0px rgb(40 58 140 / 25%);
+}
+</style>  
 
     <div class="hero-section style-2">
         <div class="container">
@@ -59,6 +75,9 @@
                             <li>
                                 <a href="{{route('favorits')}}" ><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                               <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -88,7 +107,7 @@
                                 <div class="col-sm-10 col-md-6">
                                     <div class="auction-item-2">
                                         <div class="auction-thumb">
-                                            <a href="./product-details.html"><img src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                                            <a href="./product-details.html"><img  class="img-h"src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
                                             <a href="#0" class="rating"><i class="far fa-star"></i></a>
                                             <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}" class="bid"><i class="flaticon-auction"></i></a>
                                         </div>
@@ -116,14 +135,33 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                                 <?php
+               
+
+                        
+                        $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
+                        if ($dernier_enchere) {
+                            $date_expires ="Expire le :".(Carbon\Carbon::parse($dernier_enchere->created_at)->addHours($product->duree));
+                         } else {
+                          $date_expires = "aucun enchère";
+                         }
+                         $min = \App\Models\Enchere::all()->where('produit_id', $product->id)->max('price');
+                         
+                         
+                        ?>
                                             <div class="countdown-area">
                                                 <div class="countdown">
-                                                    <div id="bid_counter26"></div>
+                                                    {{ $date_expires}}
                                                 </div>
                                                 <span class="total-bids">{{$enchere->allBidsCount}} Bids</span>
                                             </div>
+                                       
                                             <div class="text-center">
-                                                <a href="#0" class="custom-button">Submit a bid</a>
+                                                @if($product->etat=="expiré")
+                                                 <a href="{{route('showProduct',$product->id)}}" class="btn btn-danger">Expiré</a>
+                                                 @else
+                                                <a href="{{route('showProduct',$product->id)}}" class="custom-button">Submit a bid</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

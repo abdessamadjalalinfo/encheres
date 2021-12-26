@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        .mt--165 {
+    margin-top: -165px;
+}
+    </style>
 
 <head>
     <meta charset="UTF-8">
@@ -276,60 +281,14 @@
 
 
     <!--============= Featured Auction Section Starts Here =============-->
-    <section class="featured-auction-section padding-bottom mt--240 mt-lg--440 pos-rel">
+    <section class="featured-auction-section padding-bottom mt--165  pos-rel">
         <div class="container">
             <div class="section-header cl-white mw-100 left-style">
                 <h3 class="title">{{$categorie->nom}}</h3>
                 <p>Dernière Annonce</p>
             </div>
             @if($categorie->products->count()!=0)
-         <div class="row justify-content-center mb-30-none">
-                <div class="col-sm-10 col-md-6 col-lg-4">
-                    <div class="auction-item-2">
-                        <div class="auction-thumb">
-                            <a href="./product-details.html"><img src="{{asset($categorie->products->last()->images()->first()->path_logo)}}" alt="car"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                        </div>
-                        <div class="auction-content">
-                            <h6 class="title">
-                                <a href="#0">{{$categorie->products->last()->titre}}</a>
-                            </h6>
-                            <div class="bid-area">
-                                <div class="bid-amount">
-                                    <div class="icon">
-                                        <i class="flaticon-auction"></i>
-                                    </div>
-                                    <div class="amount-content">
-                                        <div class="current">Prix courant</div>
-                                        <div class="amount">876.00 MAD</div>
-                                    </div>
-                                </div>
-                                <div class="bid-amount">
-                                    <div class="icon">
-                                        <i class="flaticon-money"></i>
-                                    </div>
-                                    <div class="amount-content">
-                                        <div class="current">Premier Prix</div>
-                                        <div class="amount">{{$categorie->products->last()->premier_prix}}MAD</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="countdown-area">
-                                <div class="countdown">
-                                    <div id="bid_counter26"></div>
-                                </div>
-                                <span class="total-bids">30 Bids</span>
-                            </div>
-                            <div class="text-center">
-                                <a href="{{route('showProduct',['id'=>$categorie->products->last()->id])}}" class="custom-button">Proposer</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+         
         @endif
     </section>
     <!--============= Featured Auction Section Ends Here =============-->
@@ -366,12 +325,21 @@
                     <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
-            <div class="row mb-30-none justify-content-center">
+            <div class="row mb-30-none justify-content">
                 @foreach($products as $product)
+                 <?php
+                        $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
+                        if ($dernier_enchere) {
+                            $date_expires ="Expire le :".(Carbon\Carbon::parse($dernier_enchere->created_at)->addHours($product->duree));
+                         } else {
+                          $date_expires = "aucun enchère";
+                         }
+                         $min = \App\Models\Enchere::all()->where('produit_id', $product->id)->max('price');
+                        ?>
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo)}}" alt="product"></a>
+                            <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
                             <a href="#0" class="rating"><i class="far fa-star"></i></a>
                             <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
@@ -401,12 +369,16 @@
                             </div>
                             <div class="countdown-area">
                                 <div class="countdown">
-                                    <div id="bid_counter1"></div>
+                                    {{$date_expires}}
                                 </div>
-                                <span class="total-bids">30 Bids</span>
+                               
                             </div>
                             <div class="text-center">
-                                <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button">Proposer</a>
+                                @if($product->etat=="expiré")
+                                <a href="{{route('showProduct',['id'=>$product->id])}}" class="btn btn-danger">Expiré</a>
+                                @else 
+                                 <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button btn-success">Proposer</a>
+                                @endif
                             </div>
                         </div>
                     </div>

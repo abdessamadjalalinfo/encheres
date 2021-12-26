@@ -33,7 +33,9 @@
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
     <div class="overlay"></div>
     <!--============= ScrollToTop Section Ends Here =============-->
-<style>
+
+
+   <style>
     .header-bottom.active {
     background: #9b9b9b;
     position: fixed;
@@ -263,7 +265,7 @@
                         </div>
                         <ul class="dashboard-menu">
                              <li>
-                                <a href="{{route('dashboard')}}" class="active"><i class="flaticon-dashboard"></i>Dashboard</a>
+                                <a href="{{route('dashboard')}}" ><i class="flaticon-dashboard"></i>Dashboard</a>
                             </li>
                             <li>
                                 <a href="{{route('profile')}}" ><i class="flaticon-settings"></i>Profile</a>
@@ -278,11 +280,8 @@
                             <li>
                                 <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
-                            <li>
-                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
-                            </li>
-                            <li>
-                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Mes Annonces</a>
+                               <li>
+                                <a href="{{route('addProduct')}}" class="active"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
                             </li>
                         </ul>
                     </div>
@@ -290,42 +289,75 @@
                 <div class="col-lg-8">
                     <div class="dashboard-widget mb-40">
                         <div class="dashboard-title mb-30">
-                            <h5 class="title">My Activity</h5>
+                            <h5 class="title">Ajouter Une Annonce</h5>
                         </div>
-                        <div class="row justify-content-center mb-30-none">
-                            <div class="col-md-4 col-sm-6">
-                                <div class="dashboard-item">
-                                    <div class="thumb">
-                                        <img src="./assets/images/dashboard/01.png" alt="dashboard">
-                                    </div>
-                                    <div class="content">
-                                        <h2 class="title"><span class="counter">{{$user->encheres()->count()}}</span></h2>
-                                        <h6 class="info">Enchères actives</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="dashboard-item">
-                                    <div class="thumb">
-                                        <img src="./assets/images/dashboard/02.png" alt="dashboard">
-                                    </div>
-                                    <div class="content">
-                                        <h2 class="title"><span class="counter">{{$user->wins()->count()}}</span></h2>
-                                        <h6 class="info">Objets gagnés</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <div class="dashboard-item">
-                                    <div class="thumb">
-                                        <img src="./assets/images/dashboard/03.png" alt="dashboard">
-                                    </div>
-                                    <div class="content">
-                                        <h2 class="title"><span class="counter">{{$user->favorits()->count()}}</span></h2>
-                                        <h6 class="info">Favorites</h6>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="row  mb-30-none">
+<form method="post" action="{{route('ajouterannonce')}}" enctype="multipart/form-data">
+    {{csrf_field()}}    
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">Titre</label>
+      <input name="titre"  class="form-control" id="inputEmail4" placeholder="Titre">
+    </div>
+    <div class="form-group col-md-6">
+      
+      <label for="inputState">Catégorie</label>
+      <select  name="categorie_id" id="inputState" class="form-control">
+        @foreach($categories as $categorie)
+        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
+        @endforeach
+      </select>
+    </div>
+    
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-12">
+      <label for="inputState">Description</label>
+      <textarea name="description"  id="mytextarea">
+        
+    </textarea>
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-12">
+      <label for="inputState">Premier Prix</label>
+      <input name="premier_prix" type="number" class="form-control" id="inputEmail4" placeholder="Premier Prix">
+      
+      </div>
+  </div>
+  <input type="hidden" name="user_id" value="{{$user->id}}">
+  <div class="form-row">
+      <div class="form-group col-md-12">
+      <label for="inputState">Durée après enchère pour gagner ?</label>
+      <select name="duree" id="inputState" class="form-control">
+          <option value="1">1H</option>
+          <option value="2">2H</option>
+          <option value="3">3H</option>
+          <option value="5">5H</option>
+          <option value="10">10H</option>
+          <option value="24">24H</option>
+          <option value="48">48H</option>
+          <option value="72">72H</option>
+      </select>
+
+      
+    </div>
+      
+      
+      
+  </div>
+  <div class="form-row">
+      <label for="inputState">Télécharger les images</label>
+      <input type="file" multiple name="filename[]" class="form-control">
+  </div>
+ 
+    <button type="submit" class="btn btn-success">Publier</button>
+  
+   
+ 
+</form>
+                           
+                            
                         </div>
                     </div>
                     
@@ -337,7 +369,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-       <footer style="background-color: #9b9b9b" class=" padding-top oh" >
+     <footer style="background-color: #9b9b9b" class=" padding-top oh" >
         <div class="footer-top-shape">
             <img src="./assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -515,6 +547,16 @@
     <script src="assets/js/yscountdown.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    
+
+
+    <script src="https://cdn.tiny.cloud/1/14s8h1oufyr5vpgel1gljfws4vhoq1tz41wuiv3wsm4c2ezc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+
+    tinymce.init({
+        selector:'#mytextarea'
+    })
+</script>
 </body>
 
 </html>

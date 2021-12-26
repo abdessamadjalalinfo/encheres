@@ -20,6 +20,34 @@
 
     <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" type="image/x-icon">
 </head>
+<style>
+        .custom-button {
+    color: #ffffff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px 30px 10px;
+    font-size: 18px;
+    background: -moz-linear-gradient(90deg, #ee4730 0%, #cf031c  100%);
+    background: -ms-linear-gradient(90deg, #cf031c  0%,#cf031c 100%);
+    background: -webkit-linear-gradient(
+90deg, #ee4730 0%, #cf031c 100%);
+    box-shadow: -1.04px 4.891px 20px 0px rgb(69 49 183 / 50%);
+    font-family: "Roboto", sans-serif;
+}
+    .header-bottom.active {
+    background: #9b9b9b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+</style> 
 
   <style>
       .img-h {
@@ -42,7 +70,7 @@
 
 
     <!--============= Header Section Starts Here =============-->
-    <header>
+    <header style='background:#9b9b9b'>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -62,13 +90,13 @@
                             </select>
                         </li>
                     </ul>
-                    <ul class="cart-button-area">
-                        <li>
-                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
-                        </li>                        
-                        <li>
-                            <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
-                        </li>                        
+                    <ul class="cart-button-area ">
+                          
+                        @auth
+                            <li>
+                                <a style="color: #f0f2f5" href="sign-in.html">Welcome, {{Auth::user()->nom }}</a>
+                            </li> 
+                        @endauth                
                     </ul>
                 </div>
             </div>
@@ -77,105 +105,60 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="/">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="./index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="./index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="./index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="./index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="./index-5.html">Home Page Five</a>
-                                </li>
-                            </ul>
+                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            
                         </li>
                         <li>
-                            <a href="./product.html">Auction</a>
+                            
+                            <a href=""><i class="fas fa-shopping-cart"></i>Sell</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
-                            <a href="#0">Pages</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#0">Product</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./product.html">Product Page 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-2.html">Product Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-details.html">Product Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">My Account</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./sign-up.html">Sign Up</a>
-                                        </li>
-                                        <li>
-                                            <a href="./sign-in.html">Sign In</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Dashboard</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="./profile.html">Personal Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-bid.html">My Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./winning-bids.html">Winning Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./notifications.html">My Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="./referral.html">Referrals</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="./about.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="./faqs.html">Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="./error.html">404 Error</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="./contact.html">Contact</a>
+                            
+                           @guest
+                           <a href="#0"><i class="fas fa-sign-in-alt"></i>Login/Register</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="/login">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="./register">Sign Up</a>
+                                    </li>
+                                </ul>
+                            @else   
+                                <a href="#0">Profile</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{route('dashboard')}}">Dashboard</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    </li>
+                                </ul>
+                            @endguest 
+                            
                         </li>
                     </ul>
                     <form class="search-form">
-                        <input type="text" placeholder="chercher">
+                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <div class="search-bar d-md-none">
@@ -276,20 +259,24 @@
                         <ul class="price-table mb-10">
                             <li class="header">
                                 <h5 class="current">Prix Courant</h5>
-                                <h3 class="price">{{$min ?? $product->premier_prix}}MAD</h3>
+                                <h3 class="price">{{$min ?? $product->premier_prix}} MAD</h3>
                             </li>
                            
                             <li>
                                 <span class="details">Prix de départ</span>
-                                <h5 class="info">{{$product->premier_prix }}MAD</h5>
+                                <h5 class="info">{{$product->premier_prix }} MAD</h5>
                             </li>
                         </ul>
                         <div class="product-bid-area">
+                            
+                            @if($product->etat=="expiré")
+                            <button type="button" class="btn btn-danger" >Expiré</button>
+                            @else 
                             <form action="{{route('proposer',$product->id)}}" class="product-bid-form">
                                 <div class="search-icon">
                                     <img src="/assets/images/product/search-icon.png" alt="product">
                                 </div>
-                                <input min="{{$min ?? $product->premier_prix}}" value="{{$min}}" type="number" placeholder="votre proposition">
+                                <input min="{{$min ?? $product->premier_prix}}" value="{{$min}}" type="number" placeholder="votre proposition">   
                                 @auth
                                 <!--button type="submit" class="custom-button">Proposer</!--button-->
                                 <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
@@ -302,7 +289,7 @@
                                     </div>
                                     <div class="modal-body">
                                    
-                                          <input min="{{$min}}" value="{{$min ?? $product->premier_prix}}" name="proposition" type="number" placeholder="votre proposition">
+                                          <input min="{{$min ?? $product->premier_prix}}" value="{{$min ?? $product->premier_prix}}" name="proposition" type="number" placeholder="votre proposition">
                                          <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-success">Etes vous sûr?</button>
@@ -318,7 +305,9 @@
                                 @else
                                 <a href="{{route('login')}}" class="custom-button">Se connecter pour Proposer</a>
                                 @endauth
+                            
                             </form>
+                            @endif
                         </div>
                         <div class="buy-now-area">
                             
@@ -354,10 +343,16 @@
                 <div class="col-lg-4">
                     <div class="product-sidebar-area">
                         <div class="product-single-sidebar mb-1">
-                            <h6 class="title">Cette enchère se termine par ::</h6>
+                            <h6 class="title">Cette enchère se termine:</h6>
+                             @if($product->etat=="expiré")
+                             <div class="countdown">
+                                Expiré
+                             </div>
+                             @else
                             <div class="countdown">
-                                <div id="bid_counter1"></div>
+                                {{$date_expiration}}
                             </div>
+                            @endif
                             <div class="side-counter-area">
                                 
                                 <div class="side-counter-item">
@@ -427,7 +422,7 @@
                             <div class="item">
                                 <h5 class="subtitle">Description</h5>
                                 <p>
-                                    {{$product->description}}
+                                    {!!$product->description!!}
                                 </p>
                             </div>
                             
@@ -630,7 +625,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="/assets/images/footer/footer-bg.jpg">
+    <footer style="background-color: #9b9b9b">
         <div class="footer-top-shape">
             <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>

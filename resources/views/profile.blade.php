@@ -56,6 +56,9 @@
                             <li>
                                 <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                               <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

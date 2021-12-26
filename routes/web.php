@@ -24,7 +24,10 @@ Route::get('/add_to_favoris/{id}', [App\Http\Controllers\ProductController::clas
 
 Route::get('/proposer/{id}', [App\Http\Controllers\ProductController::class, 'proposer'])->name('proposer')->middleware('auth');
 
+Route::get('addProduct', [App\Http\Controllers\ProductController::class, 'addProduct'])->name('addProduct')->middleware('auth');
+Route::post('ajouterannonce', [App\Http\Controllers\ProductController::class, 'ajouterannonce'])->name('ajouterannonce')->middleware('auth');
 Auth::routes();
+
 
 
 Route::get('/winningbids', [App\Http\Controllers\DashboardController::class, 'winningbids'])->name('winningbids')->middleware('auth');
@@ -39,3 +42,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/auctions', [App\Http\Controllers\AuctionController::class, 'index'])->name('auctions')->middleware("auth");
+
+
+Route::get('/check', [App\Http\Controllers\ProductController::class, 'check'])->name('check');

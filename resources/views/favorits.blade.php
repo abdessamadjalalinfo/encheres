@@ -60,6 +60,9 @@
                             <li>
                                 <a href="{{route('favorits')}}" class="active"><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                               <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -100,17 +103,30 @@
                       @foreach ($user->favorits()->get() as $favorit) 
             
        
-                         @php $product=App\Models\Product::find($favorit->produit_id) @endphp
+                         <?php
+               
+
+                        $product=App\Models\Product::find($favorit->produit_id);
+                        $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
+                        if ($dernier_enchere) {
+                            $date_expires ="Expire le :".(Carbon\Carbon::parse($dernier_enchere->created_at)->addHours($product->duree));
+                         } else {
+                          $date_expires = "aucun enchère";
+                         }
+                         $min = \App\Models\Enchere::all()->where('produit_id', $product->id)->max('price');
+                         
+                         
+                        ?>
                         <div class="col-sm-10 col-md-5">
                             <div class="auction-item-2">
                                 <div class="auction-thumb">
-                                    <a href="./product-details.html"><img class="img-h" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
-                                    <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                                    <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                    <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                                    <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
+                                    <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                                 </div>
                                 <div class="auction-content">
                                     <h6 class="title">
-                                        <a href="#0"> {{$product->titre}}</a>
+                                        <a href="{{route('showProduct',$product->id)}}"> {{$product->titre}}</a>
                                     </h6>
                                     <div class="bid-area">
                                         <div class="bid-amount">
@@ -118,8 +134,8 @@
                                                 <i class="flaticon-auction"></i>
                                             </div>
                                             <div class="amount-content">
-                                                <div class="current">Current Bid</div>
-                                                <div class="amount">$876.00</div>
+                                                <div class="current">Dernier Prix</div>
+                                                <div class="amount">{{$min ?? $product->premier_prix}} MAD</div>
                                             </div>
                                         </div>
                                         <div class="bid-amount">
@@ -134,12 +150,16 @@
                                     </div>
                                     <div class="countdown-area">
                                         <div class="countdown">
-                                            <div id="bid_counter26"></div>
+                                            {{$date_expires}}
                                         </div>
-                                        <span class="total-bids">30 Bids</span>
+                                        
                                     </div>
                                     <div class="text-center">
-                                        <a href="#0" class="custom-button">Proposer</a>
+                                        @if($product->etat=="expiré")
+                                        <a href="{{route('showProduct',$product->id)}}" class="btn btn-danger">Expiré</a>
+                                        @else
+                                        <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

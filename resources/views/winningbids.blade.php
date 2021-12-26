@@ -55,6 +55,9 @@
                             <li>
                                 <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                               <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                            </li>
                            
                         </ul>
                     </div>
@@ -88,7 +91,7 @@
                         <div class="col-sm-10 col-md-6">
                             <div class="auction-item-2">
                                 <div class="auction-thumb">
-                                    <a href="./product-details.html"><img src="{{asset($product->images()->first()->path_logo)}}" alt="car"></a>
+                                    <a href="./product-details.html"><img src="{{asset($product->images()->first()->path_logo ?? "")}}" alt="car"></a>
                                     <a href="#0" class="rating"><i class="far fa-star"></i></a>
                                     <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
                                 </div>
