@@ -218,7 +218,7 @@
             </div>
         </div>
     </header>
-
+@auth
   <!--============= Cart Section Starts Here =============-->
   <div class="cart-sidebar-area">
     <div class="top-content">
@@ -244,6 +244,7 @@
     </div>
 </div>
 <!--============= Cart Section Ends Here =============-->
+@endauth 
 
 @yield('content')
 
