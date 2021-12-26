@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Sbidu - Bid And Auction HTML Template</title>
+    <title>Dashboard</title>
 
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <link rel="stylesheet" href="./assets/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/animate.css">
     <link rel="stylesheet" href="./assets/css/nice-select.css">
@@ -31,10 +33,21 @@
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
     <div class="overlay"></div>
     <!--============= ScrollToTop Section Ends Here =============-->
-
+<style>
+    .header-bottom.active {
+    background: #9b9b9b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+</style>
 
     <!--============= Header Section Starts Here =============-->
-    <header>
+     <header style='background:#9b9b9b'>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -54,13 +67,13 @@
                             </select>
                         </li>
                     </ul>
-                    <ul class="cart-button-area">
-                        <li>
-                            <a href="#0" class="cart-button"><i class="flaticon-shopping-basket"></i><span class="amount">08</span></a>
-                        </li>                        
-                        <li>
-                            <a href="sign-in.html" class="user-button"><i class="flaticon-user"></i></a>
-                        </li>                        
+                    <ul class="cart-button-area ">
+                          
+                        @auth
+                            <li>
+                                <a style="color: #f0f2f5" href="sign-in.html">Welcome, {{Auth::user()->nom }}</a>
+                            </li> 
+                        @endauth                
                     </ul>
                 </div>
             </div>
@@ -69,105 +82,60 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="./index.html">
-                            <img src="./assets/images/logo/logo.png" alt="logo">
+                        <a href="/">
+                            <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href="#0">Home</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="./index.html">Home Page One</a>
-                                </li>
-                                <li>
-                                    <a href="./index-2.html">Home Page Two</a>
-                                </li>
-                                <li>
-                                    <a href="./index-3.html">Home Page Three</a>
-                                </li>
-                                <li>
-                                    <a href="./index-4.html">Home Page Four</a>
-                                </li>
-                                <li>
-                                    <a href="./index-5.html">Home Page Five</a>
-                                </li>
-                            </ul>
+                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            
                         </li>
                         <li>
-                            <a href="./product.html">Auction</a>
+                            
+                            <a href=""><i class="fas fa-shopping-cart"></i>Sell</a>
+                        </li>
+                        
+                        <li>
+                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
-                            <a href="#0">Pages</a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="#0">Product</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./product.html">Product Page 1</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-2.html">Product Page 2</a>
-                                        </li>
-                                        <li>
-                                            <a href="./product-details.html">Product Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">My Account</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./sign-up.html">Sign Up</a>
-                                        </li>
-                                        <li>
-                                            <a href="./sign-in.html">Sign In</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Dashboard</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="./dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="./profile.html">Personal Profile</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-bid.html">My Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./winning-bids.html">Winning Bids</a>
-                                        </li>
-                                        <li>
-                                            <a href="./notifications.html">My Alert</a>
-                                        </li>
-                                        <li>
-                                            <a href="./my-favorites.html">My Favorites</a>
-                                        </li>
-                                        <li>
-                                            <a href="./referral.html">Referrals</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="./about.html">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="./faqs.html">Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="./error.html">404 Error</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="./contact.html">Contact</a>
+                            
+                           @guest
+                           <a href="#0"><i class="fas fa-sign-in-alt"></i>Login/Register</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="/login">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="./register">Sign Up</a>
+                                    </li>
+                                </ul>
+                            @else   
+                                <a href="#0">Profile</a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{route('dashboard')}}">Dashboard</a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    </li>
+                                </ul>
+                            @endguest 
+                            
                         </li>
                     </ul>
                     <form class="search-form">
-                        <input type="text" placeholder="Search for brand, model....">
+                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <div class="search-bar d-md-none">
@@ -310,6 +278,12 @@
                             <li>
                                 <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
                             </li>
+                            <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                            </li>
+                            <li>
+                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Mes Annonces</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -354,231 +328,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="dashboard-widget">
-                        <h5 class="title mb-10">Purchasing</h5>
-                        <div class="dashboard-purchasing-tabs">
-                            <ul class="nav-tabs nav">
-                                <li>
-                                    <a href="#current" class="active" data-toggle="tab">Current</a>
-                                </li>
-                                <li>
-                                    <a href="#pending" data-toggle="tab">Pending</a>
-                                </li>
-                                <li>
-                                    <a href="#history" data-toggle="tab">History</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane show active fade" id="current">
-                                    <table class="purchasing-table">
-                                        <thead>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane show fade" id="pending">
-                                    <table class="purchasing-table">
-                                        <thead>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="tab-pane show fade" id="history">
-                                    <table class="purchasing-table">
-                                        <thead>
-                                            <th>Item</th>
-                                            <th>Bid Price</th>
-                                            <th>Highest Bid</th>
-                                            <th>Lowest Bid</th>
-                                            <th>Expires</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td data-purchase="item">2018 Hyundai Sonata</td>
-                                                <td data-purchase="bid price">$1,775.00</td>
-                                                <td data-purchase="highest bid">$1,775.00</td>
-                                                <td data-purchase="lowest bid">$1,400.00</td>
-                                                <td data-purchase="expires">7/2/2021</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -587,7 +337,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="./assets/images/footer/footer-bg.jpg">
+       <footer style="background-color: #9b9b9b" class=" padding-top oh" >
         <div class="footer-top-shape">
             <img src="./assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -637,30 +387,13 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">Auction Categories</h5>
                             <ul class="links-list">
+                                @php $categories=App\Models\Categorie::all(); @endphp
+                                @foreach($categories as $categorie)
                                 <li>
-                                    <a href="#0">Ending Now</a>
+                                    <a href="#0">{{$categorie->nom}}</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Vehicles</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Watches</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Electronics</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Real Estate</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jewelry</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Sports & Outdoor</a>
-                                </li>
+                                @endforeach
+                               
                             </ul>
                         </div>
                     </div>
@@ -755,23 +488,10 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img src="./assets/images/logo/footer-logo.png" alt="logo"></a>
+                            <a href="index.html"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
                         </div>
-                        <ul class="gateway-area">
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/paypal.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/visa.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/discover.png" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="./assets/images/footer/mastercard.png" alt="footer"></a>
-                            </li>
-                        </ul>
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                        
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Auction</a></p></div>
                     </div>
                 </div>
             </div>

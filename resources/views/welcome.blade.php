@@ -1,7 +1,24 @@
 @extends('layouts.master')
 
 @section('content')
-    
+  <style>
+      .img-h {
+    float: left;
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+.slider-nav a.active, .slider-nav a:hover {
+    color: #ffffff;
+    background: -moz-linear-gradient(45deg, #000000 0%, #c5c5c5 100%);
+    background: -webkit-linear-gradient(
+45deg, #000000 0%, #ffffff 100%);
+    background: -ms-linear-gradient(45deg,#000000 0%, #949494 100%);
+    box-shadow: 0.731px 5.955px 13px 0px rgb(40 58 140 / 25%);
+}
+</style> 
+
+
 
 
 
@@ -87,17 +104,17 @@
                             <img src="{{asset('/assets/images/header-icons/car-1.png')}}" alt="header-icons">
                         </div>
                         <div class="title-area">
-                            <h2 class="title">{{$categories[0]->nom}}</h2>
+                            <h2 class="title">{{$categories[0]->nom}}({{$categories[0]->products()->where('etat','normal')->count()}})</h2>
                             <p>Nous offrons des véhicules abordables</p>
                         </div>
                     </div>
                     <a href="{{route('showProductCategories',['id'=>$categories[0]->id])}}" class="normal-button"> Voir plus</a>
                 </div>
                 
-                <div class="row justify-content mb-20-none">
-                    @foreach($categories[0]->products as $product)
+                <div class="row justify-content mb-55-none">
+                    @foreach($categories[0]->products->where('etat','normal') as $product)
                     <div class="col-sm-10 col-md-3 col-lg-3">
-                        <div class="auction-item-2 card h-50">
+                        <div class="auction-item-2 card h-80">
                             
                            
                             <div class="auction-thumb">
@@ -116,7 +133,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div class="current">prix courant</div>
-                                            <div class="amount" style="font-size: 10px;">$876.00</div>
+                                            <div class="amount" style="font-size: 10px;">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}</div>
                                         </div>
                                     </div>
                                     <div class="bid-amount">
@@ -129,10 +146,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="countdown-area">
-                                
-                                    <span class="total-bids">30 Bids</span>
-                                </div>
+                               
                                 <div class="text-center">
                                     <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
                                 </div>
@@ -148,6 +162,43 @@
         </section>
         <!--============= Car Auction Section Ends Here =============-->
     </div>
+    <style>
+        .auction{
+             color: #cf031c;
+    font-size: 3pc;
+    font-weight: 700;
+    height: 4pc;
+
+        }
+    </style>
+
+    <section>
+<div class="container">
+    <div class="row">
+        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+                           <h6> <b>AUCTIONS IN PROGRESS</b></h6>
+        </div> 
+        <div class="col-3  card card-body"> <h1 class="auction">1526</h1>
+                           <h6> <b>AUCTIONS CAR</b></h6>
+        </div> 
+    
+   
+        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+                           <h6> <b>AUCTIONS BUILDINGS AND FACILITIES</b></h6>
+        </div> 
+    
+   
+        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+                           <h6> <b>AUCTIONS SQUARE</b></h6>
+        </div> 
+    </div>
+   
+        
+    
+</div>
+
+    </section>
+    
 
 
     <!--============= Jewelry Auction Section Starts Here =============-->
@@ -160,18 +211,18 @@
                         <img src="{{asset($categories[4]->path_logo)}}" alt="header-icons">
                     </div>
                     <div class="title-area">
-                        <h2 class="title">{{$categories[4]->nom}}</h2>
+                        <h2 class="title">{{$categories[4]->nom}} ({{$categories[4]->products()->count()}})</h2>
                         <p>Ventes aux enchères de bijoux en ligne où vous pouvez enchérir maintenant et économiser de l'argent</p>
                     </div>
                 </div>
                 <a href="{{route('showProductCategories',['id'=>$categories[4]->id])}}" class="normal-button">Voir plus</a>
             </div>
             <div class="row justify-content mb-30-none">
-                <div class="col-sm-10 col-md-3 col-lg-3">
+                <div class="col-sm-10 col-md-3 col-lg-3 ">
                     @foreach($categories[4]->products as $product)
-                    <div class="auction-item-2">
+                    <div class="auction-item-2 card h-80">
                         <div class="auction-thumb">
-                            <a href="{{route('showProduct',$product->id)}}"><img src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
+                            <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
                             <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
                             <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
@@ -199,12 +250,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="countdown-area">
-                                    <div class="countdown">
-                                        <div id="bid_counter26"></div>
-                                    </div>
-                                    <span class="total-bids">30 Bids</span>
-                                </div>
+                                
                                 <div class="text-center">
                                     <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
                                 </div>
@@ -221,7 +267,7 @@
 
 
     <!--============= Call In Section Starts Here =============-->
-    <section class="call-in-section padding-top pt-max-xl-0">
+    <!--section class="call-in-section padding-top pt-max-xl-0">
         <div class="container">
             <div class="call-wrapper cl-white bg_img" data-background="./assets/images/call-in/call-bg.png">
                 <div class="section-header">
@@ -231,7 +277,7 @@
                 <a href="sign-up.html" class="custom-button white">S'inscrire</a>
             </div>
         </div>
-    </section>
+    </!--section-->
     <!--============= Call In Section Ends Here =============-->
 
 
@@ -287,7 +333,7 @@
 
 
     <!--============= Client Section Starts Here =============-->
-    <section class="client-section padding-top padding-bottom">
+    <!--section class="client-section padding-top padding-bottom">
         <div class="container">
             <div class="section-header">
                 <h2 class="title">Ne vous contentez pas de nous croire sur parole !!</h2>
@@ -364,8 +410,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </!--section-->
     <!--============= Client Section Ends Here =============-->
 
 
 @endsection
+
+   
