@@ -258,12 +258,15 @@
                         </div>
                         <ul class="price-table mb-10">
                             <li class="header">
-                                <h5 class="current">Prix Courant</h5>
+                                <h4 class="current">Prix Courant</h4>
+                                
                                 <h3 class="price">{{$min ?? $product->premier_prix}} MAD</h3>
+                            <p>*Prix ​​minimum non atteint, mais peut toujours être vendu</p>
+                                
                             </li>
                            
                             <li>
-                                <span class="details">Prix de départ</span>
+                                <h5 class="current">Prix de départ</span>
                                 <h5 class="info">{{$product->premier_prix }} MAD</h5>
                             </li>
                         </ul>
@@ -279,12 +282,19 @@
                                 <input min="{{$min ?? $product->premier_prix}}" value="{{$min}}" type="number" placeholder="votre proposition">   
                                 @auth
                                 <!--button type="submit" class="custom-button">Proposer</!--button-->
-                                <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
+                               
+                                
+
+                              
+                           
+                                
+                                <button class="btn btn-danger" type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Proposer </h5>
+                                        
                                         
                                     </div>
                                     <div class="modal-body">
@@ -302,11 +312,48 @@
                                     </div>
                                 </div>
                                 </div>
+                            </form>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#autobid" data-bs-whatever="@getbootstrap">Proposition Automatique</button>
+
+<div class="modal fade" id="autobid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+         <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Proposition Automatique </h5>
+                                        
+                                        
+                                    </div>
+      
+      <div class="modal-body">
+        <form action="{{route('proposer',$product->id)}}">
+            @php
+             $proposition=$min ?? $product->premier_prix;
+             $proposition=$product->premier_prix*0.03 +$proposition;
+                @endphp
+          
+          <h5> votre proposition automatique sera :{{$proposition}} MAD</h5>
+          <div class="modal-footer">
+               <input disabled value="{{$proposition}}" name="proposition" type="number">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-warning">Proposer</button>
+      </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
                                 @else
                                 <a href="{{route('login')}}" class="custom-button">Se connecter pour Proposer</a>
+                                <p> *Le montant peut être modifié dans le champ ci-dessus avant l'enregistrement de l'offre</p>
+                                 
+                                 
+                                 
                                 @endauth
+
+
                             
-                            </form>
+                           
                             @endif
                         </div>
                         <div class="buy-now-area">
@@ -373,7 +420,41 @@
                                         <p>Totale d'enchères</p>
                                     </div>
                                 </div>
+                                <div class="side-counter-item">
+                                    
+                                    <div class="content">
+                                        <h4 class=""><span class="localisation">Casablanca</span></h4>
+                                        
+                                    </div>
+                                </div>
                             </div>
+                            
+                        </div>
+                         <div class="product-single-sidebar mb-1">
+                            <h6 class="title">Historique:</h6>
+                            
+                           <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Prix proposé</th>
+                                    <th scope="col">Date et heure</th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($encheres as $enchere)
+                                    <tr>
+                                    <th scope="row">Budgiver{{$enchere->user_id}}</th>
+                                    <td>{{$enchere->price}} MAD</td>
+                                    <td>{{$enchere->created_at}}</td>
+                                    
+                                    </tr>
+
+                                @endforeach
+                                </tbody>
+                           </table>    
+                            
                         </div>
                         <a href="#0" class="cart-link">View Shipping, Payment & Auction Policies</a>
                     </div>
