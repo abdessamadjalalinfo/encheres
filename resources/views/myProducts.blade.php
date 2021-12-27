@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./assets/css/flaticon.css">
     <link rel="stylesheet" href="./assets/css/jquery-ui.min.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    
 
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 </head>
@@ -33,9 +34,7 @@
     <a href="#0" class="scrollToTop"><i class="fas fa-angle-up"></i></a>
     <div class="overlay"></div>
     <!--============= ScrollToTop Section Ends Here =============-->
-
-
-   <style>
+<style>
     .header-bottom.active {
     background: #9b9b9b;
     position: fixed;
@@ -154,75 +153,7 @@
     </header>
     <!--============= Header Section Ends Here =============-->
 
-    <!--============= Cart Section Starts Here =============-->
-    <div class="cart-sidebar-area">
-        <div class="top-content">
-            <a href="index.html" class="logo">
-                <img src="./assets/images/logo/logo2.png" alt="logo">
-            </a>
-            <span class="side-sidebar-close-btn"><i class="fas fa-times"></i></span>
-        </div>
-        <div class="bottom-content">
-            <div class="cart-products">
-                <h4 class="title">Shopping cart</h4>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop01.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Color Pencil</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop02.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Water Pot</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop03.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Art Paper</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop04.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Stop Watch</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="single-product-item">
-                    <div class="thumb">
-                        <a href="#0"><img src="assets/images/shop/shop05.jpg" alt="shop"></a>
-                    </div>
-                    <div class="content">
-                        <h4 class="title"><a href="#0">Comics Book</a></h4>
-                        <div class="price"><span class="pprice">$80.00</span> <del class="dprice">$120.00</del></div>
-                        <a href="#" class="remove-cart">Remove</a>
-                    </div>
-                </div>
-                <div class="btn-wrapper text-center">
-                    <a href="#0" class="custom-button"><span>Checkout</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--============= Cart Section Ends Here =============-->
-
+ 
 
     <!--============= Hero Section Starts Here =============-->
     <div class="hero-section style-2 pb-lg-400">
@@ -248,91 +179,174 @@
     <section class="dashboard-section padding-bottom mt--240 mt-lg--325 pos-rel">
         <div class="container">
             <div class="row justify-content-center">
-                @include("layouts.sidebarDashboard",['ajouterAnnonce'=>'active'])
+                @include("layouts.sidebarDashboard",['mesAnnonces'=>'active'])
                 <div class="col-lg-8">
                     <div class="dashboard-widget mb-40">
                         <div class="dashboard-title mb-30">
-                            <h5 class="title">Ajouter Une Annonce</h5>
+                            <h5 class="title">My Products</h5>
                         </div>
-                        <div class="row  mb-30-none">
-<form method="post" action="{{route('ajouterannonce')}}" enctype="multipart/form-data">
-    {{csrf_field()}}    
-    <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Titre</label>
-      <input name="titre"  class="form-control" id="inputEmail4" placeholder="Titre">
-    </div>
-    <div class="form-group col-md-6">
-      
-      <label for="inputState">Catégorie</label>
-      <select  name="categorie_id" id="inputState" class="form-control">
-        @foreach($categories as $categorie)
-        <option value="{{$categorie->id}}">{{$categorie->nom}}</option>
-        @endforeach
-      </select>
-    </div>
-    
-  </div>
-  <div class="form-row">
-      <div class="form-group col-md-12">
-      <label for="inputState">Description</label>
-      <textarea name="description"  id="mytextarea">
-        
-    </textarea>
-      </div>
-  </div>
-  <div class="form-row">
-      <div class="form-group col-md-12">
-      <label for="inputState">Premier Prix</label>
-      <input name="premier_prix" type="number" class="form-control" id="inputEmail4" placeholder="Premier Prix">
-      
-      </div>
-  </div>
-  <input type="hidden" name="user_id" value="{{$user->id}}">
-  <div class="form-row">
-      <div class="form-group col-md-12">
-      <label for="inputState">Durée après enchère pour gagner ?</label>
-      <select name="duree" id="inputState" class="form-control">
-          <option value="1">1H</option>
-          <option value="2">2H</option>
-          <option value="3">3H</option>
-          <option value="5">5H</option>
-          <option value="10">10H</option>
-          <option value="24">24H</option>
-          <option value="48">48H</option>
-          <option value="72">72H</option>
-      </select>
-
-      
-    </div>
-      
-      
-      
-  </div>
-  <div class="form-row">
-      <label for="inputState">Télécharger les images</label>
-      <input type="file" multiple name="filename[]" class="form-control">
-  </div>
- 
-    <button type="submit" class="btn btn-success">Publier</button>
-  
-   
- 
-</form>
-                           
+                        <div class="row justify-content-center mb-30-none">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="dashboard-item">
+                                    <div class="thumb">
+                                        <img src="./assets/images/dashboard/03.png" alt="dashboard">
+                                    </div>
+                                    <div class="content">
+                                        <h2 class="title"><span class="counter">{{$normalProducts->count()+$expiredProducts->count()}}</span></h2>
+                                        <h6 class="info">All Products</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="dashboard-item">
+                                    <div class="thumb">
+                                        <img src="./assets/images/dashboard/01.png" alt="dashboard">
+                                    </div>
+                                    <div class="content">
+                                        <h2 class="title"><span class="counter">{{$normalProducts->count()}}</span></h2>
+                                        <h6 class="info">In Progress</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="dashboard-item">
+                                    <div class="thumb">
+                                        <img src="./assets/images/dashboard/02.png" alt="dashboard">
+                                    </div>
+                                    <div class="content">
+                                        <h2 class="title"><span class="counter">{{$expiredProducts->count()}}</span></h2>
+                                        <h6 class="info">Expired</h6>
+                                    </div>
+                                </div>
+                            </div>
                             
+                        </div>
+                    </div>
+                    <div class="dashboard-widget">
+                        {{-- comment 
+                        <h5 class="title mb-10">Purchasing</h5>--}}
+                        <div class="dashboard-purchasing-tabs">
+                            <ul class="nav-tabs nav">
+                                <li>
+                                    <a href="#in_progress" class="active" data-toggle="tab">In progress</a>
+                                </li>
+                                <li>
+                                    <a href="#expired" data-toggle="tab">Expired</a>
+                                </li>
+                                {{-- comment 
+                                
+                                <li>
+                                    <a href="#history" data-toggle="tab">History</a>
+                                </li>--}}
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane show active fade" id="in_progress">
+                                    <table class="purchasing-table">
+                                        <thead>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Categorie</th>
+                                            <th>First Price(DH)</th>
+                                            <th>Bids</th>
+                                            <th>Current Bid(DH)</th>
+                                            
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($normalProducts as $product)
+                                            
+                                            <tr>
+                                                
+                                                <td data-purchase="Title"><a style="color: black" href="{{route('showProduct',['id'=>$product->id])}}"> <strong>{{$product->titre}} </strong></a></td>
+                                                
+                                                <td data-purchase="Description">{!! Str::words("$product->description", 5, ' ...')  !!} </td>
+                                                <td data-purchase="Categorie">{{$product->categorie()->get()[0]->nom}}</td>
+                                                <td data-purchase="First Price(DH)">{{$product->premier_prix}}</td>
+                                                <td data-purchase="Bids">{{$product->countBids}}</td>
+                                                <td data-purchase="Current Bid(DH)">{{$product->currentBid}}</td>
+                                            </tr>
+                                            
+                                            @endforeach
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane show fade" id="expired">
+                                    <table class="purchasing-table">
+                                        <thead>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Categorie</th>
+                                            <th>First Price(DH)</th>
+                                            <th>Bid Price(DH)</th>
+                                            <th>Winner</th>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($expiredProducts as $product)
+                                            <tr>
+                                                <td data-purchase="Title"><a style="color: black" href="{{route('showProduct',['id'=>$product->id])}}"> <strong>{{$product->titre}} </strong></a></td>
+                                                <td data-purchase="Description">{!! Str::words("$product->description", 5, ' ...') !!}</td>
+                                                <td data-purchase="Categorie">{{$product->categorie()->get()[0]->nom}}</td>
+                                                <td data-purchase="First Price">{{$product->premier_prix}}</td>
+                                                <td>{{$product->bidPrice}}</td>
+                                                <td data-purchase="Winner" style="text-align: center"> 
+                                                    <i class="fas fa-eye" type="button" class="btn btn-primary" data-toggle="modal" data-target="#InfoWinner{{$product->winner->id}}"></i>
+                                                </td>
+                                               
+                                            </tr>
+                                            @endforeach
+                                            
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+                                                 
+        
     </section>
+
+    @foreach ($expiredProducts as $product)
+
+    <div class="modal fade" id="InfoWinner{{$product->winner->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="title">Winner Details</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="dash-pro-body">
+                    <li>
+                        <div class="info-name">Name : {{$product->winner->prenom}} {{$product->winner->nom}}</div>
+                    </li>
+                    <div>
+                        Contact the administrator for more information about the winner 
+                    </div>
+                    <li>
+                        <div class="info-name">Admin Phone : +212678768909</div>
+                    </li>
+                    <li>
+                        <div class="info-name">Admin Email : admin@bid.com</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    @endforeach
     <!--============= Dashboard Section Ends Here =============-->
 
 
     <!--============= Footer Section Starts Here =============-->
-     <footer style="background-color: #9b9b9b" class=" padding-top oh" >
+       <footer style="background-color: #9b9b9b" class=" padding-top oh" >
         <div class="footer-top-shape">
             <img src="./assets/css/img/footer-top-shape.png" alt="css">
         </div>
@@ -510,16 +524,8 @@
     <script src="assets/js/yscountdown.min.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="./assets/js/main.js"></script>
+
     
-
-
-    <script src="https://cdn.tiny.cloud/1/14s8h1oufyr5vpgel1gljfws4vhoq1tz41wuiv3wsm4c2ezc/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-
-    tinymce.init({
-        selector:'#mytextarea'
-    })
-</script>
 </body>
 
 </html>

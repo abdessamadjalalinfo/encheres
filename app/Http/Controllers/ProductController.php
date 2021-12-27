@@ -156,4 +156,25 @@ class ProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function myProducts(){
+        //dd(Product::first()->categorie()->get()[0]);
+        // dd(Enchere::where("produit_id",1)->orderBy("price","desc")->first());
+        
+        $normalProducts=Product::where("etat","normal")->get();
+        $expiredProducts=Product::where("etat","expiré")->get();
+        
+        $normalProducts->each(function($product){
+            $product->countBids = Enchere::where("produit_id",$product->id)->count();
+            $product->currentBid =  Enchere::where("produit_id",$product->id)->max("price");
+        });
+        $expiredProducts->each(function($product){
+            $enchere=Enchere::where("produit_id",$product->id)->orderBy("price","desc")->first();
+            $winner = Win::where("enchere_id",$enchere->id)->first()->user()->first();
+            $product->winner = $winner;
+            $product->bidPrice=$enchere->price;
+        });
+        
+        return view("myProducts",["normalProducts"=>$normalProducts,"expiredProducts"=>$expiredProducts]);
+    }
 }

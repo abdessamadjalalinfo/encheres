@@ -942,7 +942,7 @@
       $('.menu').removeClass('active');
       $('.cart-sidebar-area').removeClass('active');
     })
-    $('.cart-button, .side-sidebar-close-btn').on('click', function () {
+    $('.profile, .side-sidebar-close-btn').on('click', function () {
       $(this).toggleClass('active');
       $('.overlay').toggleClass('active');
       $('.cart-sidebar-area').toggleClass('active');
