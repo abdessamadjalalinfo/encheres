@@ -24,44 +24,7 @@
     <section class="dashboard-section padding-bottom mt--240 mt-lg--440 pos-rel">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-sm-10 col-md-7 col-lg-4">
-                    <div class="dashboard-widget mb-30 mb-lg-0 sticky-menu">
-                        <div class="user">
-                            <div class="thumb-area">
-                                <div class="thumb">
-                                    <img src="./assets/images/dashboard/user.png" alt="user">
-                                </div>
-                                <label for="profile-pic" class="profile-pic-edit"><i class="flaticon-pencil"></i></label>
-                                <input type="file" id="profile-pic" class="d-none">
-                            </div>
-                            <div class="content">
-                                <h5 class="title"><a href="#0">Percy Reed</a></h5>
-                                <span class="username">john@gmail.com</span>
-                            </div>
-                        </div>
-                        <ul class="dashboard-menu">
-                             <li>
-                                <a href="{{route('dashboard')}}"><i class="flaticon-dashboard"></i>Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="{{route('profile')}}" class="active"><i class="flaticon-settings"></i>Profile</a>
-                            </li>
-                            <li>
-                                <a href="{{route('auctions')}}"><i class="flaticon-auction"></i>Mes Enchères</a>
-                            </li>
-                            <li>
-                                <a href="{{route('winningbids')}}" ><i class="flaticon-best-seller"></i>Enchères gagnantes</a>
-                            </li>
-                           
-                            <li>
-                                <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
-                            </li>
-                               <li>
-                                <a href="{{route('addProduct')}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                @include("layouts.sidebarDashboard",['profile'=>'active'])
                 <div class="col-lg-8">
                     <div class="row">
                         <div class="col-12">
