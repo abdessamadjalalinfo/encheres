@@ -31,10 +31,10 @@
                 <a href="{{route('favorits')}}" class="{{$favoris ?? ''}}"><i class="flaticon-star"></i>Favoris</a>
             </li>
             <li>
-                <a href="{{route('addProduct')}}" class="{{$ajouterAnnonce ?? ''}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter une Annonce</a>
+                <a href="{{route('addProduct')}}" class="{{$ajouterAnnonce ?? ''}}"> <b>+</b><i class="flaticon-like"></i></i>Ajouter un produit</a>
             </li>
             <li>
-                <a href="{{route('myProducts')}}" class="{{$mesAnnonces ?? ''}}"> <b>+</b><i class="flaticon-like "></i></i>Mes Annonces</a>
+                <a href="{{route('myProducts')}}" class="{{$mesAnnonces ?? ''}}"> <b>+</b><i class="flaticon-like "></i></i>Mes Produits</a>
             </li>
         </ul>
     </div>

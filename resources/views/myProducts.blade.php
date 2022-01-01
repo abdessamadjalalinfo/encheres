@@ -244,7 +244,7 @@
                                     <table class="purchasing-table">
                                         <thead>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <th>Nombre de vue</th>
                                             <th>Categorie</th>
                                             <th>First Price(DH)</th>
                                             <th>Bids</th>
@@ -258,7 +258,7 @@
                                                 
                                                 <td data-purchase="Title"><a style="color: black" href="{{route('showProduct',['id'=>$product->id])}}"> <strong>{{$product->titre}} </strong></a></td>
                                                 
-                                                <td data-purchase="Description">{!! Str::words("$product->description", 5, ' ...')  !!} </td>
+                                                <td data-purchase="Description">{{$product->nb_vue}} </td>
                                                 <td data-purchase="Categorie">{{$product->categorie()->get()[0]->nom}}</td>
                                                 <td data-purchase="First Price(DH)">{{$product->premier_prix}}</td>
                                                 <td data-purchase="Bids">{{$product->countBids}}</td>
@@ -274,7 +274,7 @@
                                     <table class="purchasing-table">
                                         <thead>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <th>Nombre de Vue</th>
                                             <th>Categorie</th>
                                             <th>First Price(DH)</th>
                                             <th>Bid Price(DH)</th>
@@ -284,7 +284,7 @@
                                             @foreach ($expiredProducts as $product)
                                             <tr>
                                                 <td data-purchase="Title"><a style="color: black" href="{{route('showProduct',['id'=>$product->id])}}"> <strong>{{$product->titre}} </strong></a></td>
-                                                <td data-purchase="Description">{!! Str::words("$product->description", 5, ' ...') !!}</td>
+                                                <td data-purchase="Description">{{$product->nb_vue}} </td>
                                                 <td data-purchase="Categorie">{{$product->categorie()->get()[0]->nom}}</td>
                                                 <td data-purchase="First Price">{{$product->premier_prix}}</td>
                                                 <td>{{$product->bidPrice}}</td>

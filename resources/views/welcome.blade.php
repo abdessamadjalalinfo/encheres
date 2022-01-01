@@ -175,20 +175,20 @@
     <section>
 <div class="container">
     <div class="row">
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS IN PROGRESS</b></h6>
         </div> 
-        <div class="col-3  card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS CAR</b></h6>
         </div> 
     
    
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS BUILDINGS AND FACILITIES</b></h6>
         </div> 
     
    
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS SQUARE</b></h6>
         </div> 
     </div>
