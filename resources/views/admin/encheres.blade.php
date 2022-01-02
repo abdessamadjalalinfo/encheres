@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$cat->nom}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Les Enchères</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
@@ -11,8 +11,8 @@
         <div class="col-3">
             <div class="card bg-primary text-white shadow">
                     <div class="card-body">
-                     Nombre de Produit
-                      <div class="text-white-50 small">{{$cat->products->count()}}</div>
+                     Nombre d'Enchères
+                      <div class="text-white-50 small">{{$encheres->count()}}</div>
                     </div>
             </div>   
         </div>  
@@ -24,21 +24,27 @@
   <thead>
     <tr>
       <th scope="col">Nom du produit</th>
-      <th scope="col">Premier Prix</th>
-      <th scope="col">Publié par</th>
+      <th scope="col">Qui</th>
+      <th scope="col">Proposition</th>
       <th scope="col">date</th>
+       <th scope="col">Etat</th>
     </tr>
+
+    @foreach($encheres as $enchere)
+    <tr>
+        <td> <a href="{{route('showProduct',$enchere->produit_id)}}">{{App\Models\Product::find($enchere->produit_id)->titre}}</a> </td>
+        <td>{{App\Models\User::find($enchere->user_id)->nom}}</td>
+        <td>{{$enchere->price}} MAD</td>
+        <td>{{$enchere->created_at}} </td>
+        <td>{{App\Models\Product::find($enchere->produit_id)->etat}} </td>
+
+
+    </tr>
+    @endforeach
   </thead>
   <tbody>
 
-    @foreach($cat->products as $product)
-    <tr>
-      <th scope="row"><a href="{{route('showProduct',$product->id)}}"> {{$product->titre}}</a> </th>
-      <td>{{$product->premier_prix}}</td>
-      <td>{{App\Models\User::find($product->owner_id)->nom}}</td>
-      <td>{{$product->created_at}}</td>
-    </tr>
-    @endforeach
+    
    
     </tr>
   </tbody>

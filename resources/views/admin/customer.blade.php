@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{$cat->nom}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Mes utilisateurs</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
@@ -11,8 +11,8 @@
         <div class="col-3">
             <div class="card bg-primary text-white shadow">
                     <div class="card-body">
-                     Nombre de Produit
-                      <div class="text-white-50 small">{{$cat->products->count()}}</div>
+                     Nombre d'utilisateurs
+                      <div class="text-white-50 small">{{$users->count()}}</div>
                     </div>
             </div>   
         </div>  
@@ -23,22 +23,25 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">Nom du produit</th>
-      <th scope="col">Premier Prix</th>
-      <th scope="col">Publié par</th>
-      <th scope="col">date</th>
+      <th scope="col">Nom et Prénom </th>
+      <th scope="col">Email</th>
+      <th scope="col">Téléphone</th>
+      <th scope="col">Adresse</th>
     </tr>
   </thead>
   <tbody>
+      @foreach($users as $user)
+      <tr>
+     
+      <td><a href="">{{$user->nom}} {{$user->nom}}</a></td>
+      <td>{{$user->email}}</td>
+      <td>0636187128</td>
+      <td>{{$user->adresse}} {{$user->ville}} {{$user->pays}}</td>
+     
+      </tr>
+      @endforeach
 
-    @foreach($cat->products as $product)
-    <tr>
-      <th scope="row"><a href="{{route('showProduct',$product->id)}}"> {{$product->titre}}</a> </th>
-      <td>{{$product->premier_prix}}</td>
-      <td>{{App\Models\User::find($product->owner_id)->nom}}</td>
-      <td>{{$product->created_at}}</td>
-    </tr>
-    @endforeach
+    
    
     </tr>
   </tbody>
