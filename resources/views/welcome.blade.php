@@ -219,6 +219,7 @@
             </div>
             <div class="row justify-content mb-30-none">
                 <div class="col-sm-10 col-md-3 col-lg-3 ">
+                      <div class="auction-item-2 card h-80">
                     @foreach($categories[4]->products->where('etat','normal')->take(4) as $product)
                     <div class="auction-item-2 card h-80">
                         <div class="auction-thumb">
@@ -255,8 +256,9 @@
                                     <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
                                 </div>
                             </div>
-                    </div>
+                    
                     @endforeach
+                    </div>
                 </div>
                 
                 
