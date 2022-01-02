@@ -105,13 +105,13 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
