@@ -92,7 +92,7 @@
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            <a href="{{route('index')}}"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
