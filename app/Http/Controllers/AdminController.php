@@ -14,21 +14,22 @@ class AdminController extends Controller
 {
     public function checkAdmin()
     {
-        if (Auth::check()) {
-            if (Auth::user()->type != "admin") {
-                return redirect()->route('index');
-            }
-        } else {
+
+
+        if (Auth::user()->type != "admin") {
             return redirect()->route('index');
         }
     }
 
 
-    function users()
+
+    public function users()
     {
 
 
-        $this->checkAdmin();
+        if (Auth::user()->type != "admin") {
+            return redirect()->route('index');
+        }
         $nb_users = User::all()->count();
         $nb_products = Product::all()->count();
         $ventes = Win::all()->count();
@@ -46,7 +47,10 @@ class AdminController extends Controller
     }
     public function categories($id)
     {
-        $this->checkAdmin();
+
+        if (Auth::user()->type != "admin") {
+            return redirect()->route('index');
+        }
         $categ = Categorie::find($id);
         // dd($categ->products->count());
         return view('admin.categories', ['cat' => $categ]);
@@ -54,14 +58,18 @@ class AdminController extends Controller
 
     public function encheres()
     {
-        $this->checkAdmin();
+        if (Auth::user()->type != "admin") {
+            return redirect()->route('index');
+        }
         $encheres = Enchere::all();
         return view('admin.encheres', ['encheres' => $encheres]);
     }
 
     public function expired()
     {
-        $this->checkAdmin();
+        if (Auth::user()->type != "admin") {
+            return redirect()->route('index');
+        }
         $wins = Win::all();
         return view('admin.wins', ['wins' => $wins]);
     }
@@ -69,7 +77,9 @@ class AdminController extends Controller
 
     public function customer()
     {
-        $this->checkAdmin();
+        if (Auth::user()->type != "admin") {
+            return redirect()->route('index');
+        }
         $users = User::all();
         return view('admin.customer', ['users' => $users]);
     }

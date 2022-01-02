@@ -49,12 +49,12 @@ Route::get('/myProducts', [App\Http\Controllers\ProductController::class, 'myPro
 
 
 
-Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users');
-Route::get('/admin/categories/{id}', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories');
+Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users')->middleware("auth");
+Route::get('/admin/categories/{id}', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories')->middleware("auth");
 
-Route::get('/admin/encheres', [App\Http\Controllers\AdminController::class, 'encheres'])->name('admin.encheres');
+Route::get('/admin/encheres', [App\Http\Controllers\AdminController::class, 'encheres'])->name('admin.encheres')->middleware("auth");
 
 
-Route::get('/admin/expired', [App\Http\Controllers\AdminController::class, 'expired'])->name('admin.expired');
-Route::get('/admin/customer', [App\Http\Controllers\AdminController::class, 'customer'])->name('admin.customer');
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'users']);
+Route::get('/admin/expired', [App\Http\Controllers\AdminController::class, 'expired'])->name('admin.expired')->middleware("auth");
+Route::get('/admin/customer', [App\Http\Controllers\AdminController::class, 'customer'])->name('admin.customer')->middleware("auth");
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'users'])->middleware("auth");

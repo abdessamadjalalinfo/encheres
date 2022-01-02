@@ -379,4 +379,10 @@
     @yield('scripts')
 </body>
 
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_ba2dcb24c7e21c809d78f25e62e5476e2'
+    });
+</script>
 </html>
