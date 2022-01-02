@@ -86,7 +86,7 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="{{route('index')}}">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
@@ -336,7 +336,7 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
+                            <a href="{{route('index')}}"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
                         </div>
                         
                         <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Auction</a></p></div>
