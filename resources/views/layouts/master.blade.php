@@ -70,15 +70,9 @@
                             <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
                         </li>
                         <li>
-                            <i class="fas fa-globe"></i>
-                            <select name="language" class="select-bar">
-                                <option value="en">En</option>
-                                <option value="Bn">Bn</option>
-                                <option value="Rs">Rs</option>
-                                <option value="Us">Us</option>
-                                <option value="Pk">Pk</option>
-                                <option value="Arg">Arg</option>
-                            </select>
+                            
+                            <i class="fas fa-globe"><div id="google_translate_element"></div></i>
+                            
                         </li>
                     </ul>
                     <ul class="cart-button-area ">
@@ -148,10 +142,7 @@
                             
                         </li>
                     </ul>
-                    <form class="search-form">
-                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                    
                     <div class="search-bar d-md-none">
                         <a href="#0"><i class="fas fa-search"></i></a>
                     </div>
@@ -357,7 +348,8 @@
                 </div>
             </div>
         </div>
-    </footer>
+        
+   </footer>
     <!--============= Footer Section Ends Here =============-->
 
 
@@ -377,6 +369,7 @@
     <script src="{{asset("assets/js/jquery-ui.min.js")}}"></script>
     <script src="{{asset("./assets/js/main.js")}}"></script>
     @yield('scripts')
+    
 </body>
 
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
@@ -385,4 +378,5 @@
         api_key: 'wg_ba2dcb24c7e21c809d78f25e62e5476e2'
     });
 </script>
+
 </html>
