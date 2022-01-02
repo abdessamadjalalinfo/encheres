@@ -69,11 +69,7 @@
                         <li>
                             <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
                         </li>
-                        <li>
-                            
-                            <i class="fas fa-globe"><div id="google_translate_element"></div></i>
-                            
-                        </li>
+                        
                     </ul>
                     <ul class="cart-button-area ">
                         @auth
