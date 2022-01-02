@@ -119,10 +119,10 @@
                            <a href="#0"><i class="fas fa-sign-in-alt"></i>Login/Register</a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="/login">Sign In</a>
+                                        <a href="{{route('login')}}">Sign In</a>
                                     </li>
                                     <li>
-                                        <a href="./register">Sign Up</a>
+                                        <a href="{{route('register')}}">Sign Up</a>
                                     </li>
                                 </ul>
                             @else   
