@@ -46,3 +46,7 @@ Route::get('/auctions', [App\Http\Controllers\AuctionController::class, 'index']
 
 Route::get('/check', [App\Http\Controllers\ProductController::class, 'check'])->name('check');
 Route::get('/myProducts', [App\Http\Controllers\ProductController::class, 'myProducts'])->name('myProducts');
+
+Route::get('/sell', function(){
+    return view("sell");
+})->name('sell');
