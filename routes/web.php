@@ -50,3 +50,11 @@ Route::get('/myProducts', [App\Http\Controllers\ProductController::class, 'myPro
 Route::get('/sell', function(){
     return view("sell");
 })->name('sell');
+
+Route::get('/sellPrivate', function(){
+    return view("sellPrivate");
+})->name('sellPrivate');
+
+Route::get('/sellCompany', function(){
+    return view("sellCompany");
+})->name('sellCompany');

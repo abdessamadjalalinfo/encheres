@@ -11,14 +11,15 @@
 <section class="container" style="margin-top: 167px;">
     <div class=""> 
         <h4 style="text-align: center;margin-bottom:18px">SELL AT NORWAY'S LARGEST ONLINE AUCTION</h4>
+       
         <img src="{{asset('img/landingpagesalestopred_529d65.jpeg')}}" alt="">
     </div>
     <div style="margin-top: 40px;">
-        <h5 style="text-align: center;margin-bottom:18px"><a href="{{route("register")}}"><u>PRESS TO SELL AS A PRIVATE PERSON</u></a></h5>
+        <h5 style="text-align: center;margin-bottom:18px"> <a href="{{route("sellPrivate")}}"><u>PRESS TO SELL AS A PRIVATE PERSON</u></a></h5>
         <img src="{{asset('img/landingpagesalestopblack_0c5b70.jpeg')}}" alt="">
     </div>
     <div style="margin-top: 40px;">
-        <h5 style="text-align: center;margin-bottom:18px"><a href="href="{{route("register")}}""><u>PRESS TO SELL AS A COMPANY</a></u></h5>
+        <h5 style="text-align: center;margin-bottom:18px"><a href="href="{{route("sellCompany")}}""><u>PRESS TO SELL AS A COMPANY</a></u></h5>
     </div>
        <div class="row">
            
