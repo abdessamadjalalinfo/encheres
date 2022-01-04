@@ -3,10 +3,9 @@
 @section('content')
   <style>
       .img-h {
-    float: left;
-    width:  100px;
-    height: 100px;
-    object-fit: cover;
+   float: left;
+    width:  100%;
+    height: 150px;    object-fit: cover;
 }
 .slider-nav a.active, .slider-nav a:hover {
     color: #ffffff;
@@ -26,33 +25,7 @@
   
 
 
-    <!--============= Banner Section Starts Here =============-->
-    <!--section class="banner-section bg_img" data-background="./assets/images/banner/banner-bg-1.png">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <div class="col-lg-6 col-xl-6">
-                    <div class="banner-content cl-white">
-                        <h5 class="cate">Vente aux enchères de nouvelle génération</h5>
-                        <h1 class="title"><span class="d-xl-block"> Trouver votre
-        </span> Prochaine affaire !</h1>
-                        <p>
-                     La vente aux enchères en ligne est l'endroit où tout le monde va acheter, vendre et donner, tout en découvrant la variété et l'abordabilité.   </p>
-                        <a href="#0" class="custom-button yellow btn-large">Commencer</a>
-                    </div>
-                </div>
-                <div class="d-none d-lg-block col-lg-4">
-                    <div class="banner-thumb-2">
-                        <img src="cover.png" alt="banner">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-shape d-none d-lg-block">
-            <img src="./assets/css/img/banner-shape.png" alt="css">
-        </div>
-    </!--section-->
-    <!--============= Banner Section Ends Here =============-->
-
+   
 
     <div class="browse-section ash-bg" >
        
@@ -94,7 +67,46 @@
         </div>
         <!--============= Hightlight Slider Section Ends Here =============-->
         
-        <!--============= Car Auction Section Starts Here =============-->
+        <section style="padding-bottom: 0px;" class="car-auction-section padding-bottom padding-top pos-rel oh">
+            <div class="car-bg"></div>
+            <div class="container">
+                <div class="section-header-3">
+                    <div class="left">
+                        <div class="thumb">
+                            <img src="{{asset('/assets/images/header-icons/car-1.png')}}" alt="header-icons">
+                        </div>
+                        <div class="title-area">
+                            <h2 class="title">Les dernières annonces</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row justify-content mb-55-none">
+                    @foreach(App\Models\Product::all()->take(8) as $product)
+                    <div style="margin-top: 7px;border-radius: 30px;" class="col-sm-10 col-md-3 col-lg-3">
+                         <div class="card">
+<a href="{{route('showProduct',$product->id)}}"><img style="float: left;
+    width:  100%;
+    height: 150px;    object-fit: cover;" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                      <div class="card-body" style="height: 80px">
+                        <a href="{{route('showProduct',$product->id)}}"><h6>
+                              {{substr($product->titre,0, 20)}}
+                       
+                            
+                         </h6></a> 
+                        </div >
+                          <p style="display: inline-block;;color:#cf031c;margin-bottom: 11px">{{$product->premier_prix}}MAD</p>
+                          <p style="display: inline-block;">{{App\Models\User::find($product->owner_id)->ville}}</p>
+                          
+</div>
+                    </div>
+                    @endforeach
+                    
+                </div>
+                
+            </div>
+        </section>  <!--============= Car Auction Section Starts Here =============-->
+      
         <section class="car-auction-section padding-bottom padding-top pos-rel oh">
             <div class="car-bg"></div>
             <div class="container">
@@ -113,7 +125,7 @@
                 
                 <div class="row justify-content mb-55-none">
                     @foreach($categories[0]->products->where('etat','normal')->take(4) as $product)
-                    <div class="col-sm-10 col-md-3 col-lg-3">
+                    <div class="col-sm-10 col-md-4 col-lg-4">
                         <div class="auction-item-2 card h-80">
                             
                            
@@ -124,7 +136,7 @@
                             </div>
                             <div class="auction-content">
                                 <h6 class="title">
-                                    <a href="{{route('showProduct',$product->id)}}">{{$product->titre}}</a>
+                                    <a href="{{route('showProduct',$product->id)}}">  {{substr($product->titre,0, 30)}}</a>
                                 </h6>
                                 <div class="bid-area">
                                     <div class="bid-amount">
@@ -133,7 +145,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div class="current">prix courant</div>
-                                            <div class="amount" style="font-size: 10px;">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}</div>
+                                            <div class="amount"style="font-size: 13px;">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}</div>
                                         </div>
                                     </div>
                                     <div class="bid-amount">
@@ -142,7 +154,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div class="current">premier prix</div>
-                                            <div class="amount" style="font-size: 10px;">{{$product->premier_prix}}MAD</div>
+                                            <div class="amount" style="font-size: 13px;">{{$product->premier_prix}}MAD</div>
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +231,7 @@
             <div class="row justify-content mb-30-none">
                
                     @foreach($categories[4]->products->where('etat','normal')->take(4) as $product)
-                     <div class="col-sm-10 col-md-3 col-lg-3 ">
+                     <div class="col-sm-10 col-md-4 col-lg-4 ">
                     <div class="auction-item-2 card h-80">
                         <div class="auction-thumb">
                             <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
@@ -236,8 +248,8 @@
                                             <i class="flaticon-auction"></i>
                                         </div>
                                         <div class="amount-content">
-                                            <div class="current">prix courant</div>
-                                            <div class="amount">$876.00</div>
+                                            <div style="font-size: 13px;" class="current">prix courant</div>
+                                            <div style="font-size: 13px;" class="amount">$876.00</div>
                                         </div>
                                     </div>
                                     <div class="bid-amount">
@@ -245,8 +257,8 @@
                                             <i class="flaticon-money"></i>
                                         </div>
                                         <div class="amount-content">
-                                            <div class="current">premier prix</div>
-                                            <div class="amount">{{$product->premier_prix}}MAD</div>
+                                            <div style="font-size: 13px;" class="current">premier prix</div>
+                                            <div style="font-size: 13px;" class="amount">{{$product->premier_prix}}MAD</div>
                                         </div>
                                     </div>
                                 </div>
