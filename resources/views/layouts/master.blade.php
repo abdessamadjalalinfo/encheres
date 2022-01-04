@@ -97,7 +97,7 @@
                         </li>
                         <li>
                             
-                            <a href=""><i class="fas fa-shopping-cart"></i>Sell</a>
+                            <a href="{{route('sell')}}"><i class="fas fa-shopping-cart"></i>Sell</a>
                         </li>
                         
                         <li>
