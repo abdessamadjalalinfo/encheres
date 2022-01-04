@@ -160,7 +160,6 @@
                 
             </div>
         </section>
-        <!--============= Car Auction Section Ends Here =============-->
     </div>
     <style>
         .auction{
@@ -247,7 +246,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div class="current">premier prix</div>
-                                            <div class="amount">${{$product->premier_prix}}</div>
+                                            <div class="amount">{{$product->premier_prix}}MAD</div>
                                         </div>
                                     </div>
                                 </div>
