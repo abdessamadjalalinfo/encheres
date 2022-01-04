@@ -24,6 +24,7 @@ class ProductController extends Controller
         $categories = Categorie::all();
         $images = $product->images();
         $min = \App\Models\Enchere::all()->where('produit_id', $id)->max('price');
+        $encheres = \App\Models\Enchere::all()->where('produit_id', $id);
         $nombre_encheres = \App\Models\Enchere::all()->where('produit_id', $id)->count();
         if (Auth::user()) {
 
@@ -50,7 +51,7 @@ class ProductController extends Controller
         //dd($date_expires);
 
 
-        return view('product', ['product' => $product, 'categories' => $categories, 'min' => $min, 'nb_encheres' => $nombre_encheres, 'exist' => $exist, 'date_expiration' => $date_expires]);
+        return view('product', ['product' => $product, 'categories' => $categories, 'min' => $min, 'nb_encheres' => $nombre_encheres, 'exist' => $exist, 'date_expiration' => $date_expires, 'encheres' => $encheres]);
     }
 
     public function add_to_favoris($id)

@@ -105,13 +105,13 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
@@ -258,12 +258,15 @@
                         </div>
                         <ul class="price-table mb-10">
                             <li class="header">
-                                <h5 class="current">Prix Courant</h5>
+                                <h4 class="current">Prix Courant</h4>
+                                
                                 <h3 class="price">{{$min ?? $product->premier_prix}} MAD</h3>
+                            <p>*Prix ​​minimum non atteint, mais peut toujours être vendu</p>
+                                
                             </li>
                            
                             <li>
-                                <span class="details">Prix de départ</span>
+                                <h5 class="current">Prix de départ</span>
                                 <h5 class="info">{{$product->premier_prix }} MAD</h5>
                             </li>
                         </ul>
@@ -274,17 +277,24 @@
                             @else 
                             <form action="{{route('proposer',$product->id)}}" class="product-bid-form">
                                 <div class="search-icon">
-                                    <img src="/assets/images/product/search-icon.png" alt="product">
+                                    <img src="{{asset("/assets/images/product/search-icon.png")}}" alt="product">
                                 </div>
                                 <input min="{{$min ?? $product->premier_prix}}" value="{{$min}}" type="number" placeholder="votre proposition">   
                                 @auth
                                 <!--button type="submit" class="custom-button">Proposer</!--button-->
-                                <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
+                               
+                                
+
+                              
+                           
+                                
+                                <button class="btn btn-danger" type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Proposer</button>
                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Proposer </h5>
+                                        
                                         
                                     </div>
                                     <div class="modal-body">
@@ -302,11 +312,48 @@
                                     </div>
                                 </div>
                                 </div>
+                            </form>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#autobid" data-bs-whatever="@getbootstrap">Proposition Automatique</button>
+
+<div class="modal fade" id="autobid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+         <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Proposition Automatique </h5>
+                                        
+                                        
+                                    </div>
+      
+      <div class="modal-body">
+        <form action="{{route('proposer',$product->id)}}">
+            @php
+             $proposition=$min ?? $product->premier_prix;
+             $proposition=$product->premier_prix*0.03 +$proposition;
+                @endphp
+          
+          <h5> votre proposition automatique sera :{{$proposition}} MAD</h5>
+          <div class="modal-footer">
+               <input disabled value="{{$proposition}}" name="proposition" type="number">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-warning">Proposer</button>
+      </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
                                 @else
                                 <a href="{{route('login')}}" class="custom-button">Se connecter pour Proposer</a>
+                                <p> *Le montant peut être modifié dans le champ ci-dessus avant l'enregistrement de l'offre</p>
+                                 
+                                 
+                                 
                                 @endauth
+
+
                             
-                            </form>
+                           
                             @endif
                         </div>
                         <div class="buy-now-area">
@@ -373,7 +420,41 @@
                                         <p>Totale d'enchères</p>
                                     </div>
                                 </div>
+                                <div class="side-counter-item">
+                                    
+                                    <div class="content">
+                                        <h4 class=""><span class="localisation">Casablanca</span></h4>
+                                        
+                                    </div>
+                                </div>
                             </div>
+                            
+                        </div>
+                         <div class="product-single-sidebar mb-1">
+                            <h6 class="title">Historique:</h6>
+                            
+                           <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Prix proposé</th>
+                                    <th scope="col">Date et heure</th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($encheres as $enchere)
+                                    <tr>
+                                    <th scope="row">Budgiver{{$enchere->user_id}}</th>
+                                    <td>{{$enchere->price}} MAD</td>
+                                    <td>{{$enchere->created_at}}</td>
+                                    
+                                    </tr>
+
+                                @endforeach
+                                </tbody>
+                           </table>    
+                            
                         </div>
                         <a href="#0" class="cart-link">View Shipping, Payment & Auction Policies</a>
                     </div>
@@ -386,7 +467,7 @@
                     <li>
                         <a href="#details" class="active" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab1.png" alt="product">
+                                <img src="{{asset("/assets/images/product/tab1.png")}}" alt="product">
                             </div>
                             <div class="content">Déscription</div>
                         </a>
@@ -394,7 +475,7 @@
                     <li>
                         <a href="#delevery" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab2.png" alt="product">
+                                <img src="{{asset("/assets/images/product/tab2.png")}}" alt="product">
                             </div>
                             <div class="content">Delivery Options</div>
                         </a>
@@ -403,7 +484,7 @@
                     <li>
                         <a href="#questions" data-toggle="tab">
                             <div class="thumb">
-                                <img src="/assets/images/product/tab4.png" alt="product">
+                                <img src="{{asset("/assets/images/product/tab4.png")}}" alt="product">
                             </div>
                             <div class="content">Questions </div>
                         </a>
@@ -484,7 +565,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/01.png" alt="history">
+                                                        <img src="{{asset("/assets/images/history/01.png")}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Moses Watts
@@ -499,7 +580,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/02.png" alt="history">
+                                                        <img src="{{asset("/assets/images/history/02.png")}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Pat Powell
@@ -514,7 +595,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/03.png" alt="history">
+                                                        <img src="{{asset("/assets/images/history/03.png")}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Jack Rodgers
@@ -529,7 +610,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/04.png" alt="history">
+                                                        <img src="{{asset("/assets/images/history/04.png")}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Arlene Paul
@@ -544,7 +625,7 @@
                                             <td data-history="bidder">
                                                 <div class="user-info">
                                                     <div class="thumb">
-                                                        <img src="/assets/images/history/05.png" alt="history">
+                                                        <img src="{{asset("/assets/images/history/05.png")}}" alt="history">
                                                     </div>
                                                     <div class="content">
                                                         Marcia Clarke
@@ -569,7 +650,7 @@
                         <div class="faq-wrapper">
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -577,7 +658,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -593,7 +674,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -609,7 +690,7 @@
                             </div>
                             <div class="faq-item">
                                 <div class="faq-title">
-                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
                                 </div>
                                 <div class="faq-content">
                                     <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
@@ -786,6 +867,12 @@
     <script src="{{asset('/assets/js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_ba2dcb24c7e21c809d78f25e62e5476e2'
+    });
+</script>
 </body>
 
 

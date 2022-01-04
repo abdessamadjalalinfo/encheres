@@ -21,7 +21,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li>
-                    <a href="./index.html">Home</a>
+                    <a href="">Home</a>
                 </li>
                 <li>
                     <a href="#0">Pages</a>
@@ -251,7 +251,7 @@
                     <div class="section-header mb-0">
                         <h3 class="title mt-0">ALREADY HAVE AN ACCOUNT?</h3>
                         <p>Log in and go to your Dashboard.</p>
-                        <a href="/login" class="custom-button transparent">Login</a>
+                        <a href="{{route('login')}}" class="custom-button transparent">Login</a>
                     </div>
                 </div>
             </div>

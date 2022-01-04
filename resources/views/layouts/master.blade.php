@@ -8,16 +8,16 @@
 
     <title>Auction</title>
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/nice-select.css">
-    <link rel="stylesheet" href="/assets/css/owl.min.css">
-    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset("/assets/css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/all.min.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/animate.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/nice-select.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/owl.min.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/magnific-popup.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/flaticon.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/jquery-ui.min.css")}}">
+    <link rel="stylesheet" href="{{asset("/assets/css/main.css")}}">
+    <link rel="shortcut icon" href="{{asset("assets/images/favicon.png")}}" type="image/x-icon">
     @yield('stylesheets')
 </head>
 
@@ -69,17 +69,7 @@
                         <li>
                             <a href="#0" class="mr-3"><i class="fas fa-phone-alt"></i><span class="ml-2 d-none d-sm-inline-block">Customer Support</span></a>
                         </li>
-                        <li>
-                            <i class="fas fa-globe"></i>
-                            <select name="language" class="select-bar">
-                                <option value="en">En</option>
-                                <option value="Bn">Bn</option>
-                                <option value="Rs">Rs</option>
-                                <option value="Us">Us</option>
-                                <option value="Pk">Pk</option>
-                                <option value="Arg">Arg</option>
-                            </select>
-                        </li>
+                        
                     </ul>
                     <ul class="cart-button-area ">
                         @auth
@@ -96,13 +86,13 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="/">
+                        <a href="{{route('index')}}">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href="/"><i class="fas fa-home"></i>Home</a>
+                            <a href="{{route('index')}}"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
@@ -119,10 +109,10 @@
                            <a href="#0"><i class="fas fa-sign-in-alt"></i>Login/Register</a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="/login">Sign In</a>
+                                        <a href="{{route('login')}}">Sign In</a>
                                     </li>
                                     <li>
-                                        <a href="./register">Sign Up</a>
+                                        <a href="{{route('register')}}">Sign Up</a>
                                     </li>
                                 </ul>
                             @else   
@@ -148,10 +138,7 @@
                             
                         </li>
                     </ul>
-                    <form class="search-form">
-                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
+                    
                     <div class="search-bar d-md-none">
                         <a href="#0"><i class="fas fa-search"></i></a>
                     </div>
@@ -349,7 +336,7 @@
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
+                            <a href="{{route('index')}}"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
                         </div>
                         
                         <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Auction</a></p></div>
@@ -357,26 +344,35 @@
                 </div>
             </div>
         </div>
-    </footer>
+        
+   </footer>
     <!--============= Footer Section Ends Here =============-->
 
 
 
-    <script src="./assets/js/jquery-3.3.1.min.js"></script>
-    <script src="./assets/js/modernizr-3.6.0.min.js"></script>
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/isotope.pkgd.min.js"></script>
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/waypoints.js"></script>
-    <script src="./assets/js/nice-select.js"></script>
-    <script src="./assets/js/counterup.min.js"></script>
-    <script src="./assets/js/owl.min.js"></script>
-    <script src="./assets/js/magnific-popup.min.js"></script>
-    <script src="assets/js/yscountdown.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="{{asset("./assets/js/jquery-3.3.1.min.js")}}"></script>
+    <script src="{{asset("./assets/js/modernizr-3.6.0.min.js")}}"></script>
+    <script src="{{asset("./assets/js/plugins.js")}}"></script>
+    <script src="{{asset("./assets/js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("./assets/js/isotope.pkgd.min.js")}}"></script>
+    <script src="{{asset("./assets/js/wow.min.js")}}"></script>
+    <script src="{{asset("./assets/js/waypoints.js")}}"></script>
+    <script src="{{asset("./assets/js/nice-select.js")}}"></script>
+    <script src="{{asset("./assets/js/counterup.min.js")}}"></script>
+    <script src="{{asset("./assets/js/owl.min.js")}}"></script>
+    <script src="{{asset("./assets/js/magnific-popup.min.js")}}"></script>
+    <script src="{{asset("assets/js/yscountdown.min.js")}}"></script>
+    <script src="{{asset("assets/js/jquery-ui.min.js")}}"></script>
+    <script src="{{asset("./assets/js/main.js")}}"></script>
     @yield('scripts')
+    
 </body>
+
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_ba2dcb24c7e21c809d78f25e62e5476e2'
+    });
+</script>
 
 </html>

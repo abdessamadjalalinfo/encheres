@@ -112,13 +112,13 @@
                 </div>
                 
                 <div class="row justify-content mb-55-none">
-                    @foreach($categories[0]->products->where('etat','normal') as $product)
+                    @foreach($categories[0]->products->where('etat','normal')->take(4) as $product)
                     <div class="col-sm-10 col-md-3 col-lg-3">
                         <div class="auction-item-2 card h-80">
                             
                            
                             <div class="auction-thumb">
-                                <a href="{{route('showProduct',$product->id)}}"><img src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                                <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
                                 <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
                                 <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                             </div>
@@ -175,20 +175,20 @@
     <section>
 <div class="container">
     <div class="row">
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS IN PROGRESS</b></h6>
         </div> 
-        <div class="col-3  card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS CAR</b></h6>
         </div> 
     
    
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS BUILDINGS AND FACILITIES</b></h6>
         </div> 
     
    
-        <div class="col-3 card card-body"> <h1 class="auction">1526</h1>
+        <div class="col-sm-10 col-md-3 col-lg-3 card card-body"> <h3 class="auction">1526</h3>
                            <h6> <b>AUCTIONS SQUARE</b></h6>
         </div> 
     </div>
@@ -218,8 +218,9 @@
                 <a href="{{route('showProductCategories',['id'=>$categories[4]->id])}}" class="normal-button">Voir plus</a>
             </div>
             <div class="row justify-content mb-30-none">
-                <div class="col-sm-10 col-md-3 col-lg-3 ">
-                    @foreach($categories[4]->products as $product)
+               
+                    @foreach($categories[4]->products->where('etat','normal')->take(4) as $product)
+                     <div class="col-sm-10 col-md-3 col-lg-3 ">
                     <div class="auction-item-2 card h-80">
                         <div class="auction-thumb">
                             <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{$product->images[0]->path_logo}}" alt="jewelry"></a>
@@ -256,8 +257,9 @@
                                 </div>
                             </div>
                     </div>
+                     </div>
                     @endforeach
-                </div>
+               
                 
                 
             </div>
