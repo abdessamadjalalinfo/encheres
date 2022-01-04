@@ -46,21 +46,17 @@ Route::get('/auctions', [App\Http\Controllers\AuctionController::class, 'index']
 
 Route::get('/check', [App\Http\Controllers\ProductController::class, 'check'])->name('check');
 Route::get('/myProducts', [App\Http\Controllers\ProductController::class, 'myProducts'])->name('myProducts');
-
-<<<<<<< HEAD
-Route::get('/sell', function(){
+Route::get('/sell', function () {
     return view("sell");
 })->name('sell');
 
-Route::get('/sellPrivate', function(){
+Route::get('/sellPrivate', function () {
     return view("sellPrivate");
 })->name('sellPrivate');
 
-Route::get('/sellCompany', function(){
+Route::get('/sellCompany', function () {
     return view("sellCompany");
 })->name('sellCompany');
-=======
-
 
 Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'users'])->name('admin.users')->middleware("auth");
 Route::get('/admin/categories/{id}', [App\Http\Controllers\AdminController::class, 'categories'])->name('admin.categories')->middleware("auth");
@@ -71,4 +67,6 @@ Route::get('/admin/encheres', [App\Http\Controllers\AdminController::class, 'enc
 Route::get('/admin/expired', [App\Http\Controllers\AdminController::class, 'expired'])->name('admin.expired')->middleware("auth");
 Route::get('/admin/customer', [App\Http\Controllers\AdminController::class, 'customer'])->name('admin.customer')->middleware("auth");
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'users'])->middleware("auth");
->>>>>>> 9a6032d7173ad2ba85c307a1e9b84c44ae85b18e
+Route::get("about", function () {
+    return view('about');
+})->name("about");

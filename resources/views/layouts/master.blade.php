@@ -101,7 +101,7 @@
                         </li>
                         
                         <li>
-                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
+                            <a href="{{route('about')}}"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
                             

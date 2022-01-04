@@ -19,7 +19,7 @@
         <img src="{{asset('img/landingpagesalestopblack_0c5b70.jpeg')}}" alt="">
     </div>
     <div style="margin-top: 40px;">
-        <h5 style="text-align: center;margin-bottom:18px"><a href="href="{{route("sellCompany")}}""><u>PRESS TO SELL AS A COMPANY</a></u></h5>
+        <h5 style="text-align: center;margin-bottom:18px"><a href="{{route("sellCompany")}}"><u>PRESS TO SELL AS A COMPANY</a></u></h5>
     </div>
        <div class="row">
            
