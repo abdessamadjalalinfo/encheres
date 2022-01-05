@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use Carbon\Carbon;
 
 use App\Models\Product;
@@ -127,8 +128,8 @@ class ProductController extends Controller
 
         $user = Auth::user();
         $categories = Categorie::all();
-
-        return view('addproduct', ['user' => $user, 'categories' => $categories]);
+        $brands = Brand::all();
+        return view('addproduct', ['user' => $user, 'categories' => $categories,'brands'=>$brands]);
     }
     public function ajouterannonce(Request $request)
     {
@@ -136,10 +137,14 @@ class ProductController extends Controller
         $product = new Product();
         $product->titre = $request->titre;
         $product->categorie_id = $request->categorie_id;
+        if(in_array($request->categorie_id,[1]))
+            $product->brand_id=$request->brand_id;
+        
         $product->description = $request->description;
         $product->premier_prix = $request->premier_prix;
         $product->owner_id = Auth::user()->id;
         $product->duree = $request->duree;
+       
         $product->save();
 
         $this->validate($request, [

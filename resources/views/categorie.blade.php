@@ -202,8 +202,10 @@
     <div class="product-auction padding-bottom">
         <div class="container">
             <div class="product-header mb-40">
+                {{-- comment 
+                
                 <div class="product-header-item">
-                    <div class="item">Trier par : </div>
+                    <div class="">Trier par : </div>
                     <select name="sort-by" class="select-bar">
                         <option value="all">All</option>
                         <option value="name">Nom</option>
@@ -213,7 +215,7 @@
                     </select>
                 </div>
                 <div class="product-header-item">
-                    <div class="item">Voir : </div>
+                    <div class="">Voir : </div>
                     <select name="sort-by" class="select-bar">
                         <option value="09">09</option>
                         <option value="21">21</option>
@@ -221,7 +223,19 @@
                         <option value="39">39</option>
                         <option value="60">60</option>
                     </select>
-                </div>
+                </div>--}}
+                @if($brands)
+                    <div class="product-header-item">
+                        <div class="">Brand : </div>
+                        <select name="sort-by" class="select-bar" id="filterByBrand">
+                            <option  value="0">ALL</option>
+                            @foreach ($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name_brand}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endif
+                
                 <form class="product-search ml-auto">
                     <input type="text" placeholder="Nom ">
                     <button type="submit"><i class="fas fa-search"></i></button>
@@ -238,73 +252,76 @@
                          }
                          $min = \App\Models\Enchere::all()->where('produit_id', $product->id)->max('price');
                         ?>
-                <div class="col-sm-10 col-md-6 col-lg-4">
-                    <div class="auction-item-2">
-                        <div class="auction-thumb">
-                            <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
-                            <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
-                            <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
+         
+                        <div class="col-sm-10 col-md-6 col-lg-4 @php if($product->brand_id) echo 'Cars brandNum'.$product->brand_id @endphp">
+                            <div class="auction-item-2">
+                                <div class="auction-thumb">
+                                    <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
+                                    <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                    <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                                </div>
+                                <div class="auction-content">
+                                    <h6 class="title">
+                                        
+                                        <a href="#0">{{$product->titre}}  @php  if($product->brand_id) echo 'Brand : '.$product->brand()->get()[0]->name_brand @endphp</a>
+                                    </h6>
+                                    <div class="bid-area">
+                                        <div class="bid-amount">
+                                            <div class="icon">
+                                                <i class="flaticon-auction"></i>
+                                            </div>
+                                            <div class="amount-content">
+                                                <div class="current">prix courant</div>
+                                                <div class="amount">$876.00</div>
+                                            </div>
+                                        </div>
+                                        <div class="bid-amount">
+                                            <div class="icon">
+                                                <i class="flaticon-money"></i>
+                                            </div>
+                                            <div class="amount-content">
+                                                <div class="current">premier prix</div>
+                                                <div class="amount">{{$product->premier_prix}} MAD</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="countdown-area">
+                                        <div class="countdown">
+                                            {{$date_expires}}
+                                        </div>
+                                    
+                                    </div>
+                                    <div class="text-center">
+                                        @if($product->etat=="expiré")
+                                        <a href="{{route('showProduct',['id'=>$product->id])}}" class="btn btn-danger">Expiré</a>
+                                        @else 
+                                        <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button btn-success">Proposer</a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="auction-content">
-                            <h6 class="title">
-                                <a href="{{route('showProduct',$product->id)}}">{{substr($product->titre,0, 15)}}</a>
-                            </h6>
-                            <div class="bid-area">
-                                <div class="bid-amount">
-                                    <div class="icon">
-                                        <i class="flaticon-auction"></i>
-                                    </div>
-                                    <div class="amount-content">
-                                        <div class="current">prix courant</div>
-                                        <div class="amount">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}} MAD</div>
-                                    </div>
-                                </div>
-                                <div class="bid-amount">
-                                    <div class="icon">
-                                        <i class="flaticon-money"></i>
-                                    </div>
-                                    <div class="amount-content">
-                                        <div class="current">premier prix</div>
-                                        <div class="amount">{{$product->premier_prix}} MAD</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="countdown-area">
-                                <div class="countdown">
-                                    {{$date_expires}}
-                                </div>
-                               
-                            </div>
-                            <div class="text-center">
-                                @if($product->etat=="expiré")
-                                <a href="{{route('showProduct',['id'=>$product->id])}}" class="btn btn-danger">Expiré</a>
-                                @else 
-                                 <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button btn-success">Proposer</a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             
  
             </div>
+          
             <ul class="pagination">
+                @if($products->links()->paginator->currentPage()!=1)
                 <li>
-                    <a href="#0"><i class="flaticon-left-arrow"></i></a>
+                    <a href="/categories/1?page={{$products->links()->paginator->currentPage()-1}}"><i class="flaticon-left-arrow"></i></a>
                 </li>
+                @endif
+                @foreach ($products->links()->elements[0] as $index=>$element)
                 <li>
-                    <a href="#0">1</a>
+                    <a href="{{$element}}" class="@php if($products->links()->paginator->currentPage()==$index) echo 'active' @endphp">{{$index}}</a>
                 </li>
+                @endforeach
+                @if($products->links()->paginator->lastPage()!=$products->links()->paginator->currentPage())
                 <li>
-                    <a href="#0" class="active">2</a>
+                    <a href="/categories/1?page={{$products->links()->paginator->currentPage()+1}}"><i class="flaticon-right-arrow"></i></a>
                 </li>
-                <li>
-                    <a href="#0">3</a>
-                </li>
-                <li>
-                    <a href="#0"><i class="flaticon-right-arrow"></i></a>
-                </li>
+                @endif
             </ul>
         </div>
     </div>
@@ -468,7 +485,8 @@
     <!--============= Footer Section Ends Here =============-->
 
 
-
+    
+   
     <script src="{{asset('/assets/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('/assets/js/modernizr-3.6.0.min.js')}}"></script>
     <script src="{{asset('/assets/js/plugins.js')}}"></script>
@@ -483,6 +501,18 @@
     <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('/assets/js/main.js')}}"></script>
+    <script>
+            $("#filterByBrand").change(function(){
+                brand=$( this ).val();
+                if(brand==0) $(".Cars").show()
+                else{
+                    $(".Cars").hide()
+                    $(".brandNum"+brand).show()
+                }
+                
+
+            })
+    </script>
 </body>
 
 </html>

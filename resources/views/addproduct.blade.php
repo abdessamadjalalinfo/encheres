@@ -271,6 +271,15 @@
         @endforeach
       </select>
     </div>
+    <div class="form-group col-md-6">
+      
+        <label for="inputState">Brand</label>
+        <select  name="brand_id" id="brand" class="form-control">
+          @foreach($brands as $brand)
+          <option value="{{$brand->id}}">{{$brand->name_brand}}</option>
+          @endforeach
+        </select>
+      </div>
     
   </div>
   <div class="form-row">
