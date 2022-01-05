@@ -71,7 +71,7 @@
                           
                         @auth
                             <li>
-                                <a style="color: #f0f2f5" href="sign-in.html">Welcome, {{Auth::user()->nom }}</a>
+                                <a style="color: #f0f2f5" href="{{route('profile')}}">Welcome, {{Auth::user()->nom }}</a>
                             </li> 
                         @endauth                
                     </ul>
@@ -88,16 +88,16 @@
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href=""><i class="fas fa-home"></i>Home</a>
+                            <a href="{{route('index')}}"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
                             
-                            <a href=""><i class="fas fa-shopping-cart"></i>Sell</a>
+                            <a href="{{route('sell')}}"><i class="fas fa-shopping-cart"></i>Sell</a>
                         </li>
                         
                         <li>
-                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
+                            <a href="{{route('about')}}"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
                             

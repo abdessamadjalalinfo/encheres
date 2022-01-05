@@ -3,6 +3,14 @@
   @extends('layouts.master')
     @section('content')
 
+     <style>
+              .img-h {
+   float: left;
+    width:  100%;
+    height: 150px;    object-fit: cover;
+}
+    </style>
+
 
 
     <div class="hero-section style-2">
@@ -34,22 +42,7 @@
                         <div class="header">
                             <h4 class="title">My Favorites</h4>
                         </div>
-                        <div class="button-area justify-content-between">
-                            <form class="product-search">
-                                <input type="text" placeholder="Item Name">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </form>
-                            <div class="sort-winning-bid">
-                                <div class="item">Trier par: </div>
-                                <select name="sort-by" class="select-bar">
-                                    <option value="all">All</option>
-                                    <option value="name">Name</option>
-                                    <option value="date">Date</option>
-                                    <option value="type">Type</option>
-                                    <option value="car">Car</option>
-                                </select>
-                            </div>
-                        </div>
+                        
                     </div>
                     <style>
                         .img-h{
@@ -89,7 +82,8 @@
                                 </div>
                                 <div class="auction-content">
                                     <h6 class="title">
-                                        <a href="{{route('showProduct',$product->id)}}"> {{$product->titre}}</a>
+                                        <a href="{{route('showProduct',$product->id)}}">
+                                              {{substr($product->titre,0, 20)}} </a>
                                     </h6>
                                     <div class="bid-area">
                                         <div class="bid-amount">

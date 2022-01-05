@@ -1,8 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+         .custom-button {
+    color: #ffffff;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px 30px 10px;
+    font-size: 18px;
+    background: -moz-linear-gradient(90deg, #ee4730 0%, #cf031c  100%);
+    background: -ms-linear-gradient(90deg, #cf031c  0%,#cf031c 100%);
+    background: -webkit-linear-gradient(
+90deg, #ee4730 0%, #cf031c 100%);
+    box-shadow: -1.04px 4.891px 20px 0px rgb(69 49 183 / 50%);
+    font-family: "Roboto", sans-serif;
+}
         .mt--165 {
     margin-top: -165px;
+}
+      .img-h {
+   float: left;
+    width:  100%;
+    height: 150px;    object-fit: cover;
+}
+    .header-bottom.active {
+    background: #9b9b9b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    animation-name: fadeInUp;
+    animation-duration: 1s;
 }
     </style>
 
@@ -39,7 +70,7 @@
 
 
     <!--============= Header Section Starts Here =============-->
-    <header>
+    <header style='background:#9b9b9b'>
         <div class="header-top">
             <div class="container">
                 <div class="header-top-wrapper">
@@ -57,7 +88,7 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="{{route('index')}}">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
@@ -210,13 +241,13 @@
                 <div class="col-sm-10 col-md-6 col-lg-4">
                     <div class="auction-item-2">
                         <div class="auction-thumb">
-                            <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
-                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
-                            <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
+                            <a href="{{route('showProduct',$product->id)}}"><img class="img-h" src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
+                            <a href="{{route('showProduct',$product->id)}}" class="rating"><i class="far fa-star"></i></a>
+                            <a href="{{route('showProduct',$product->id)}}" class="bid"><i class="flaticon-auction"></i></a>
                         </div>
                         <div class="auction-content">
                             <h6 class="title">
-                                <a href="#0">{{$product->titre}}</a>
+                                <a href="{{route('showProduct',$product->id)}}">{{substr($product->titre,0, 15)}}</a>
                             </h6>
                             <div class="bid-area">
                                 <div class="bid-amount">
@@ -225,7 +256,7 @@
                                     </div>
                                     <div class="amount-content">
                                         <div class="current">prix courant</div>
-                                        <div class="amount">$876.00</div>
+                                        <div class="amount">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}} MAD</div>
                                     </div>
                                 </div>
                                 <div class="bid-amount">
@@ -283,7 +314,7 @@
 
 
     <!--============= Footer Section Starts Here =============-->
-    <footer class="bg_img padding-top oh" data-background="{{asset('/assets/images/footer/footer-bg.jpg')}}">
+    <footer style="background-color: #9b9b9b"  class="bg_img padding-top oh">
         <div class="footer-top-shape">
             <img src="{{asset('/assets/css/img/footer-top-shape.png')}}" alt="css">
         </div>
@@ -318,7 +349,7 @@
                             <h5 class="cate">Subscribe to Auction</h5>
                             <h3 class="title">Pour obtenir des avantages exclusifs</h3>
                         </div>
-                        <form class="subscribe-form">
+                        <form action="{{route('subscribe')}}" class="subscribe-form">
                             <input type="text" placeholder="Enter Your Email" name="email">
                             <button type="submit" class="custom-button">S'abonner</button>
                         </form>
@@ -333,30 +364,13 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">Auction Categories</h5>
                             <ul class="links-list">
+                                @php $categories=App\Models\Categorie::all(); @endphp
+                                @foreach($categories as $categorie)
                                 <li>
-                                    <a href="#0">Ending Now</a>
+                                    <a href="#0">{{$categorie->nom}}</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Vehicles</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Watches</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Electronics</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Real Estate</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jewelry</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Art</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Sports & Outdoor</a>
-                                </li>
+                                @endforeach
+                               
                             </ul>
                         </div>
                     </div>
@@ -365,26 +379,12 @@
                             <h5 class="title">About Us</h5>
                             <ul class="links-list">
                                 <li>
-                                    <a href="#0">About Sbidu</a>
+                                    <a href="{{route('about')}}">About</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Help</a>
+                                    <a href="{{route('about')}}">Privacy</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Affiliates</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Press</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Our blog</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Collectors' portal</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -392,21 +392,20 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">We're Here to Help</h5>
                             <ul class="links-list">
+                                @auth
                                 <li>
-                                    <a href="#0">Your Account</a>
+                                    <a href="{{route('profile')}}">Your Account</a>
                                 </li>
+                                @else
                                 <li>
-                                    <a href="#0">Safe and Secure</a>
+                                    <a href="{{route('login')}}">Login/Sign Up</a>
                                 </li>
+                                @endauth
+                                
                                 <li>
-                                    <a href="#0">Shipping Information</a>
+                                    <a href="{{route('about')}}">Contact Us</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help & FAQ</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -446,28 +445,15 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+         <div class="footer-bottom">
             <div class="container">
                 <div class="copyright-area">
                     <div class="footer-bottom-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('/assets/images/logo/footer-logo.png')}}" alt="logo"></a>
+                            <a href="{{route('index')}}"><img  src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo"></a>
                         </div>
-                        <ul class="gateway-area">
-                            <li>
-                                <a href="#0"><img src="{{asset('/assets/images/footer/paypal.png')}}" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="{{asset('/assets/images/footer/visa.png')}}" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="{{asset('/assets/images/footer/discover.png')}}" alt="footer"></a>
-                            </li>
-                            <li>
-                                <a href="#0"><img src="{{asset('/assets/images/footer/mastercard.png')}}" alt="footer"></a>
-                            </li>
-                        </ul>
-                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Sbidu</a> By <a href="#0">Uiaxis</a></p></div>
+                        
+                        <div class="copyright"><p>&copy; Copyright 2021 | <a href="#0">Auction</a> By <a href="#0">Auction</a></p></div>
                     </div>
                 </div>
             </div>

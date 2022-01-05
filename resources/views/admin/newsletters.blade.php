@@ -3,40 +3,36 @@
 
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mes utilisateurs</h1>
+            <h1 class="h3 mb-0 text-gray-800">NewsLetters</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-
+    </div>
     <div class="row">
         <div class="col-3">
             <div class="card bg-primary text-white shadow">
                     <div class="card-body">
-                     Nombre d'utilisateurs
-                      <div class="text-white-50 small">{{$users->count()}}</div>
+                     Nombre d'émail
+                      <div class="text-white-50 small">{{$newsletters->count()}}</div>
                     </div>
             </div>   
         </div>  
-    </div>  
+    </div>
+
     <div class="row">
-        
-    
-     <table class="table">
+         <table class="table">
       <thead>
           <tr>
-      <th scope="col">Nom et Prénom </th>
       <th scope="col">Email</th>
-      <th scope="col">Téléphone</th>
-      <th scope="col">Adresse</th>
+      <th scope="col">date de création</th>
+
        </tr>
          </thead>
          <tbody>
-      @foreach($users as $user)
+      @foreach($newsletters as $email)
       <tr>
      
-      <td><a href="">{{$user->nom}} {{$user->nom}}</a></td>
-      <td>{{$user->email}}</td>
-      <td>{{$user->phone}}</td>
-      <td>{{$user->adresse}} {{$user->ville}} {{$user->pays}}</td>
+      <td><a href="">{{$email->email}}</a></td>
+      <td>{{$email->created_at}}</td>
+      
      
       </tr>
       @endforeach
@@ -46,8 +42,8 @@
     </tr>
   </tbody>
 </table>
-    </div>          
-        
-          
+    </div>
+    
+    
 </div>
 @endsection

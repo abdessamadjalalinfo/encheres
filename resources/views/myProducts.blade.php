@@ -160,10 +160,10 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li>
-                    <a href="./index.html">Home</a>
+                    <a href="./index.html">Accueil</a>
                 </li>
                 <li>
-                    <a href="#0">My Account</a>
+                    <a href="#0">Mon Compte</a>
                 </li>
                 <li>
                     <span>Dashboard</span>
@@ -183,7 +183,7 @@
                 <div class="col-lg-8">
                     <div class="dashboard-widget mb-40">
                         <div class="dashboard-title mb-30">
-                            <h5 class="title">My Products</h5>
+                            <h5 class="title">Mes produits</h5>
                         </div>
                         <div class="row justify-content-center mb-30-none">
                             <div class="col-md-4 col-sm-6">
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">{{$normalProducts->count()+$expiredProducts->count()}}</span></h2>
-                                        <h6 class="info">All Products</h6>
+                                        <h6 class="info">Tout les produits</h6>
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +204,7 @@
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">{{$normalProducts->count()}}</span></h2>
-                                        <h6 class="info">In Progress</h6>
+                                        <h6 class="info">En cours</h6>
                                     </div>
                                 </div>
                             </div>
@@ -215,10 +215,14 @@
                                     </div>
                                     <div class="content">
                                         <h2 class="title"><span class="counter">{{$expiredProducts->count()}}</span></h2>
-                                        <h6 class="info">Expired</h6>
+                                        <h6 class="info">Expiré</h6>
                                     </div>
                                 </div>
+                                
                             </div>
+                                 <p style="color:red;padding-bottom: 11px;"><b>Contacter l'admin sur: <b style='color:rgb(0, 0, 0);'>admin@auction.ma</b> pour voir les informations de l'acheteur pour les produits expirés. veuillez mentionnez le nom de l'annonce.</b> </p>
+                      
+                            
                             
                         </div>
                     </div>
@@ -228,10 +232,10 @@
                         <div class="dashboard-purchasing-tabs">
                             <ul class="nav-tabs nav">
                                 <li>
-                                    <a href="#in_progress" class="active" data-toggle="tab">In progress</a>
+                                    <a href="#in_progress" class="active" data-toggle="tab">En cours</a>
                                 </li>
                                 <li>
-                                    <a href="#expired" data-toggle="tab">Expired</a>
+                                    <a href="#expired" data-toggle="tab">Expiré</a>
                                 </li>
                                 {{-- comment 
                                 
@@ -243,12 +247,12 @@
                                 <div class="tab-pane show active fade" id="in_progress">
                                     <table class="purchasing-table">
                                         <thead>
-                                            <th>Title</th>
+                                            <th>Titre</th>
                                             <th>Nombre de vue</th>
                                             <th>Categorie</th>
-                                            <th>First Price(DH)</th>
-                                            <th>Bids</th>
-                                            <th>Current Bid(DH)</th>
+                                            <th>Premier prix(DH)</th>
+                                            <th>Enchère</th>
+                                            <th>Prix Courant(DH)</th>
                                             
                                         </thead>
                                         <tbody>
@@ -273,11 +277,11 @@
                                 <div class="tab-pane show fade" id="expired">
                                     <table class="purchasing-table">
                                         <thead>
-                                            <th>Title</th>
+                                            <th>Titre</th>
                                             <th>Nombre de Vue</th>
                                             <th>Categorie</th>
-                                            <th>First Price(DH)</th>
-                                            <th>Bid Price(DH)</th>
+                                            <th>Premier Prix(DH)</th>
+                                            <th>Prix d'enchère(DH)</th>
                                             <th>Winner</th>
                                         </thead>
                                         <tbody>

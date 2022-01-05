@@ -119,14 +119,24 @@
                                 <a href="#0">Profile</a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{route('dashboard')}}">Dashboard</a>
+                                        <a href="{{route('dashboard')}}"><i class="flaticon-dashboard"></i>Dashboard</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('profile')}}"> <i class="flaticon-settings"></i>Mon profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
+                                    </li>
+                                     <li>
+                                        <a href="{{route('favorits')}}"><i class="flaticon-auction"></i></i>Mes enchères</a>
+                                    </li>
+                                    
                                     
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                       Logout <i class="flaticon-logout"></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -220,7 +230,7 @@
                             <h5 class="cate">Subscribe to Sbidu</h5>
                             <h3 class="title">To Get Exclusive Benefits</h3>
                         </div>
-                        <form class="subscribe-form">
+                        <form action="{{route('subscribe')}}" class="subscribe-form">
                             <input type="text" placeholder="Enter Your Email" name="email">
                             <button type="submit" class="custom-button">Subscribe</button>
                         </form>
@@ -250,26 +260,12 @@
                             <h5 class="title">About Us</h5>
                             <ul class="links-list">
                                 <li>
-                                    <a href="#0">About Sbidu</a>
+                                    <a href="{{route('about')}}">About</a>
                                 </li>
                                 <li>
-                                    <a href="#0">Help</a>
+                                    <a href="{{route('about')}}">Privacy</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Affiliates</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Jobs</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Press</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Our blog</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Collectors' portal</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -277,21 +273,20 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">We're Here to Help</h5>
                             <ul class="links-list">
+                                @auth
                                 <li>
-                                    <a href="#0">Your Account</a>
+                                    <a href="{{route('profile')}}">Your Account</a>
                                 </li>
+                                @else
                                 <li>
-                                    <a href="#0">Safe and Secure</a>
+                                    <a href="{{route('login')}}">Login/Sign Up</a>
                                 </li>
+                                @endauth
+                                
                                 <li>
-                                    <a href="#0">Shipping Information</a>
+                                    <a href="{{route('about')}}">Contact Us</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help & FAQ</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>

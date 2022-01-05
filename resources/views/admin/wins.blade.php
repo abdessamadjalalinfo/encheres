@@ -37,7 +37,9 @@
      
       @endphp
       <td><a href="">{{$product->titre}}</a></td>
-      <td>{{$enchere->price}}</td>
+      <td>{{$enchere->price}}
+      
+      </td>
       <td><a href="">{{App\Models\User::find($product->owner_id)->nom}}</a></td>
        <td><a href="">{{App\Models\User::find($win->user_id)->nom}}</a></td>
       </tr>

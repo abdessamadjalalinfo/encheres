@@ -9,7 +9,7 @@
         <!--============= Hightlight Slider Section Starts Here =============-->
         <div class="browse-slider-section " style="top: 166px; margin-bottom: 88px;">
             <div class="container">
-                <div style="margin-top:10px;" class="row">
+                <div style="margin-top: 36px;" class="row">
 <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -47,12 +47,67 @@
     </div>
     </div>
   </div>
+    <div class="tab-pane fade show" id="questions">
+                        <h1 style="text-align: center" class="faq-head-title">Frequently Asked Questions</h1>
+                        <div class="faq-wrapper">
+                            <div class="faq-item">
+                                <div class="faq-title">
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">Comment commencer à enchérir ?</span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-title">
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">Security Deposit / Bidding Power </span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-title">
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">Delivery time to the destination port </span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-title">
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">How to register to bid in an auction?</span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item open active">
+                                <div class="faq-title">
+                                    <img src="/assets/css/img/faq.png" alt="css"><span class="title">How will I know if my bid was successful?</span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-title">
+                                    <img src="{{asset("/assets/css/img/faq.png")}}" alt="css"><span class="title">What happens if I bid on the wrong lot?</span><span class="right-icon"></span>
+                                </div>
+                                <div class="faq-content">
+                                    <p>All successful bidders can confirm their winning bid by checking the “Sbidu”. In addition, all successful bidders will receive an email notifying them of their winning bid after the auction closes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
 
                     
                 </div>
             </div>
-        </div> 
+        </div>
+         
     
 
     

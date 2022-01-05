@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Categorie;
 use App\Models\Enchere;
+use App\Models\Newsletter;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Win;
@@ -82,5 +83,11 @@ class AdminController extends Controller
         }
         $users = User::all();
         return view('admin.customer', ['users' => $users]);
+    }
+
+    public function newsletters()
+    {
+        $newsletters = Newsletter::all();
+        return view('admin.newsletters', ['newsletters' => $newsletters]);
     }
 }

@@ -74,13 +74,20 @@ class ProductController extends Controller
     {
         $userId = Auth::user()->id;
 
+        //dd($request->proposition);
+        $product = Product::find($id);
+
         $min = \App\Models\Enchere::all()->where('produit_id', $id)->max('price');
 
-        if (intval($request->proposition) > $min) {
+        $proposition = $min ?? $product->premier_prix;
+        $proposition = $product->premier_prix * 0.03 + $proposition;
+        // dd($id);
+
+        if ($proposition > $min) {
             $enchere = new Enchere();
             $enchere->produit_id = $id;
             $enchere->user_id = $userId;
-            $enchere->price = intval($request->proposition);
+            $enchere->price = $proposition;
             $enchere->etat = 'normale';
             $enchere->save();
             return redirect()->route('auctions');
@@ -154,27 +161,28 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->back();
+        return redirect()->route('myProducts');
     }
 
-    public function myProducts(){
+    public function myProducts()
+    {
         //dd(Product::first()->categorie()->get()[0]);
         // dd(Enchere::where("produit_id",1)->orderBy("price","desc")->first());
-        
-        $normalProducts=Product::where("etat","normal")->get();
-        $expiredProducts=Product::where("etat","expiré")->get();
-        
-        $normalProducts->each(function($product){
-            $product->countBids = Enchere::where("produit_id",$product->id)->count();
-            $product->currentBid =  Enchere::where("produit_id",$product->id)->max("price");
+
+        $normalProducts = Product::where("etat", "normal")->get();
+        $expiredProducts = Product::where("etat", "expiré")->get();
+
+        $normalProducts->each(function ($product) {
+            $product->countBids = Enchere::where("produit_id", $product->id)->count();
+            $product->currentBid =  Enchere::where("produit_id", $product->id)->max("price");
         });
-        $expiredProducts->each(function($product){
-            $enchere=Enchere::where("produit_id",$product->id)->orderBy("price","desc")->first();
-            $winner = Win::where("enchere_id",$enchere->id)->first()->user()->first();
+        $expiredProducts->each(function ($product) {
+            $enchere = Enchere::where("produit_id", $product->id)->orderBy("price", "desc")->first();
+            $winner = Win::where("enchere_id", $enchere->id)->first()->user()->first();
             $product->winner = $winner;
-            $product->bidPrice=$enchere->price;
+            $product->bidPrice = $enchere->price;
         });
-        
-        return view("myProducts",["normalProducts"=>$normalProducts,"expiredProducts"=>$expiredProducts]);
+
+        return view("myProducts", ["normalProducts" => $normalProducts, "expiredProducts" => $expiredProducts]);
     }
 }

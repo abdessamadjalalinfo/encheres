@@ -314,7 +314,7 @@
       <input type="file" multiple name="filename[]" class="form-control">
   </div>
  
-    <button type="submit" class="btn btn-success">Publier</button>
+    <button style="margin-top: 21px;margin-bottom: 21px;"type="submit" class="btn btn-success">Publier</button>
   
    
  

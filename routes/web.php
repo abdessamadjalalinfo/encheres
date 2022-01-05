@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Newsletter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +66,12 @@ Route::get('/admin/categories/{id}', [App\Http\Controllers\AdminController::clas
 
 Route::get('/admin/encheres', [App\Http\Controllers\AdminController::class, 'encheres'])->name('admin.encheres')->middleware("auth");
 
+Route::get('subscribe', function (Request $req) {
+    $newsletter = new Newsletter();
+    $newsletter->email = $req->email;
+    $newsletter->save();
+    return redirect()->route('index');
+})->name('subscribe');
 
 Route::get('/admin/expired', [App\Http\Controllers\AdminController::class, 'expired'])->name('admin.expired')->middleware("auth");
 Route::get('/admin/customer', [App\Http\Controllers\AdminController::class, 'customer'])->name('admin.customer')->middleware("auth");
@@ -70,3 +79,5 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'users'])->mi
 Route::get("about", function () {
     return view('about');
 })->name("about");
+
+Route::get('/admin/newsletters', [App\Http\Controllers\AdminController::class, 'newsletters'])->name('admin.newsletters')->middleware("auth");

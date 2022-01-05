@@ -105,7 +105,7 @@
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
-                        <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha">
+                        <a href="{{route('index')}}">
                             <img src="https://www.auksjonen.no/font/logo_74a1d5.svg" alt="logo">
                         </a>
                     </div>
@@ -120,7 +120,7 @@
                         </li>
                         
                         <li>
-                            <a href="./contact.html"><i class="fas fa-address-card"></i>About</a>
+                            <a href="{{route('about')}}"><i class="fas fa-address-card"></i>About</a>
                         </li>
                         <li>
                             
@@ -136,16 +136,26 @@
                                 </ul>
                             @else   
                                 <a href="#0">Profile</a>
-                                <ul class="submenu">
+                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{route('dashboard')}}">Dashboard</a>
+                                        <a href="{{route('dashboard')}}"><i class="flaticon-dashboard"></i>Dashboard</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('profile')}}"> <i class="flaticon-settings"></i>Mon profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('favorits')}}"><i class="flaticon-star"></i>Favoris</a>
+                                    </li>
+                                     <li>
+                                        <a href="{{route('favorits')}}"><i class="flaticon-auction"></i></i>Mes enchères</a>
+                                    </li>
+                                    
                                     
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                       Logout <i class="flaticon-logout"></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -157,18 +167,8 @@
                             
                         </li>
                     </ul>
-                    <form class="search-form">
-                        <input type="text" placeholder="Qu'est ce que vous cherchez?">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                    <div class="search-bar d-md-none">
-                        <a href="#0"><i class="fas fa-search"></i></a>
-                    </div>
-                    <div class="header-bar d-lg-none">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    
+                   
                 </div>
             </div>
         </div>
@@ -314,7 +314,6 @@
                                 </div>
                             </form>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#autobid" data-bs-whatever="@getbootstrap">Proposition Automatique</button>
-
 <div class="modal fade" id="autobid" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -333,7 +332,7 @@
           
           <h5> votre proposition automatique sera :{{$proposition}} MAD</h5>
           <div class="modal-footer">
-               <input disabled value="{{$proposition}}" name="proposition" type="number">
+        <input disabled value="{{$proposition}}" name="proposition" type="number">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-warning">Proposer</button>
       </div>
@@ -343,6 +342,7 @@
     </div>
   </div>
 </div>
+
                                 @else
                                 <a href="{{route('login')}}" class="custom-button">Se connecter pour Proposer</a>
                                 <p> *Le montant peut être modifié dans le champ ci-dessus avant l'enregistrement de l'offre</p>
@@ -749,19 +749,20 @@
                 </div>
             </div>
         </div>
-        <div class="footer-top padding-bottom padding-top">
+       <div class="footer-top padding-bottom padding-top">
             <div class="container">
                 <div class="row mb--60">
                     <div class="col-sm-6 col-lg-3">
                         <div class="footer-widget widget-links">
                             <h5 class="title">Auction Categories</h5>
                             <ul class="links-list">
-                                 @foreach($categories as $categorie)
+                                @php $categories=App\Models\Categorie::all(); @endphp
+                                @foreach($categories as $categorie)
                                 <li>
                                     <a href="{{route('showProductCategories',$categorie->id)}}">{{$categorie->nom}}</a>
                                 </li>
                                 @endforeach
-                                
+                               
                             </ul>
                         </div>
                     </div>
@@ -769,9 +770,13 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">About Us</h5>
                             <ul class="links-list">
-                                 <li>
-                                    <a href="#0">About Auction</a>
+                                <li>
+                                    <a href="{{route('about')}}">About</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('about')}}">Privacy</a>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -779,39 +784,38 @@
                         <div class="footer-widget widget-links">
                             <h5 class="title">We're Here to Help</h5>
                             <ul class="links-list">
+                                @auth
                                 <li>
-                                    <a href="#0">Your Account</a>
+                                    <a href="{{route('profile')}}">Your Account</a>
                                 </li>
+                                @else
                                 <li>
-                                    <a href="#0">Safe and Secure</a>
+                                    <a href="{{route('login')}}">Login/Sign Up</a>
                                 </li>
+                                @endauth
+                                
                                 <li>
-                                    <a href="#0">Shipping Information</a>
+                                    <a href="{{route('about')}}">Contact Us</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Contact Us</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Help & FAQ</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-3">
                         <div class="footer-widget widget-follow">
                             <h5 class="title">Follow Us</h5>
-                             <ul class="links-list">
+                            <ul class="links-list">
                                 <li>
-                                    <a href="#0"><i class="fas fa-phone-alt"></i>+47 466 36 398</a>
+                                    <a href="#0"><i class="fas fa-phone-alt"></i>(646) 663-4575</a>
                                 </li>
                                 <li>
-                                    <a href="#0"><i class="fas fa-blender-phone"></i>+47 466 36 398</a>
+                                    <a href="#0"><i class="fas fa-blender-phone"></i>(646) 968-0608</a>
                                 </li>
                                 <li>
                                     <a href="#0"><i class="fas fa-envelope-open-text"></i>help@engotheme.com</a>
                                 </li>
                                 <li>
-                                    <a href="#0"><i class="fas fa-location-arrow"></i>Norvege</a>
+                                    <a href="#0"><i class="fas fa-location-arrow"></i>1201 Broadway Suite</a>
                                 </li>
                             </ul>
                             <ul class="social-icons">

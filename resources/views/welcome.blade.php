@@ -57,7 +57,7 @@
                         @foreach($categories as $categorie)
                         <a href="{{route('showProductCategories',['id'=>$categorie->id])}}" class="browse-item">
                             <img src="{{asset($categorie->path_logo)}}" alt="auction">
-                            <span class="info">{{ $categorie->nom}}</span>
+                            <span class="info"> <b> {{ $categorie->nom}}</b> </span>
                         </a>
                         @endforeach
                         
@@ -82,22 +82,27 @@
                 </div>
                 
                 <div class="row justify-content mb-55-none">
-                    @foreach(App\Models\Product::all()->take(8) as $product)
-                    <div style="margin-top: 7px;border-radius: 30px;" class="col-sm-10 col-md-3 col-lg-3">
-                         <div class="card">
+                    @foreach(App\Models\Product::all()->SortBy('created_at',)->take(8) as $product)
+                    <div style="margin-top: 7px;border-radius: 90px;" class="col-sm-10 col-md-3 col-lg-3">
+                         <div style="border-radius: 30px;" class="card">
 <a href="{{route('showProduct',$product->id)}}"><img style="float: left;
     width:  100%;
-    height: 150px;    object-fit: cover;" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
-                      <div class="card-body" style="height: 80px">
+    height: 150px;
+    border-radius: 30px;
+        object-fit: cover;" src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                      <div class="card-body" style="padding-bottom: 8px;">
                         <a href="{{route('showProduct',$product->id)}}"><h6>
-                              {{substr($product->titre,0, 20)}}
+                        <b> {{substr($product->titre,0, 15)}}</b>      
                        
                             
                          </h6></a> 
                         </div >
-                          <p style="display: inline-block;;color:#cf031c;margin-bottom: 11px">{{$product->premier_prix}}MAD</p>
-                          <p style="display: inline-block;">{{App\Models\User::find($product->owner_id)->ville}}</p>
-                          
+                        <div class="id-area">
+                             <p style="display: inline-block;color:#cf031c;margin-bottom: 11px;margin-right: 12px;"> <i class="flaticon-money"></i><b>{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}MAD</b>   </p>
+
+                          <p style="padding-bottom: 15px;display: inline-block;">{{App\Models\User::find($product->owner_id)->ville}},MA</p>
+                         </div>  
+                        
 </div>
                     </div>
                     @endforeach
@@ -136,7 +141,7 @@
                             </div>
                             <div class="auction-content">
                                 <h6 class="title">
-                                    <a href="{{route('showProduct',$product->id)}}">  {{substr($product->titre,0, 30)}}</a>
+                                    <a href="{{route('showProduct',$product->id)}}">  {{substr($product->titre,0, 25)}}</a>
                                 </h6>
                                 <div class="bid-area">
                                     <div class="bid-amount">
@@ -249,7 +254,7 @@
                                         </div>
                                         <div class="amount-content">
                                             <div style="font-size: 13px;" class="current">prix courant</div>
-                                            <div style="font-size: 13px;" class="amount">$876.00</div>
+                                            <div style="font-size: 13px;" class="amount">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}} MAD</div>
                                         </div>
                                     </div>
                                     <div class="bid-amount">

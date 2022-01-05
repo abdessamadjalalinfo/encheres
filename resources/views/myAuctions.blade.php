@@ -30,7 +30,7 @@
                     <a href="#0">My Account</a>
                 </li>
                 <li>
-                    <span>My Bids</span>
+                    <span>Mes enchères</span>
                 </li>
             </ul>
         </div>
@@ -47,17 +47,10 @@
                 <div class="col-lg-8">
                     <div class="dash-bid-item dashboard-widget mb-40-60">
                         <div class="header">
-                            <h4 class="title">My Bids</h4>
-                            <span class="notify"><i class="flaticon-alarm"></i> Manage Notifications</span>
+                            <h4 class="title">Mes enchères</h4>
+                
                         </div>
-                        <ul class="button-area nav nav-tabs">
-                            <li>
-                                <a href="#upcoming" data-toggle="tab" class="custom-button active">Upcoming</a>
-                            </li>
-                            <li>
-                                <a href="#past" data-toggle="tab" class="custom-button">Past</a>
-                            </li>
-                        </ul>
+                       
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="upcoming">
@@ -70,13 +63,13 @@
                                 <div class="col-sm-10 col-md-6">
                                     <div class="auction-item-2">
                                         <div class="auction-thumb">
-                                            <a href="./product-details.html"><img  class="img-h"src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
-                                            <a href="#0" class="rating"><i class="far fa-star"></i></a>
+                                            <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}"><img  class="img-h"src="{{$product->images()->first()->path_logo ?? ""}}" alt="car"></a>
+                                            <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}" class="rating"><i class="far fa-star"></i></a>
                                             <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}" class="bid"><i class="flaticon-auction"></i></a>
                                         </div>
                                         <div class="auction-content">
                                             <h6 class="title">
-                                                <a href="#0">{{$product->titre}}</a>
+                                                <a href="{{route('showProduct',['id'=>$enchere->produit_id])}}">{{$product->titre}}</a>
                                             </h6>
                                             <div class="bid-area">
                                                 <div class="bid-amount">
@@ -84,7 +77,7 @@
                                                         <i class="flaticon-auction"></i>
                                                     </div>
                                                     <div class="amount-content">
-                                                        <div class="current">Current Bid</div>
+                                                        <div class="current">Prix Courant</div>
                                                         <div class="amount">{{$enchere->currentBid}}DH</div>
                                                     </div>
                                                 </div>
@@ -93,7 +86,7 @@
                                                         <i class="flaticon-money"></i>
                                                     </div>
                                                     <div class="amount-content">
-                                                        <div class="current">Your Bid</div>
+                                                        <div class="current">Votre enchère</div>
                                                         <div class="amount">{{$enchere->price}}DH</div>
                                                     </div>
                                                 </div>
@@ -116,14 +109,14 @@
                                                 <div class="countdown">
                                                     {{ $date_expires}}
                                                 </div>
-                                                <span class="total-bids">{{$enchere->allBidsCount}} Bids</span>
+                                                <span class="total-bids">{{$enchere->allBidsCount}} Enc.</span>
                                             </div>
                                        
                                             <div class="text-center">
                                                 @if($product->etat=="expiré")
                                                  <a href="{{route('showProduct',$product->id)}}" class="btn btn-danger">Expiré</a>
                                                  @else
-                                                <a href="{{route('showProduct',$product->id)}}" class="custom-button">Submit a bid</a>
+                                                <a href="{{route('showProduct',$product->id)}}" class="custom-button">Proposer</a>
                                                 @endif
                                             </div>
                                         </div>

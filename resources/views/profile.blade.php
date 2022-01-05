@@ -91,7 +91,7 @@
                                 <ul class="dash-pro-body">
                                     <li>
                                         <div class="info-name">Mobile</div>
-                                        <div class="info-value">0636187128</div>
+                                        <div class="info-value">{{$user->phone}}</div>
                                     </li>
                                 </ul>
                             </div>
