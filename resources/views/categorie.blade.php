@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+@include('css')
 <html lang="en">
     <style>
          .custom-button {
@@ -173,7 +174,7 @@
                 </li>
                 <li>
                     <span>
-                        {{$categorie->nom}}</span>
+                        {{$categorie->nom}} ({{$categorie->products->count()}})</span>
                 </li>
             </ul>
         </div>
@@ -186,7 +187,7 @@
     <section class="featured-auction-section padding-bottom mt--165  pos-rel">
         <div class="container">
             <div class="section-header cl-white mw-100 left-style">
-                <h3 class="title">{{$categorie->nom}}</h3>
+                <h3 class="title">{{$categorie->nom}}  ({{$categorie->products->count()}})</h3>
                 <p>Dernière Annonce</p>
             </div>
             @if($categorie->products->count()!=0)
@@ -202,33 +203,12 @@
     <div class="product-auction padding-bottom">
         <div class="container">
             <div class="product-header mb-40">
-                {{-- comment 
                 
-                <div class="product-header-item">
-                    <div class="">Trier par : </div>
-                    <select name="sort-by" class="select-bar">
-                        <option value="all">All</option>
-                        <option value="name">Nom</option>
-                        <option value="date">Date</option>
-                        <option value="type">Type</option>
-                        <option value="car">Car</option>
-                    </select>
-                </div>
-                <div class="product-header-item">
-                    <div class="">Voir : </div>
-                    <select name="sort-by" class="select-bar">
-                        <option value="09">09</option>
-                        <option value="21">21</option>
-                        <option value="30">30</option>
-                        <option value="39">39</option>
-                        <option value="60">60</option>
-                    </select>
-                </div>--}}
                 @if($brands)
                     <div class="product-header-item">
-                        <div class="">Brand : </div>
+                        <div class="">Model : </div>
                         <select name="sort-by" class="select-bar" id="filterByBrand">
-                            <option  value="0">ALL</option>
+                            <option  value="0">2021</option>
                             @foreach ($brands as $brand)
                                 <option value="{{$brand->id}}">{{$brand->name_brand}}</option>
                             @endforeach
@@ -242,7 +222,67 @@
                 </form>
             </div>
             <div class="row mb-30-none justify-content">
-                @foreach($products as $product)
+                <div class="row">
+<div class="col-2"><div >
+                          <div class="form-group">
+                            <h5>
+                              <strong>choose by brand </strong>
+                              <span class="required">*</span>
+                            </h5>
+                            <div class="controls">
+                              <input type="checkbox" name="single_switchery" class="switchery" required="" data-switchery="true" style="display: none;" aria-invalid="false"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                              <span class="ml-1">Mercedes</span>
+                            <div class="help-block"></div></div>
+                          </div>
+                          <div class="form-group">
+                            
+                            <div class="controls">
+                              <div class="pb-1">
+                                <input type="checkbox" class="switchery" name="basic_switchery" required="" id="switchery_group1" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                                <span class="ml-1">
+                                  <label for="switchery_group1">Audi</label>
+                                </span>
+                              </div>
+                              <div class="pb-1">
+                                <input type="checkbox" class="switchery" name="basic_switchery" id="switchery_group2" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                                <span class="ml-1">
+                                  <label for="switchery_group2">BMW</label>
+                                </span>
+                              </div>
+                              <div>
+                                <input type="checkbox" class="switchery" name="basic_switchery" id="switchery_group3" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                                <span class="ml-1">
+                                  <label for="switchery_group3">Ford</label>
+                                </span>
+                              </div>
+                            <div class="help-block"></div></div>
+                          </div>
+                          <div class="form-group">
+                            <h5>
+                              <strong>Etat </strong>
+                              <span class="required">*</span>
+                            </h5>
+                            <div class="controls">
+                              <div class="pb-1">
+                                <input type="checkbox" class="switchery" name="inline_switchery" required="" id="switchery_inline1" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                                <span class="ml-1">
+                                  <label for="switchery_inline1">New</label>
+                                </span>
+                              </div>
+                              <div>
+                                <input type="checkbox" class="switchery" name="inline_switchery" id="switchery_inline2" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
+                                <span class="ml-1">
+                                  <label for="switchery_inline2">Bon Etat</label>
+                                </span>
+                              </div>
+                            <div class="help-block"></div></div>
+                          </div>
+                          <div class="text-right">
+                            <button type="submit" class="btn btn-success">Check </button>
+                            <button type="reset" class="btn btn-danger">Reset <i class="ft-refresh-cw position-right"></i></button>
+                          </div>
+                        </div></div>
+<div class="col-10">  @foreach($products as $product)
                  <?php
                         $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
                         if ($dernier_enchere) {
@@ -253,13 +293,16 @@
                          $min = \App\Models\Enchere::all()->where('produit_id', $product->id)->max('price');
                         ?>
          
-                        <div class="col-sm-10 col-md-6 col-lg-4 @php if($product->brand_id) echo 'Cars brandNum'.$product->brand_id @endphp">
+                        <div class="col-sm-10 col-md-12 col-lg-12 @php if($product->brand_id) echo 'Cars brandNum'.$product->brand_id @endphp">
                             <div class="auction-item-2">
-                                <div class="auction-thumb">
+                                <div class="row">
+
+                                    <div class="col-4"> <div class="auction-thumb">
                                     <a href="./product-details.html"><img src="{{asset($product->images[0]->path_logo ?? "")}}" alt="product"></a>
                                     <a href="#0" class="rating"><i class="far fa-star"></i></a>
                                     <a href="#0" class="bid"><i class="flaticon-auction"></i></a>
-                                </div>
+                                </div></div>
+                                    <div class="col-8">
                                 <div class="auction-content">
                                     <h6 class="title">
                                         
@@ -288,20 +331,26 @@
                                     <div class="countdown-area">
                                         <div class="countdown">
                                             {{$date_expires}}
-                                        </div>
-                                    
-                                    </div>
-                                    <div class="text-center">
+                                        </div><div class="text-center">
                                         @if($product->etat=="expiré")
                                         <a href="{{route('showProduct',['id'=>$product->id])}}" class="btn btn-danger">Expiré</a>
                                         @else 
-                                        <a href="{{route('showProduct',['id'=>$product->id])}}" class="custom-button btn-success">Proposer</a>
+                                        <a href="{{route('showProduct',['id'=>$product->id])}}" class="btn btn-success">Proposer</a>
                                         @endif
                                     </div>
+                                    
+                                    </div>
+                                    
+                                </div></div>
                                 </div>
+                               
+                               
                             </div>
                         </div>
-                @endforeach
+                @endforeach</div>
+
+                </div>
+              
             
  
             </div>
