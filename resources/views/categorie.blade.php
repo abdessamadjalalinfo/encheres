@@ -231,9 +231,9 @@
                 
                 
             </div>
-            <div class="row ">
+            <div class=" ">
                 <div class="row">
-           <div class="col-xs-12 col-sm-2">
+           <div class="col-xs-12 col-sm-3">
               <h6>Filtre:</h6> 
              
 <form action="{{route('showProductCategoriesfiltre',$categorie->id)}}" method="post">
@@ -255,7 +255,7 @@
  
 
             </div>
-<div class="col-xs-12 col-sm-10 justify-content"> 
+<div class="col-xs-12 col-sm-9 justify-content"> 
      @foreach($products as $product)
                  <?php
                         $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
