@@ -187,21 +187,25 @@
 
     <!--============= Product Auction Section Starts Here =============-->
 
-       @if($categorie->products->count()!=0)
+   
     <div class="product-auction padding-bottom" style="
     margin-top: 61px;
 ">
-                <div class="container">
+<div class="container">
                     <div class="browse-slider owl-theme owl-carousel">
-                        @foreach(App\Models\Categorie::all() as $categorie)
-                        <a href="{{route('showProductCategories',['id'=>$categorie->id])}}" class="browse-item">
-                            <img src="{{asset($categorie->path_logo)}}" alt="auction">
-                            <span class="info"> <b> {{ $categorie->nom}}</b> </span>
+                        @foreach(App\Models\Categorie::all() as $x)
+                        <a href="{{route('showProductCategories',['id'=>$x->id])}}" class="browse-item">
+                            <img src="{{asset($x->path_logo)}}" alt="auction">
+                            <span class="info"> <b> {{ $x->nom}}</b> </span>
                         </a>
                         @endforeach
+                       
                         
                     </div>
                 </div>
+                 @if($categorie->products->count()==0) <h2 class="container">{{$categorie->nom}}({{$categorie->products->count()}})</h2>@endif
+                    @if($categorie->products->count()!=0)
+                
 
         <div class="container">
             <h2>{{$categorie->nom}}({{$categorie->products->count()}})</h2>
