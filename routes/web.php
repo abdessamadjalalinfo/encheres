@@ -21,11 +21,14 @@ Route::get('/', [App\Http\Controllers\acceuilController::class, 'index'])->name(
 
 Route::get('/categories/{id}', [App\Http\Controllers\acceuilController::class, 'showProductCategories'])->name('showProductCategories');
 
+Route::Post('/categories/{id}', [App\Http\Controllers\acceuilController::class, 'showProductCategoriesfiltre'])->name('showProductCategoriesfiltre');
+
 Route::get('/product/{id}', [App\Http\Controllers\ProductController::class, 'index'])->name('showProduct');
 
 Route::get('/add_to_favoris/{id}', [App\Http\Controllers\ProductController::class, 'add_to_favoris'])->name('add_to_favoris')->middleware('auth');
 
 Route::get('/proposer/{id}', [App\Http\Controllers\ProductController::class, 'proposer'])->name('proposer')->middleware('auth');
+Route::get('/proposer1/{id}', [App\Http\Controllers\ProductController::class, 'proposer1'])->name('proposer1')->middleware('auth');
 
 Route::get('addProduct', [App\Http\Controllers\ProductController::class, 'addProduct'])->name('addProduct')->middleware('auth');
 Route::post('ajouterannonce', [App\Http\Controllers\ProductController::class, 'ajouterannonce'])->name('ajouterannonce')->middleware('auth');

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-@include('css')
+
 <html lang="en">
+
     <style>
          .custom-button {
     color: #ffffff;
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-bottom">
+        <div class="header-bottom" style="background:#9b9b9b;">
             <div class="container">
                 <div class="header-wrapper">
                     <div class="logo">
@@ -163,29 +164,16 @@
 
 
     <!--============= Hero Section Starts Here =============-->
-    <div class="hero-section style-2">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li>
-                    <a href="{{route('index')}}">Accueil</a>
-                </li>
-                <li>
-                    <a href="#0">Catégorie</a>
-                </li>
-                <li>
-                    <span>
-                        {{$categorie->nom}} ({{$categorie->products->count()}})</span>
-                </li>
-            </ul>
-        </div>
-        <div class="bg_img hero-bg bottom_center" data-background="{{asset('/assets/images/banner/hero-bg.png')}}"></div>
-    </div>
+   
     <!--============= Hero Section Ends Here =============-->
 
 
     <!--============= Featured Auction Section Starts Here =============-->
     <section class="featured-auction-section padding-bottom mt--165  pos-rel">
         <div class="container">
+            
+            
+       
             <div class="section-header cl-white mw-100 left-style">
                 <h3 class="title">{{$categorie->nom}}  ({{$categorie->products->count()}})</h3>
                 <p>Dernière Annonce</p>
@@ -200,89 +188,60 @@
     <!--============= Product Auction Section Starts Here =============-->
 
        @if($categorie->products->count()!=0)
-    <div class="product-auction padding-bottom">
+    <div class="product-auction padding-bottom" style="
+    margin-top: 61px;
+">
+
         <div class="container">
+            <h2>{{$categorie->nom}}({{$categorie->products->count()}})</h2>
+            <br>
             <div class="product-header mb-40">
                 
                 @if($brands)
-                    <div class="product-header-item">
-                        <div class="">Model : </div>
-                        <select name="sort-by" class="select-bar" id="filterByBrand">
-                            <option  value="0">2021</option>
-                            @foreach ($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->name_brand}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                    <div class="input-group">
+
+  <input type="number" placeholder="price min" name="pricemin" aria-label="First name" class="form-control">
+  <input type="number"placeholder="price max"  name="pricemax" aria-label="Last name" class="form-control control-sm"><br>
+  <div class="col-2 btn-group"  >
+    <button onclick="filtreByPrice()" type="submit"><i class="fas fa-search"></i></button> 
+    <button type="button"  onclick="reset()"  class="btn btn-primary">Reset</button>
+ 
+  
+   </div>
+
+</div>
+                   
+                    
                 @endif
                 
-                <form class="product-search ml-auto">
-                    <input type="text" placeholder="Nom ">
-                    <button type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                
             </div>
-            <div class="row mb-30-none justify-content">
+            <div class="row ">
                 <div class="row">
-<div class="col-2"><div >
-                          <div class="form-group">
-                            <h5>
-                              <strong>choose by brand </strong>
-                              <span class="required">*</span>
-                            </h5>
-                            <div class="controls">
-                              <input type="checkbox" name="single_switchery" class="switchery" required="" data-switchery="true" style="display: none;" aria-invalid="false"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                              <span class="ml-1">Mercedes</span>
-                            <div class="help-block"></div></div>
-                          </div>
-                          <div class="form-group">
-                            
-                            <div class="controls">
-                              <div class="pb-1">
-                                <input type="checkbox" class="switchery" name="basic_switchery" required="" id="switchery_group1" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                <span class="ml-1">
-                                  <label for="switchery_group1">Audi</label>
-                                </span>
-                              </div>
-                              <div class="pb-1">
-                                <input type="checkbox" class="switchery" name="basic_switchery" id="switchery_group2" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                <span class="ml-1">
-                                  <label for="switchery_group2">BMW</label>
-                                </span>
-                              </div>
-                              <div>
-                                <input type="checkbox" class="switchery" name="basic_switchery" id="switchery_group3" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                <span class="ml-1">
-                                  <label for="switchery_group3">Ford</label>
-                                </span>
-                              </div>
-                            <div class="help-block"></div></div>
-                          </div>
-                          <div class="form-group">
-                            <h5>
-                              <strong>Etat </strong>
-                              <span class="required">*</span>
-                            </h5>
-                            <div class="controls">
-                              <div class="pb-1">
-                                <input type="checkbox" class="switchery" name="inline_switchery" required="" id="switchery_inline1" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                <span class="ml-1">
-                                  <label for="switchery_inline1">New</label>
-                                </span>
-                              </div>
-                              <div>
-                                <input type="checkbox" class="switchery" name="inline_switchery" id="switchery_inline2" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); background-color: rgb(255, 255, 255); transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s;"><small style="left: 0px; transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                <span class="ml-1">
-                                  <label for="switchery_inline2">Bon Etat</label>
-                                </span>
-                              </div>
-                            <div class="help-block"></div></div>
-                          </div>
-                          <div class="text-right">
-                            <button type="submit" class="btn btn-success">Check </button>
-                            <button type="reset" class="btn btn-danger">Reset <i class="ft-refresh-cw position-right"></i></button>
-                          </div>
-                        </div></div>
-<div class="col-10">  @foreach($products as $product)
+           <div class="col-xs-12 col-sm-2">
+              <h6>Filtre:</h6> 
+             
+<form action="{{route('showProductCategoriesfiltre',$categorie->id)}}" method="post">
+    @csrf
+     @foreach ($brands as $brand)
+           <div class="form-check">
+  <input style="height:20px;left: 120px;" class="form-check-input"@if($requests) @if(in_array($brand->id,$requests)) checked @endif @endif name="brand[]" type="checkbox" value="{{$brand->id}}" id="flexCheckIndeterminate"> 
+  <label class="form-check-label" for="flexCheckIndeterminate">
+   {{$brand->name_brand}}
+  </label>
+</div>
+@endforeach
+
+
+<br>
+<button  style="height:40px;text-align:center" type="submit" class="btn btn-success btn-sm">check</button>
+</form>
+
+ 
+
+            </div>
+<div class="col-xs-12 col-sm-10 justify-content"> 
+     @foreach($products as $product)
                  <?php
                         $dernier_enchere = App\Models\Enchere::all()->where('produit_id',  $product->id)->SortBy('price')->last();
                         if ($dernier_enchere) {
@@ -315,7 +274,7 @@
                                             </div>
                                             <div class="amount-content">
                                                 <div class="current">prix courant</div>
-                                                <div class="amount">$876.00</div>
+                                                <div><div class="amount jalal">{{\App\Models\Enchere::all()->where('produit_id', $product->id)->max('price') ?? $product->premier_prix}}</div>Mad</div>
                                             </div>
                                         </div>
                                         <div class="bid-amount">
@@ -355,23 +314,7 @@
  
             </div>
           
-            <ul class="pagination">
-                @if($products->links()->paginator->currentPage()!=1)
-                <li>
-                    <a href="/categories/1?page={{$products->links()->paginator->currentPage()-1}}"><i class="flaticon-left-arrow"></i></a>
-                </li>
-                @endif
-                @foreach ($products->links()->elements[0] as $index=>$element)
-                <li>
-                    <a href="{{$element}}" class="@php if($products->links()->paginator->currentPage()==$index) echo 'active' @endphp">{{$index}}</a>
-                </li>
-                @endforeach
-                @if($products->links()->paginator->lastPage()!=$products->links()->paginator->currentPage())
-                <li>
-                    <a href="/categories/1?page={{$products->links()->paginator->currentPage()+1}}"><i class="flaticon-right-arrow"></i></a>
-                </li>
-                @endif
-            </ul>
+          
         </div>
     </div>
 
@@ -550,18 +493,49 @@
     <script src="{{asset('assets/js/yscountdown.min.js')}}"></script>
     <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('/assets/js/main.js')}}"></script>
-    <script>
-            $("#filterByBrand").change(function(){
-                brand=$( this ).val();
-                if(brand==0) $(".Cars").show()
-                else{
-                    $(".Cars").hide()
-                    $(".brandNum"+brand).show()
-                }
-                
+    
 
-            })
+    <script>
+        
+       function filtreByPrice()
+       {
+           var list=$(".amount.jalal");
+        var min=$("input[name=pricemin]").val();
+        var max =$("input[name=pricemax]").val();
+        for (let i = 0; i < list.length; i++) {
+           
+                list[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'block';
+
+        }
+          for (let i = 0; i < list.length; i++) {     
+            if((parseInt(list[i].textContent) < parseInt(min) )||(parseInt(list[i].textContent) > parseInt(max)))
+            {
+                list[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'none';
+            }  
+        }
+       }
+       function reset()
+       {
+            var list=$(".amount.jalal"); 
+            for (let i = 0; i < list.length; i++) {
+           
+                list[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = 'block';
+
+        }
+       }
+        
+        
+
+
+
     </script>
+    
+    
+
+
+  <!-- BEGIN VENDOR JS-->
+
+  <!-- END PAGE LEVEL JS-->
 </body>
 
 </html>

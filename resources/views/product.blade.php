@@ -111,7 +111,7 @@
                     </div>
                     <ul class="menu ml-auto">
                         <li>
-                            <a href="https://dashboard.heroku.com/apps/enchere-moha/deploy/github?web-console=enchere-moha"><i class="fas fa-home"></i>Home</a>
+                            <a href="{{route('index')}}"><i class="fas fa-home"></i>Home</a>
                             
                         </li>
                         <li>
@@ -185,7 +185,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li>
-                    <a href="./index.html">Home</a>
+                    <a href="{{route('index')}}">Home</a>
                 </li>
                 <li>
                     <a href="#0">Pages</a>
@@ -275,7 +275,7 @@
                             @if($product->etat=="expiré")
                             <button type="button" class="btn btn-danger" >Expiré</button>
                             @else 
-                            <form action="{{route('proposer',$product->id)}}" class="product-bid-form">
+                            <form action="{{route('proposer1',$product->id)}}" class="product-bid-form">
                                 <div class="search-icon">
                                     <img src="{{asset("/assets/images/product/search-icon.png")}}" alt="product">
                                 </div>

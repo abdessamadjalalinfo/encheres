@@ -21,12 +21,27 @@ class acceuilController extends Controller
     {
         $categorie = Categorie::find($id);
         $products = $categorie->products()->paginate(6);
-        //dd($products->links()->paginator	);
-        $brands = null;
-        if ($id == 1) {
-            $brands = Brand::all();
-        }
+        $brands = Brand::all()->where('categorie_id', $id);
+        $request = null;
+
+
         // dd($products[0]->brand()->get()[0]);
-        return view('categorie', ['products' => $products, 'categorie' => $categorie, 'brands' => $brands]);
+        return view('categorie', ['products' => $products, 'categorie' => $categorie, 'brands' => $brands, 'requests' => $request]);
+    }
+    public function showProductCategoriesfiltre($id, Request $request)
+    {
+        $categorie = Categorie::find($id);
+        if ($request->brand) {
+            $products = Product::all()->whereIn('brand_id', $request->brand)->where('categorie_id', $id);
+        } else {
+            $products = Product::all()->where('categorie_id', $id);
+        }
+
+
+
+        //$products = $categorie->products()->where('brand_id', $request->brand)->paginate(6);
+
+        $brands = Brand::all()->where('categorie_id', $id);
+        return view('categorie', ['products' => $products, 'categorie' => $categorie, 'brands' => $brands, 'requests' => $request->brand]);
     }
 }

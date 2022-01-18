@@ -102,6 +102,37 @@ class ProductController extends Controller
         $favoris->save();
         return redirect()->route('auctions');
     }
+    public function proposer1($id, Request $request)
+    {
+        $userId = Auth::user()->id;
+
+        //dd($request->proposition);
+        $product = Product::find($id);
+
+        $min = \App\Models\Enchere::all()->where('produit_id', $id)->max('price');
+
+        $min = $min ?? $product->premier_prix;
+
+
+        if ($request->proposition > $min) {
+            $enchere = new Enchere();
+            $enchere->produit_id = $id;
+            $enchere->user_id = $userId;
+            $enchere->price = $request->proposition;
+            $enchere->etat = 'normale';
+            $enchere->save();
+            return redirect()->back();
+        }
+
+
+
+        $favoris = new Favorit();
+        $favoris->produit_id = $id;
+        $favoris->user_id = $userId;
+        $favoris->save();
+        return redirect()->route('auctions');
+    }
+
     public function check()
     {
         $encheres_products = DB::table('encheres')->distinct()->get('produit_id');
@@ -129,7 +160,7 @@ class ProductController extends Controller
         $user = Auth::user();
         $categories = Categorie::all();
         $brands = Brand::all();
-        return view('addproduct', ['user' => $user, 'categories' => $categories,'brands'=>$brands]);
+        return view('addproduct', ['user' => $user, 'categories' => $categories, 'brands' => $brands]);
     }
     public function ajouterannonce(Request $request)
     {
@@ -137,14 +168,16 @@ class ProductController extends Controller
         $product = new Product();
         $product->titre = $request->titre;
         $product->categorie_id = $request->categorie_id;
-        if(in_array($request->categorie_id,[1]))
-            $product->brand_id=$request->brand_id;
-        
+        if (in_array($request->categorie_id, [1]))
+            $product->brand_id = $request->brand_id;
+
         $product->description = $request->description;
         $product->premier_prix = $request->premier_prix;
         $product->owner_id = Auth::user()->id;
         $product->duree = $request->duree;
-       
+        $product->etat = "normal";
+        $product->nb_vue = 0;
+
         $product->save();
 
         $this->validate($request, [
